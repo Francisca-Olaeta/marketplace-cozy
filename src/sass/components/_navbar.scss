@@ -1,0 +1,29 @@
+.search-bar{
+    border-radius: 25px;
+    text-align: center;
+}
+
+.active {
+    font-weight: 700;
+    color: $primary;
+    text-decoration: none;
+}
+.active:visited {
+    font-weight: 700;
+    color: $primary;
+    text-decoration: none;
+}
+
+.inactive {
+    color: $secondary;
+    text-decoration: none;
+}
+.inactive:visited {
+    color: $secondary;
+    text-decoration: none;
+}
+
+.navbar-toggler{
+    border-color: transparent !important;
+
+}

@@ -1,0 +1,33 @@
+.cstm_carrusel{
+    
+    &__item{
+
+        height: 43.75rem;
+        background-size: cover;
+        background-position: center;
+        background-color: $secondary;
+        overflow: hidden;
+       // position: relative;
+     
+        &__img {
+        opacity: 70%;
+       // background-size: cover;
+      
+        // background-position: bottom;
+        // position: relative;
+        // bottom: 0;
+        // top: 0;
+        // left: 0;
+        // right: 0;
+        }
+    }
+
+}
+
+// .overlay{
+//     position: absolute;
+//     top: 0;
+//     width: 100%;
+//     text-align: center;
+//     vertical-align: middle;
+// }

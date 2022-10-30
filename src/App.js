@@ -1,23 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ContextProvider } from './Context';
+
+import MyNavbar from "./components/PrivateNavbar";
+
+import PublicNavbar from "./components/PublicNavbar";
+import Footer from "./components/Footer";
+
+/*Import views */
+import Home from "./views/Home";
+import Login from "./views/Login";
+import Register from "./views/Register";
+import Categories from "./views/Categories";
+import Living from "./views/Living";
+import Dormitorio from "./views/Dormitorio";
+import Entrada from "./views/Entrada";
+import Favourites from "./views/Favourites";
+import MyProfile from "./views/MyProfile";
+import Details from "./views/Details";
+import Publication from "./views/Publication";
+import Cart from "./views/Cart";
+import NotFound from "./views/NotFound";
+
+
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ContextProvider>
+        <BrowserRouter>
+        {/* <PublicNavbar /> */}
+            <MyNavbar />
+           
+            
+          <Routes>
+        
+            <Route path="/" element={<Home />}/>
+            <Route path="/login" element={<Login />}/>
+            <Route path="/registro" element={<Register />}/>
+            <Route path="/categorias" element={<Categories />}/>
+            <Route path="/categorias/living" element={<Living />}/>
+            <Route path="/categorias/living/detalle" element={<Details />}/>
+            <Route path="/categorias/dormitorio" element={<Dormitorio />}/>
+            <Route path="/categorias/dormitorio/detalle" element={<Details />}/>
+            <Route path="/categorias/entrada" element={<Entrada />}/>
+            <Route path="/categorias/entrada/detalle" element={<Details />}/>
+            <Route path="/miperfil" element={<MyProfile />}/>
+            <Route path="/miperfil/publicacion" element={<Publication />}/>
+            <Route path="/miperfil/favoritos" element={<Favourites />}/>
+            <Route path="/carrito" element={<Cart />}/>
+            <Route path="*" element={<NotFound />}/>
+
+          </Routes>
+
+          <Footer className=""/>
+        </BrowserRouter>
+      </ContextProvider>
+      
     </div>
   );
 }

@@ -1,0 +1,38 @@
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ 
+}
+
+.userinfo{
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.userinfo-tag{
+    font-size: 1rem;
+}
+
+.publications-container {
+    display: flex;
+    justify-content: start; 
+    align-items: center;
+    flex-wrap: wrap;
+    &__img{
+        width: 5rem;
+        height: 5rem;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0rem;
+        padding: 0rem;
+    }
+    &__name{
+        font-weight: 700;
+    }
+    &__price{
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+}
+

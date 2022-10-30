@@ -1,0 +1,51 @@
+[
+ {
+        "name": "living-1",
+        "desc": "Living estilo nórdico.",
+        "id": "G01",
+        "img": "https://redigital.cl/wp-content/uploads/2022/10/carrusel-1.jpg",
+        "category": "living"
+    },
+      {
+        "name": "dormitorio-1",
+        "desc": "Dormitorio estilo nórdico.",
+        "id": "G02",
+        "img": "https://redigital.cl/wp-content/uploads/2022/10/carrusel-2.jpg",
+        "category": "dormitorio"
+      },
+      {
+        "name": "entrada-1",
+        "desc": "Entrada estilo farm house.",
+        "id": "G03",
+        "img": "https://redigital.cl/wp-content/uploads/2022/10/carrusel-3.jpg",
+        "category": "entrada"
+      },
+      {
+        "name": "dormitorio-2",
+        "desc": "Dormitorio estilo boho.",
+        "id": "G04",
+        "img": "https://redigital.cl/wp-content/uploads/2022/10/carrusel-4.jpg",
+        "category": "dormitorio"
+      },
+      {
+        "name": "living-2",
+        "desc": "Living estilo boho.",
+        "id": "G05",
+        "img": "https://redigital.cl/wp-content/uploads/2022/10/carrusel-5.jpg",
+        "category": "living"
+      },
+      {
+        "name": "dormitorio-3",
+        "desc": "Dormitorio calm.",
+        "id": "G06",
+        "img": "https://redigital.cl/wp-content/uploads/2022/10/carrusel-6.jpg",
+        "category": "dormitorio"
+      },
+      {
+        "name": "entrada-2",
+        "desc": "Entrada boho.",
+        "id": "G07",
+        "img": "https://redigital.cl/wp-content/uploads/2022/10/carrusel-7.jpg",
+        "category": "entrada"
+      }
+]
