@@ -1,33 +1,28 @@
-.cstm_carrusel{
-    
-    &__item{
+.carrusel_bg{
+    display: flex;
+    height: 43.75rem;
+    width: 100%;
+    overflow: hidden;
+    background-color: $secondary;
+    position: relative;
+    text-align: center;
+    color: $light;
 
+    &__img{
+        display: flex;
         height: 43.75rem;
-        background-size: cover;
-        background-position: center;
-        background-color: $secondary;
+        width: 100%;
         overflow: hidden;
-       // position: relative;
-     
-        &__img {
-        opacity: 70%;
-       // background-size: cover;
-      
-        // background-position: bottom;
-        // position: relative;
-        // bottom: 0;
-        // top: 0;
-        // left: 0;
-        // right: 0;
-        }
+        object-fit: cover;
+        opacity: 45%;
     }
-
 }
 
-// .overlay{
-//     position: absolute;
-//     top: 0;
-//     width: 100%;
-//     text-align: center;
-//     vertical-align: middle;
-// }
+.caption{
+    color: $light;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}

@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser, faShoppingCart, faList} from '@fortawesome/free-solid-svg-icons';
+import cozy from '../assets/img/cozy.png';
 import Context from '../Context';
 
 function MyNavbar() {
@@ -18,68 +19,91 @@ function MyNavbar() {
   const setActiveClass = ({isActive}) => (isActive ? "active" : "inactive");
 
   return (
-    <Navbar bg="light" expand="lg" className='justify-content-between'>
-      <Container>
+    <div>
+
+   {/* /*----------------------Contenedor que contiene a ambas navbars----------------------------------- */  }
+<Container fluid className='navbar-main-container'>
+
+  {/* --------------------------------Navbar principal------------------------------------------------ */}
+          <Navbar bg="light" expand="lg" className='justify-content-between align-items-center no-shadow'>
+            
+            <Container fluid>
+              <Navbar.Brand>
+              <NavLink end className={setActiveClass} to="/">
+                <img 
+                height="60" 
+                src={cozy}
+                className="d-flex align-top" 
+                />
+              </NavLink>
+              </Navbar.Brand>
         
-        <NavLink end className={setActiveClass} to="/">COZY</NavLink>
-     
+                <div className='toggle-cstm-container'>
+                    <Navbar.Toggle className="toggle-cstm" aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse className="toggle-cstm__collapse" id="basic-navbar-nav">
+                      
+                      <Nav className="toggle-cstm__collapse__nav me-auto">
+                        <NavLink className={`cstm-navlink toggle-cstm__collapse__nav__navlink mx-3 ${setActiveClass}`} to="/categorias">
+                        <FontAwesomeIcon icon={faList} className="me-1"/>
+                          Categorías
+                        </NavLink>
+                        <div className='d-flex justify-content-center align-items-center'>
+                        <FontAwesomeIcon icon={faUser} className={`nav-item ms-3 p-0 ${setActiveClass}`}/>
+                        <NavDropdown className={`cstm-navlink ${setActiveClass}`} to="/miperfil" title="Mi Perfil" id="collasible-nav-dropdown">
+                        
+                            <NavDropdown.Item>
+                              <Link className="cstm-navlink mx-3" to="/miperfil">Datos personales</Link>
+                            </NavDropdown.Item>
 
-        
-        <Form>
-            <Form.Control
-              type="search"
-              placeholder="¿Qué estás buscando?"
-              className="me-2 search-bar"
-              aria-label="Search"
-            />
-          </Form>
-     
+                            <NavDropdown.Item>
+                              <Link className="cstm-navlink mx-3" to="/miperfil/favoritos">Mis favoritos</Link>
+                            </NavDropdown.Item>
 
-          <div>
-              <Navbar.Toggle className="align-items-center" aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse className="align-items-center" id="basic-navbar-nav">
-                <Nav className="me-auto align-items-center">
+                            <NavDropdown.Item>
+                              <Link className="cstm-navlink mx-3" to="/miperfil/publicacion">Hacer una publicación</Link>
+                            </NavDropdown.Item>
 
-                  <NavLink className={`mx-3 ${setActiveClass}`} to="/categorias">
-                  <FontAwesomeIcon icon={faList} className="me-1"/>
-                    Categorías
-                  </NavLink>
+                            <NavDropdown.Item>
+                              <Link className="cstm-navlink mx-3" to="/miperfil">Mis publicaciones</Link>
+                            </NavDropdown.Item>
 
-                  <FontAwesomeIcon icon={faUser} className={`ms-3 p-0 ${setActiveClass}`}/>
-                  <NavDropdown className={`me-3 ${setActiveClass}`} to="/miperfil" title="Mi Perfil" id="collasible-nav-dropdown">
-                  
-                      <NavDropdown.Item>
-                        <Link className="mx-3" to="/miperfil">Datos personales</Link>
-                      </NavDropdown.Item>
+                        </NavDropdown>
 
-                      <NavDropdown.Item>
-                        <Link className="mx-3" to="/miperfil/favoritos">Mis favoritos</Link>
-                      </NavDropdown.Item>
-
-                      <NavDropdown.Item>
-                        <Link className="mx-3" to="/miperfil/publicacion">Hacer una publicación</Link>
-                      </NavDropdown.Item>
-
-                      <NavDropdown.Item>
-                        <Link className="mx-3" to="/miperfil">Mis publicaciones</Link>
-                      </NavDropdown.Item>
-
-                </NavDropdown>
+</div>
 
 
-                  <NavLink className={`mx-3 ${setActiveClass}`} to="/carrito">
-                  <FontAwesomeIcon icon={faShoppingCart} className="me-1"/>
-                    Carrito de compras
-                  </NavLink>
+                        <NavLink className={`cstm-navlink mx-3 ${setActiveClass}`} to="/carrito">
+                        <FontAwesomeIcon icon={faShoppingCart} className="me-1"/>
+                          Carrito de compras
+                        </NavLink>
 
-                </Nav>
-              </Navbar.Collapse>
+                      </Nav>
+                    </Navbar.Collapse>
+                </div>
+          
+            </Container>
+          </Navbar>
 
-          </div>
-     
-     
-      </Container>
-    </Navbar>
+          <hr />
+
+    {/* /*------------------------------------Barra de búsqueda--------------------------------------------------- */ }
+    <Container className='search-nav-main'>
+          <Navbar expand="lg" className="no-shadow search-nav" bg="light">
+            <Container fluid className='search-nav__container'>
+                    <Form className="search-nav__container__form">
+                      <Form.Control
+                        type="search"
+                        placeholder="¿Qué estás buscando?"
+                        className=" search-nav__container__form__control"
+                        aria-label="Search"
+                      />
+                    </Form>
+            </Container>
+          </Navbar>
+    </Container>
+
+</Container>
+    </div>
   );
 }
 

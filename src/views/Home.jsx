@@ -2,9 +2,8 @@ import { React, useContext } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-import Carrusel from '../components/Carrusel';
 import Context from '../Context';
-import CarruselSlick from '../components/CarruselSlick';
+import CarruselHome from '../components/CarruselHome';
 
 
 
@@ -17,7 +16,8 @@ const Home = () => {
     <div>
      <Container className="py-5">
       <h1>Te damos la bienvenida a Cozy</h1>
-      <Carrusel />
+      <p className='logline'>Encontrarás muebles y artículos de decoración para crear esos espacios de tranquilidad y comodidad en tu hogar.</p>
+      <CarruselHome />
       
 
       {/* /*Sección login */}

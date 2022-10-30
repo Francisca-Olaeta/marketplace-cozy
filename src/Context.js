@@ -11,19 +11,19 @@ const ContextProvider = ({ children }) => {
 
 
     /*Función para acceder a la información de productos desde el archivo json */
-    const getInfoProducts = async() => {
-        try{
-            const res = await fetch('./cozy.json');
-            const data = await res.json();
-            console.log(data);
-            setProductList(data);
-        } catch (e) {
-            alert("error")
-        }
-}
-    useEffect(()=>{
-        getInfoProducts();
-    }, []);
+//     const getInfoProducts = async() => {
+//         try{
+//             const res = await fetch('./cozy.json');
+//             const data = await res.json();
+//             console.log(data);
+//             setProductList(data);
+//         } catch (e) {
+//             alert("error")
+//         }
+// }
+//     useEffect(()=>{
+//         getInfoProducts();
+//     }, []);
 
 
     /*Función para acceder al listado de las categorías de productos */

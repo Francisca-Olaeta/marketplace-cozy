@@ -1,6 +1,13 @@
 .socialmedia-icon{
     font-size: 1.5rem;
     color: $dark;
+    &--dark{
+        color: $light;
+        &:hover{
+        color: $primary;
+        transition: .5s ease;
+        }
+    }
     &:hover{
         color: $primary;
         transition: .5s ease;

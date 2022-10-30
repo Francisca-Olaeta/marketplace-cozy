@@ -1,6 +1,20 @@
 .sliderslick{
+    display: flex;
     height: 400px;
-    background-size: cover;
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    //background-size: cover;
+    background-color: $primary;
+    opacity: 20%;
+   
+}
+
+.sliderslick-bg{
+    display: flex;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
     background-color: $primary;
    
 }
