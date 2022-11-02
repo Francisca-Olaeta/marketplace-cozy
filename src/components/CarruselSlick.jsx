@@ -22,16 +22,19 @@ export default class SimpleSlider extends Component {
       <div >
         <Slider {...settings} >
           <div className="sliderslick-bg">
-            <img className="sliderslick" src="https://redigital.cl/wp-content/uploads/2022/10/manta-5.jpg" />
-            
+            <img className="sliderslick" src="https://redigital.cl/wp-content/uploads/2022/11/header-13.jpg" />
           </div>
+
           <div className="sliderslick-bg">
-          <img className="sliderslick" src="https://redigital.cl/wp-content/uploads/2022/10/deco-7.jpg"/>
-            
+          <img className="sliderslick" src="https://redigital.cl/wp-content/uploads/2022/10/header-6-scaled.jpg"/>
           </div>
+
           <div className="sliderslick-bg">
           <img className="sliderslick" src="https://redigital.cl/wp-content/uploads/2022/10/manta-2.jpg"/>
-            
+          </div>
+
+          <div className="sliderslick-bg">
+          <img className="sliderslick" src="https://redigital.cl/wp-content/uploads/2022/11/header-14-scaled.jpg"/>
           </div>
           
         </Slider>

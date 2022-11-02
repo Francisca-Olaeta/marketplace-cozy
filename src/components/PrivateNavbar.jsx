@@ -25,7 +25,7 @@ function MyNavbar() {
 <Container fluid className='navbar-main-container'>
 
   {/* --------------------------------Navbar principal------------------------------------------------ */}
-          <Navbar bg="light" expand="lg" className='justify-content-between align-items-center no-shadow'>
+          <Navbar variant="primary" bg="light" expand="lg" className='justify-content-between align-items-center no-shadow'>
             
             <Container fluid>
               <Navbar.Brand>
@@ -38,18 +38,18 @@ function MyNavbar() {
               </NavLink>
               </Navbar.Brand>
         
-                <div className='toggle-cstm-container'>
-                    <Navbar.Toggle className="toggle-cstm" aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse className="toggle-cstm__collapse" id="basic-navbar-nav">
+                <div className={`toggle-cstm-container ${setActiveClass}`}>
+                    <Navbar.Toggle className={`toggle-cstm ${setActiveClass}`} aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse className={`toggle-cstm__collapse ${setActiveClass}`} id="basic-navbar-nav">
                       
-                      <Nav className="toggle-cstm__collapse__nav me-auto">
+                      <Nav className={`${setActiveClass} toggle-cstm__collapse__nav me-auto`}>
                         <NavLink className={`cstm-navlink toggle-cstm__collapse__nav__navlink mx-3 ${setActiveClass}`} to="/categorias">
-                        <FontAwesomeIcon icon={faList} className="me-1"/>
+                        <FontAwesomeIcon icon={faList} className={`{${setActiveClass} me-1`}/>
                           Categorías
                         </NavLink>
-                        <div className='d-flex justify-content-center align-items-center'>
+                        <div className={`${setActiveClass} d-flex justify-content-center align-items-center`}>
                         <FontAwesomeIcon icon={faUser} className={`nav-item ms-3 p-0 ${setActiveClass}`}/>
-                        <NavDropdown className={`cstm-navlink ${setActiveClass}`} to="/miperfil" title="Mi Perfil" id="collasible-nav-dropdown">
+                        <NavDropdown className={`${setActiveClass}`} to="/miperfil" title="Mi Perfil" id="collasible-nav-dropdown">
                         
                             <NavDropdown.Item>
                               <Link className="cstm-navlink mx-3" to="/miperfil">Datos personales</Link>
@@ -69,7 +69,7 @@ function MyNavbar() {
 
                         </NavDropdown>
 
-</div>
+                </div>
 
 
                         <NavLink className={`cstm-navlink mx-3 ${setActiveClass}`} to="/carrito">

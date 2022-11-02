@@ -5,6 +5,8 @@
     align-items: stretch;
     box-shadow: none;
     padding-top: 2rem;
+    font-weight: 500;
+    color: $secondary;
 
 
     @media(min-width: 992px){
@@ -57,26 +59,23 @@
 }
 
 .active {
-    font-weight: 700;
     color: $dark;
     text-decoration: none;
+    font-weight: 700;
 }
+
 .active:visited {
     color: $dark;
     text-decoration: none;
 }
 
-.inactive {
-    color: $secondary;
-    text-decoration: none;
-}
-.inactive:visited {
-    color: $secondary;
+.inactive, .inactive:visited {
+    color: $dark;
     text-decoration: none;
 }
 
-.cstm-navlink, .cstm-navlink:visited  {
-    color: $secondary;
+.cstm-navlink  {
+    // color: $dark;
     text-decoration: none !important;   
 }
 
@@ -85,15 +84,23 @@
     text-decoration: none !important;  
 }
 
-.navbar-light:visited, .navbar-light, .navbar-dark:visited, .navbar-dark, .navbar-nav:visited, .navbar-nav, .nav-link:visited, .nav-link, .dropdown-menu, .dropdown-item, .navbar-expand-lg{
-    color: $secondary;
-    text-decoration: none !important;
 
+.dropdown-toggle, .toggle-cstm-container a {
+color: $secondary;
 }
-// .cstm-navlink:visited{
-//     color: red;
-//     text-decoration: none;
-// }
+
+.toggle-cstm-container a:hover {
+    color: $dark;
+}
+
+
+.cstm-navlink:visited{
+    text-decoration: none;
+}
+
+.navbar-nav{
+    font-weight: 700;
+}
 
 .toggle-cstm-container {
     display: flex;
@@ -103,7 +110,6 @@
 }
 
 .toggle-cstm{
-    color: red !important;
     display: flex;
     justify-content: center;
     align-items: start;
@@ -128,11 +134,7 @@
         }
     }
 }
-// .navbar-toggler{
-//     border-color: transparent;
+.navbar-toggler{
+    border-color: transparent;
 
-// }
-// .navbar-toggler{
-//     border-color: transparent !important;
-
-// }
+}
