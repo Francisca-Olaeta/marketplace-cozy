@@ -13,9 +13,34 @@ import { useNavigate } from 'react-router-dom';
 import Context from '../Context';
 import Header from '../components/Header';
 
+
 const Categories = () => {
-    const {categories} = useContext(Context);
+    const {productList, setProductList, categories, filterByCat} = useContext(Context);
     const navigate = useNavigate();
+
+
+    // /*Función para filtrar por categoría */
+    // let filterByCat = (e) => {
+    //   // let filteredCategory
+    //   //     if ((e.target.value) === "") {
+    //   //         setProductList(productList);
+    //   //     }
+    //   //     else if ((e.target.value) === "living") {
+    //   //         filteredCategory = [...productList].filter((e) => e.category.includes("living"));
+    //   //         setProductList(filteredCategory);
+    //   //     }
+    //   //     else if ((e.target.value) === "dormitorio") {
+    //   //         filteredCategory=[...productList].filter((e) => e.category.includes("dormitorio"));
+    //   //         setProductList(filteredCategory);
+    //   //     }
+    //   //     else if ((e.target.value) === "entrada") {
+    //   //         filteredCategory=[...productList].filter((e) => e.category.includes("entrada"));
+    //   //         setProductList(filteredCategory);
+    //   //     }else {
+    //   //         setProductList(productList);
+    //   //     }
+          
+    //       }
 
   return (
     <div>
@@ -31,7 +56,7 @@ const Categories = () => {
                     <div className='mask category-card__img' style={{ backgroundColor: '#e6b9ad8f' }}></div>
                     </a>
                     </MDBRipple>
-                    {/* <Card.Img className="category-card__img" variant="top" src={c.img} /> */}
+                 
                     <Card.Body className="category-card__body">
                     <Card.Title className="category-card__title">{c.category}</Card.Title>
                     <Card.Text>

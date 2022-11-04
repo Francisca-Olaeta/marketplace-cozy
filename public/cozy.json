@@ -442,7 +442,7 @@
   {
     "name": "Mesa lateral Industrial Chic",
     "desc": "Mesa rectangular fierro, 45 x 35 x 50 cm.",
-    "id": "M11",
+    "id": "M12",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-lat-7.jpg",
     "category": ["dormitorio, living"],
     "type": "muebles",
@@ -452,7 +452,7 @@
   {
     "name": "Arrimo Industrial",
     "desc": "Arrimo de madera y fierro, 140 x 20 x 70 cm.",
-    "id": "M12",
+    "id": "M13",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-1.jpg",
     "category": ["entrada"],
     "type": "muebles",
@@ -462,7 +462,7 @@
   {
     "name": "Arrimo Boho",
     "desc": "Arrimo de madera y cubierta de mármol, 90 x 17 x 70 cm.",
-    "id": "M13",
+    "id": "M14",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-2.jpg",
     "category": ["entrada"],
     "type": "muebles",
@@ -472,7 +472,7 @@
   {
     "name": "Arrimo Farm",
     "desc": "Arrimo de madera rústico, 120 x 25 x 60 cm.",
-    "id": "M13",
+    "id": "M15",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-3.jpg",
     "category": ["entrada"],
     "type": "muebles",
@@ -482,7 +482,7 @@
   {
     "name": "Arrimo Millenial",
     "desc": "Arrimo de madera negro, 140 x 25 x 60 cm.",
-    "id": "M14",
+    "id": "M16",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-4.jpg",
     "category": ["entrada"],
     "type": "muebles",
@@ -492,7 +492,7 @@
   {
     "name": "Arrimo Industrial con repisas",
     "desc": "Arrimo de fierro, 150 x 30 x 70 cm.",
-    "id": "M15",
+    "id": "M17",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-5.jpg",
     "category": ["entrada"],
     "type": "muebles",
@@ -502,7 +502,7 @@
   {
     "name": "Arrimo Industrial Petite",
     "desc": "Arrimo de madera y fierro, 80 x 15 x 70 cm.",
-    "id": "M16",
+    "id": "M18",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-6.jpg",
     "category": ["entrada"],
     "type": "muebles",
