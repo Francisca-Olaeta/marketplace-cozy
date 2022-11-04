@@ -1,5 +1,5 @@
-import {React, useContext} from 'react';
-import {Card, Button, Container} from 'react-bootstrap';
+import {React, useContext, useEffect} from 'react';
+import {Card, Button, Container, Form} from 'react-bootstrap';
 import {
     MDBCard,
     MDBCardBody,
@@ -15,32 +15,31 @@ import Header from '../components/Header';
 
 
 const Categories = () => {
-    const {productList, setProductList, categories, filterByCat} = useContext(Context);
+    const {productList, setProductList, categories, setCategories, category, setCategory} = useContext(Context);
+
+    /*Hook para cambiar la url según elemento seleccionado */
     const navigate = useNavigate();
 
+    console.log(categories);
 
-    // /*Función para filtrar por categoría */
-    // let filterByCat = (e) => {
-    //   // let filteredCategory
-    //   //     if ((e.target.value) === "") {
-    //   //         setProductList(productList);
-    //   //     }
-    //   //     else if ((e.target.value) === "living") {
-    //   //         filteredCategory = [...productList].filter((e) => e.category.includes("living"));
-    //   //         setProductList(filteredCategory);
-    //   //     }
-    //   //     else if ((e.target.value) === "dormitorio") {
-    //   //         filteredCategory=[...productList].filter((e) => e.category.includes("dormitorio"));
-    //   //         setProductList(filteredCategory);
-    //   //     }
-    //   //     else if ((e.target.value) === "entrada") {
-    //   //         filteredCategory=[...productList].filter((e) => e.category.includes("entrada"));
-    //   //         setProductList(filteredCategory);
-    //   //     }else {
-    //   //         setProductList(productList);
-    //   //     }
-          
-    //       }
+       /*Función goToCategory */
+       const goToCategory = () => {
+         if(category){
+           /*Si es que hay algo en "category", ejecuta el useNavigate y agrega al fenal de la url el category */
+           navigate(`/categorias/${category}`);
+           setCategory('');
+         }
+         else alert("selecciona una categoría")
+       }
+   
+       useEffect(()=>{
+         /*Callback */
+         goToCategory(category);
+       }, []);
+   
+       console.log(category);
+
+   
 
   return (
     <div>
@@ -49,22 +48,25 @@ const Categories = () => {
             <h2 className="my-5">Categorías</h2>
             <div className="row justify-content-between align-items-center">
                 {categories.map((c)=>(
-                <Card className="category-card mx-3 my-2 pe-3" key={c.id}>
-                    <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-                    <MDBCardImage className="category-card__img" src={c.img} fluid alt='...' />
-                    <a onClick={() => navigate(`./${c.category}`)}>
-                    <div className='mask category-card__img' style={{ backgroundColor: '#e6b9ad8f' }}></div>
-                    </a>
-                    </MDBRipple>
+              <Form.Select>
+                  <option>{c.category}</option>
+              </Form.Select>
+                // <Card className="category-card mx-3 my-2 pe-3" key={c.id}>
+                //     <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+                //     <MDBCardImage className="category-card__img" src={c.img} fluid alt='...' />
+                //     <a onClick={() => navigate(`./${c.category}`)}>
+                //     <div className='mask category-card__img' style={{ backgroundColor: '#e6b9ad8f' }}></div>
+                //     </a>
+                //     </MDBRipple>
                  
-                    <Card.Body className="category-card__body">
-                    <Card.Title className="category-card__title">{c.category}</Card.Title>
-                    <Card.Text>
-                        {c.desc}
-                    </Card.Text>
-                    <Button variant="outline-dark" onClick={() => navigate(`./${c.category}`)}>Ir a <span className="category-card__btn">{c.category}</span></Button>
-                    </Card.Body>
-                </Card>
+                //     <Card.Body className="category-card__body">
+                //     <Card.Title className="category-card__title">{c.category}</Card.Title>
+                //     <Card.Text>
+                //         {c.desc}
+                //     </Card.Text>
+                //     <Button variant="outline-dark" onClick={goToCategory}>Ir a <span className="category-card__btn">{c.category}</span></Button>
+                //     </Card.Body>
+                // </Card>
                 ))}
             </div>
         </Container>

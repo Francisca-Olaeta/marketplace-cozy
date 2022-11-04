@@ -10,6 +10,7 @@ const Context = createContext({});
 const ContextProvider = ({ children }) => {
     const [productList, setProductList] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [category, setCategory] = useState([]);
 
 
 
@@ -45,25 +46,25 @@ const ContextProvider = ({ children }) => {
 
    
     /*Función para filtrar array por categoría*/
-    let filterByCat = (e) => {
-    let filteredCatArray
-    if ((e.target.value) === ""){
-      setProductList(productList);
-    }
-    else if ((e.target.value) === "living") {
-      filteredCatArray = [...productList].filter((e) => e.category.includes("living"));
-      setProductList(filteredCatArray);
+//     let filterByCat = (e) => {
+//     let filteredCatArray
+//     if ((e.target.value) === ""){
+//       setProductList(productList);
+//     }
+//     else if ((e.target.value) === "living") {
+//       filteredCatArray = [...productList].filter((e) => e.category.includes("living"));
+//       setProductList(filteredCatArray);
 
-    }else {
-      setProductList(filteredCatArray);
-    }
-  }
+//     }else {
+//       setProductList(filteredCatArray);
+//     }
+//   }
         
     
     
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, filterByCat}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory}}>
         {children}
     </Context.Provider>
 
