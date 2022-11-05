@@ -39,7 +39,7 @@
 
     @media(min-width: 992px){
         flex-direction: row;
-        justify-content: start;
+        justify-content: flex-start;
 
         &__img{
         width: 5rem;

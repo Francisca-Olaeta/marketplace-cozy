@@ -1,7 +1,6 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
-import MySpinner from "./components/MySpinner";
+
 
 /*Creo el contexto*/
 const Context = createContext({});
@@ -10,19 +9,22 @@ const Context = createContext({});
 const ContextProvider = ({ children }) => {
     const [productList, setProductList] = useState([]);
     const [categories, setCategories] = useState([]);
-    const [category, setCategory] = useState([]);
+    const [category, setCategory] = useState("");
+    const [type, setType] = useState("");
 
 
 
     /*Función para acceder a la información de productos desde el archivo json */
+    
     const getInfoProducts = async() => {
         try{
             const res = await fetch('./cozy.json');
             const data = await res.json();
             setProductList(data);
-            console.log(data);
+       
+          
         } catch (e) {
-            alert("error")
+            console.log("problema en fetch")
 
         }
 }
@@ -34,37 +36,22 @@ const ContextProvider = ({ children }) => {
 
     /*Función para acceder al listado de las categorías de productos */
     const getCategories = async() => {
-        const res = await fetch('./categories.json');
-        const data = await res.json();
+        const response = await fetch('./categories.json');
+        const datas = await response.json();
 
-        console.log(data)
-        setCategories(data);
+   
+        setCategories(datas);
     }
     useEffect(()=>{
         getCategories();
     }, []);
 
    
-    /*Función para filtrar array por categoría*/
-//     let filterByCat = (e) => {
-//     let filteredCatArray
-//     if ((e.target.value) === ""){
-//       setProductList(productList);
-//     }
-//     else if ((e.target.value) === "living") {
-//       filteredCatArray = [...productList].filter((e) => e.category.includes("living"));
-//       setProductList(filteredCatArray);
-
-//     }else {
-//       setProductList(filteredCatArray);
-//     }
-//   }
-        
-    
+    console.log("prueba")
     
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType}}>
         {children}
     </Context.Provider>
 

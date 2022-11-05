@@ -105,20 +105,20 @@ color: $secondary;
 .toggle-cstm-container {
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
     align-content: center;
 }
 
 .toggle-cstm{
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: flex-start;
  
     &__collapse{
         justify-content: flex-start;
         align-items: center;
         &__nav{
-            align-items: start;
+            align-items: flex-start;
             align-content: center;
             &__link{
                 align-items: center;

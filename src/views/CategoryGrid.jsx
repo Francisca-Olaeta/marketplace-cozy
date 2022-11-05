@@ -8,38 +8,20 @@ import Back from '../components/Back';
 import Select from '../components/Select';
 
 const CategoryGrid = () => {
-    const {productList, setProductList, categories, setCategories, setCategory} = useContext(Context);
+  const { category } = useParams();
+  const navigate = useNavigate();
 
-    /*Estado que guardará los productos filtrados por categoría */
-    
+  /*Paso variables a través del Context */
+  const {productList, setProductList, categories, setCategories, setCategory} = useContext(Context);
 
-    const { category } = useParams();
+  /*Variable que guardará los productos filtrados por categoría */
+  const selectedCategory = productList.filter((e) => e.category.includes(category));
 
- 
-  
+  /*Variable que guardará la categoría seleccionada */
+  const eachCategory = categories.filter((e) => e.category === category);
 
-    //  /*Función para filtrar por categoría */
-    //  let filterByCat = (e) => {
-    //   let filteredCategory
-    //       if ((e.target.value) === "") {
-    //           setProductList(productList);
-    //       }
-    //       else if ((e.target.value) === "living") {
-    //           filteredCategory = [...productList].filter((e) => e.category.includes("living"));
-    //           setProductList(filteredCategory);
-    //       }
-    //       else if ((e.target.value) === "dormitorio") {
-    //           filteredCategory=[...productList].filter((e) => e.category.includes("dormitorio"));
-    //           setProductList(filteredCategory);
-    //       }
-    //       else if ((e.target.value) === "entrada") {
-    //           filteredCategory=[...productList].filter((e) => e.category.includes("entrada"));
-    //           setProductList(filteredCategory);
-    //       }else {
-    //           setProductList(productList);
-    //       }
-          
-    //       }
+
+
 
 
 
@@ -61,31 +43,24 @@ const CategoryGrid = () => {
         <Container className="cat-container my-5">
             <Back />
             
-            {/* {categories.map((e) => (
-              e.category
+            {eachCategory.map((e, i) => (
+            <h2 key={i} className="mt-5 mb-3">{e.category}</h2>
 
-            ))} */}
-            <h2 className="mt-5 mb-3">Living</h2>
+            ))}
             <Select />
 
             <div className="row justify-content-between align-items-center">
+           {selectedCategory.map((e, i) => (
             
-
-              {category.filter((e) => {
-               if (e.category === ''){
-                return e;
-               }
-               else if (e.category === category){
-                return e;
-               }
-               else{
-                console.log(e.category);
-               }
-              }).map((e) => (
+                  <CstmCard key={i} product={e} />
+                ))
+              }
+            {/* {selectedType.map((e) => (
+            
                   <CstmCard key={e.id} product={e} />
                 ))
               }
-              
+               */}
 
                 
                 

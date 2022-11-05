@@ -104,7 +104,9 @@
     "desc": "Cojín con textura, de 40x40 cm.",
     "id": "T04",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-1.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 17990
@@ -114,7 +116,9 @@
     "desc": "Cojín de pelo largo, de 40x40 cm.",
     "id": "T05",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-2.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 17990
@@ -124,7 +128,9 @@
     "desc": "Cojín con textura, de 30x50 cm.",
     "id": "T06",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-3.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 16990
@@ -134,7 +140,9 @@
     "desc": "Cojín con textura, de 40x40 cm.",
     "id": "T07",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-4.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 17990
@@ -144,7 +152,9 @@
     "desc": "Cojín de algodón y yute, de 40x40 cm.",
     "id": "T08",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-5.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 16990
@@ -154,7 +164,9 @@
     "desc": "Cojín de algodón, de 40x40 cm.",
     "id": "T09",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-6.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 16990
@@ -164,7 +176,9 @@
     "desc": "Cojín de algodón, de 40x40 cm.",
     "id": "T10",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-7.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 15990
@@ -174,7 +188,9 @@
     "desc": "Cojín de algodón y yute, de 40x40 cm.",
     "id": "T11",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-8.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 16990
@@ -184,7 +200,9 @@
     "desc": "Cojín de algodón, de 45x45 cm.",
     "id": "T12",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-9.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 18990
@@ -194,7 +212,9 @@
     "desc": "Cojín con textura, de 45x45 cm.",
     "id": "T13",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-10.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 18990
@@ -204,7 +224,9 @@
     "desc": "Vasija decorativa de cerámica, de 20 cm de altura",
     "id": "D01",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-1.jpg",
-    "category": ["dormitorio, living, entrada"],
+    "category": [
+      "dormitorio", "living", "entrada"
+    ],
     "type": "deco",
     "seller": "Cozy",
     "price": 10990
@@ -214,7 +236,9 @@
     "desc": "Bandeja circular fabricada en fibra natural, de 30 cm de diámetro.",
     "id": "D02",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-2.jpg",
-    "category": ["living, entrada"],
+    "category": [
+      "living", "entrada"
+    ],
     "type": "deco",
     "seller": "Cozy",
     "price": 11990
@@ -224,7 +248,9 @@
     "desc": "Lámpara fabricada en fibra natural.",
     "id": "D03",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-3.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "deco",
     "seller": "Cozy",
     "price": 14990
@@ -234,7 +260,9 @@
     "desc": "Cesta fabricada en fibra natural, de 32x28 cm.",
     "id": "D04",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-4.jpg",
-    "category": ["dormitorio, living, entrada"],
+    "category": [
+      "dormitorio", "living", "entrada"
+    ],
     "type": "deco",
     "seller": "Cozy",
     "price": 13990
@@ -244,7 +272,9 @@
     "desc": "Cesta fabricada en fibra natural, de 24x20 cm .",
     "id": "D05",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-5.jpg",
-    "category": ["dormitorio, living, entrada"],
+    "category": [
+      "dormitorio", "living", "entrada"
+    ],
     "type": "deco",
     "seller": "Cozy",
     "price": 11990
@@ -254,7 +284,9 @@
     "desc": "Bandeja redonda gres y madera, de 25 cm de diámetro.",
     "id": "D06",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-6.jpg",
-    "category": ["living, entrada"],
+    "category": [
+      "living", "entrada"
+    ],
     "type": "deco",
     "seller": "Cozy",
     "price": 12990
@@ -264,7 +296,9 @@
     "desc": "Bandeja circular fabricada en fibra natural, de 40 cm de diámetro.",
     "id": "D07",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-7.jpg",
-    "category": ["living, entrada"],
+    "category": [
+      "living", "entrada"
+    ],
     "type": "deco",
     "seller": "Cozy",
     "price": 14990
@@ -274,7 +308,9 @@
     "desc": "Florero de cerámica en forma de donut de 25 cm de altura.",
     "id": "D08",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-8.jpg",
-    "category": ["dormitorio, living, entrada"],
+    "category": [
+      "dormitorio", "living", "entrada"
+    ],
     "type": "deco",
     "seller": "Cozy",
     "price": 13990
@@ -284,7 +320,9 @@
     "desc": "Floreros de cerámica con textura, de 25 cm y 35 cm de altura.",
     "id": "D09",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-9.jpg",
-    "category": ["dormitorio, living, entrada"],
+    "category": [
+      "dormitorio", "living", "entrada"
+    ],
     "type": "deco",
     "seller": "Cozy",
     "price": 32990
@@ -294,7 +332,9 @@
     "desc": "Manta de tejido grueso, 100% lana.",
     "id": "T14",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/manta-1.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 42990
@@ -304,7 +344,9 @@
     "desc": "Manta de tejido grueso, 100% lana.",
     "id": "T15",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/manta-2.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 42990
@@ -314,7 +356,9 @@
     "desc": "Manta de tejido grueso, 100% lana.",
     "id": "T16",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/manta-3.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 42990
@@ -324,7 +368,9 @@
     "desc": "Manta de tejido delgado, 100% lana.",
     "id": "T17",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/manta-5.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "textil",
     "seller": "Cozy",
     "price": 32990
@@ -334,7 +380,9 @@
     "desc": "Mesa de centro madera, 120 cm de diámetro.",
     "id": "M01",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/manta-5.jpg",
-    "category": ["living"],
+    "category": [
+      "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 110990
@@ -344,7 +392,9 @@
     "desc": "Mesa de centro madera, 110 cm de diámetro.",
     "id": "M02",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-2.jpg",
-    "category": ["living"],
+    "category": [
+      "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 99990
@@ -354,7 +404,9 @@
     "desc": "Mesa de centro madera, 100 cm de diámetro.",
     "id": "M03",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-3.jpg",
-    "category": ["living"],
+    "category": [
+      "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 99990
@@ -364,7 +416,9 @@
     "desc": "Mesa de centro madera y fierro, 120 x 90 x 30 cm.",
     "id": "M04",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-4.jpg",
-    "category": ["living"],
+    "category": [
+      "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 149990
@@ -374,7 +428,9 @@
     "desc": "Mesa de centro madera y fierro, 100 x 45 x 47 cm.",
     "id": "M05",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-5.jpg",
-    "category": ["living"],
+    "category": [
+      "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 139990
@@ -384,7 +440,9 @@
     "desc": "Mesa de centro madera, 100 x 45 x 45 cm.",
     "id": "M06",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-6.jpg",
-    "category": ["living"],
+    "category": [
+      "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 143990
@@ -394,7 +452,9 @@
     "desc": "Set de dos mesas redondas de madera, 50 cm y 40 cm de alto.",
     "id": "M07",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-lat-1.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 79990
@@ -404,7 +464,9 @@
     "desc": "Set de dos mesas redondas de madera, 50 cm y 40 cm de alto.",
     "id": "M08",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-lat-2.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 79990
@@ -414,7 +476,9 @@
     "desc": "Set de tres mesas redondas de madera y fierro, 50 cm, 40 cm y 30 cm de alto.",
     "id": "M09",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-lat-3.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 159990
@@ -424,7 +488,9 @@
     "desc": "Mesa rectangular de madera con cajón, 50 x 47 x 50 cm.",
     "id": "M10",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-lat-5.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 159990
@@ -434,7 +500,9 @@
     "desc": "Mesa rectangular de madera y fierro con repisas, 45 x 35 x 50 cm.",
     "id": "M11",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-lat-6.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 89990
@@ -444,7 +512,9 @@
     "desc": "Mesa rectangular fierro, 45 x 35 x 50 cm.",
     "id": "M12",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-lat-7.jpg",
-    "category": ["dormitorio, living"],
+    "category": [
+      "dormitorio", "living"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 69990
@@ -454,7 +524,9 @@
     "desc": "Arrimo de madera y fierro, 140 x 20 x 70 cm.",
     "id": "M13",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-1.jpg",
-    "category": ["entrada"],
+    "category": [
+      "entrada"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 219990
@@ -464,7 +536,9 @@
     "desc": "Arrimo de madera y cubierta de mármol, 90 x 17 x 70 cm.",
     "id": "M14",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-2.jpg",
-    "category": ["entrada"],
+    "category": [
+      "entrada"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 189990
@@ -474,7 +548,9 @@
     "desc": "Arrimo de madera rústico, 120 x 25 x 60 cm.",
     "id": "M15",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-3.jpg",
-    "category": ["entrada"],
+    "category": [
+      "entrada"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 189990
@@ -484,7 +560,9 @@
     "desc": "Arrimo de madera negro, 140 x 25 x 60 cm.",
     "id": "M16",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-4.jpg",
-    "category": ["entrada"],
+    "category": [
+      "entrada"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 179990
@@ -494,7 +572,9 @@
     "desc": "Arrimo de fierro, 150 x 30 x 70 cm.",
     "id": "M17",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-5.jpg",
-    "category": ["entrada"],
+    "category": [
+      "entrada"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 249990
@@ -504,7 +584,9 @@
     "desc": "Arrimo de madera y fierro, 80 x 15 x 70 cm.",
     "id": "M18",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/recibidor-6.jpg",
-    "category": ["entrada"],
+    "category": [
+      "entrada"
+    ],
     "type": "muebles",
     "seller": "Cozy",
     "price": 119990

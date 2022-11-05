@@ -21,6 +21,7 @@ const Categories = () => {
     const navigate = useNavigate();
 
     console.log(categories);
+    console.log(productList)
 
        /*Función goToCategory */
        const goToCategory = () => {
@@ -29,7 +30,7 @@ const Categories = () => {
            navigate(`/categorias/${category}`);
            setCategory('');
          }
-         else alert("selecciona una categoría")
+         else console.log("selecciona una categoria")
        }
    
        useEffect(()=>{
@@ -47,27 +48,34 @@ const Categories = () => {
         <Container className="cat-container my-5">
             <h2 className="my-5">Categorías</h2>
             <div className="row justify-content-between align-items-center">
+
+
                 {categories.map((c)=>(
-              <Form.Select>
-                  <option>{c.category}</option>
-              </Form.Select>
-                // <Card className="category-card mx-3 my-2 pe-3" key={c.id}>
-                //     <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-                //     <MDBCardImage className="category-card__img" src={c.img} fluid alt='...' />
-                //     <a onClick={() => navigate(`./${c.category}`)}>
-                //     <div className='mask category-card__img' style={{ backgroundColor: '#e6b9ad8f' }}></div>
-                //     </a>
-                //     </MDBRipple>
-                 
-                //     <Card.Body className="category-card__body">
-                //     <Card.Title className="category-card__title">{c.category}</Card.Title>
-                //     <Card.Text>
-                //         {c.desc}
-                //     </Card.Text>
-                //     <Button variant="outline-dark" onClick={goToCategory}>Ir a <span className="category-card__btn">{c.category}</span></Button>
-                //     </Card.Body>
-                // </Card>
-                ))}
+                  <Card className="category-card mx-3 my-2 pe-3" key={c.id}>
+                      <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+                      <MDBCardImage className="category-card__img" src={c.img} fluid alt='...' />
+                      <a onClick={() => navigate(`./${c.category}`)}>
+                      <div className='mask category-card__img' style={{ backgroundColor: '#e6b9ad8f' }}></div>
+                      </a>
+                      </MDBRipple>
+                  
+                      <Card.Body className="category-card__body">
+                      <Card.Title className="category-card__title">{c.category}</Card.Title>
+                      <Card.Text>
+                          {c.desc}
+                      </Card.Text>
+                      <Button variant="outline-dark" onClick={() => navigate(`./${c.category}`)}> Ir a <span className="category-card__btn">{c.category}</span></Button>
+                      </Card.Body>
+                  </Card>
+                  ))}
+
+                    {/* <Form.Select value={category} onChange={({target}) => setCategory(target.value)} >
+                      <option value={''}>Selecciona una categoría</option>
+                      {categories.map((c, i)=>(
+                        <option value={c.category} key={i} >{c.category}</option>
+                      ))}
+                        </Form.Select>
+                        <Button onClick={goToCategory}>Ir</Button> */}
             </div>
         </Container>
 

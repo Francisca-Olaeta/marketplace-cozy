@@ -14,8 +14,7 @@ import Login from "./views/Login";
 import Register from "./views/Register";
 import Categories from "./views/Categories";
 import CategoryGrid from "./views/CategoryGrid";
-import Dormitorio from "./views/Dormitorio";
-import Entrada from "./views/Entrada";
+
 import Favourites from "./views/Favourites";
 import MyProfile from "./views/MyProfile";
 import Details from "./views/Details";
