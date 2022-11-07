@@ -13,10 +13,22 @@ import Context from '../Context';
 function MyNavbar() {
 
   /*Estados que provee el Context */
-  const {productList, setProductList} = useContext(Context);
+  const {productList, setProductList, search, setSearch} = useContext(Context);
 
   /*Clases activas e inactivas */
   const setActiveClass = ({isActive}) => (isActive ? "active" : "inactive");
+
+  /*Búsqueda */
+  const searchChange = (e) => {
+    const text = e.target.value;
+    if (text.length === 0) {
+      setSearch(search)
+
+    }else{
+      setSearch(search);
+
+    }
+  };
 
   return (
     <div>

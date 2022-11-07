@@ -1,13 +1,13 @@
 [
   {
-    "name": "Alfombra yute",
+    "name": "Alfombra de yute",
     "desc": "Alfombra de alto tráfico, ideal para living comedor, de 160 x 230 cm. Material: 100% yute.",
     "id": "A01",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/alfombra-1.jpg",
     "category": "living",
     "type": "alfombra",
     "seller": "Cozy",
-    "price": 199990
+    "price": 179990
   },
   {
     "name": "Alfombra algodón y yute",
@@ -37,7 +37,7 @@
     "category": "living",
     "type": "alfombra",
     "seller": "Cozy",
-    "price": 189990
+    "price": 179990
   },
   {
     "name": "Alfombra algodón tribal",
@@ -196,7 +196,7 @@
     "price": 16990
   },
   {
-    "name": "Cojín textura crudo",
+    "name": "Cojín con textura color crudo",
     "desc": "Cojín de algodón, de 45x45 cm.",
     "id": "T12",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-9.jpg",
@@ -220,7 +220,7 @@
     "price": 18990
   },
   {
-    "name": "Vasija de cerámica",
+    "name": "Vasija de cerámica alta",
     "desc": "Vasija decorativa de cerámica, de 20 cm de altura",
     "id": "D01",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-1.jpg",
@@ -304,7 +304,7 @@
     "price": 14990
   },
   {
-    "name": "Florero donut",
+    "name": "Florero de cerámica donut",
     "desc": "Florero de cerámica en forma de donut de 25 cm de altura.",
     "id": "D08",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/deco-8.jpg",
@@ -364,22 +364,22 @@
     "price": 42990
   },
   {
-    "name": "Manta tejida",
+    "name": "Manta tejida, color a elección",
     "desc": "Manta de tejido delgado, 100% lana.",
     "id": "T17",
-    "img": "https://redigital.cl/wp-content/uploads/2022/10/manta-5.jpg",
+    "img": "https://redigital.cl/wp-content/uploads/2022/10/manta-4-1.jpg",
     "category": [
       "dormitorio", "living"
     ],
     "type": "textil",
     "seller": "Cozy",
-    "price": 32990
+    "price": 27990
   },
   {
     "name": "Mesa de centro circular Nordic",
     "desc": "Mesa de centro madera, 120 cm de diámetro.",
     "id": "M01",
-    "img": "https://redigital.cl/wp-content/uploads/2022/10/manta-5.jpg",
+    "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-1-1.jpg",
     "category": [
       "living"
     ],

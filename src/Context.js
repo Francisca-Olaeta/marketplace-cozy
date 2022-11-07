@@ -11,6 +11,8 @@ const ContextProvider = ({ children }) => {
     const [categories, setCategories] = useState([]);
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
+    const [search, setSearch] = useState("");
+    const [isChecked, setIsChecked] = useState(false);
 
 
 
@@ -20,7 +22,21 @@ const ContextProvider = ({ children }) => {
         try{
             const res = await fetch('./cozy.json');
             const data = await res.json();
-            setProductList(data);
+            const dataConLiked = data.map((e)=>({
+                name: e.name,
+                id: e.id,
+                category: e.category,
+                desc: e.desc,
+                img: e.img,
+                category: e.category,
+                type: e.type,
+                seller: e.seller,
+                price: e.price,
+                liked: false
+            }))
+            console.log(data);
+            setProductList(dataConLiked);
+            // setProductList(data, {liked: false});
        
           
         } catch (e) {
@@ -39,7 +55,6 @@ const ContextProvider = ({ children }) => {
         const response = await fetch('./categories.json');
         const datas = await response.json();
 
-   
         setCategories(datas);
     }
     useEffect(()=>{
@@ -48,10 +63,26 @@ const ContextProvider = ({ children }) => {
 
    
     console.log("prueba")
+
+    /*Función para reducir la lista de tipos*/
+  const types = productList.reduce((acc,item) => {
+    if(!acc.includes(item.type)){
+      acc.push(item.type)
+    }
+    console.log(acc)
+    return acc;
+  },[])
+
+/*Función para añadir a favoritos */
+  const addToFav = (id) => {
+    const index = productList.findIndex((e) => e.id === id);
+    productList[index].liked = !productList[index].liked
+    setProductList([...productList]);
+  }
     
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, isChecked, setIsChecked, types, addToFav}}>
         {children}
     </Context.Provider>
 

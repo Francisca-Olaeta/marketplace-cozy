@@ -1,5 +1,7 @@
 /*Category cards*/
 .item-card{
+    display: flex;
+    justify-content: flex-start;
     margin: 0rem;
     padding: 0rem;
     width: 100%;
@@ -9,6 +11,9 @@
     box-shadow: none;
 
     &__img{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
     height: 20rem;
     border-radius: 1rem;
@@ -18,6 +23,9 @@
     }
 
     &__img:hover{
+        background-color: transparent;
+        overflow: hidden;
+        border-radius: 1rem;
         opacity: 50%;
         transition: .5s ease;
         
@@ -44,13 +52,7 @@
         }
         
     }
-    // &__btn:hover{
-    //     color: $dark;
-    //     background-color: #e6b9ad8f;
-    // &__btn:hover{
-    //     color: $dark;
-    //     background-color: $primary;
-    // }
+ 
 
     @media(min-width: 576px){
         width: 44%;
@@ -65,9 +67,6 @@
 
     @media(min-width: 1235px){
         width: 16rem;
-        &__img{
-            width: 16rem;
-        }
     }
 }
 
@@ -78,4 +77,9 @@
         color: $primary;
         transition: .5s ease;
     }
+}
+
+.mask{
+    border-radius: 1rem;
+    overflow: hidden;
 }

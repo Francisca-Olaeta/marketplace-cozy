@@ -23,8 +23,8 @@ const Categories = () => {
     console.log(categories);
     console.log(productList)
 
-       /*Función goToCategory */
-       const goToCategory = () => {
+       /*Función goToCategory*/ 
+       const goToCategory = (category) => {
          if(category){
            /*Si es que hay algo en "category", ejecuta el useNavigate y agrega al fenal de la url el category */
            navigate(`/categorias/${category}`);
@@ -54,7 +54,7 @@ const Categories = () => {
                   <Card className="category-card mx-3 my-2 pe-3" key={c.id}>
                       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
                       <MDBCardImage className="category-card__img" src={c.img} fluid alt='...' />
-                      <a onClick={() => navigate(`./${c.category}`)}>
+                      <a onClick={() => goToCategory(c.category)}>
                       <div className='mask category-card__img' style={{ backgroundColor: '#e6b9ad8f' }}></div>
                       </a>
                       </MDBRipple>
@@ -64,7 +64,7 @@ const Categories = () => {
                       <Card.Text>
                           {c.desc}
                       </Card.Text>
-                      <Button variant="outline-dark" onClick={() => navigate(`./${c.category}`)}> Ir a <span className="category-card__btn">{c.category}</span></Button>
+                      <Button variant="outline-dark" onClick={() => goToCategory(c.category)}> Ir a <span className="category-card__btn">{c.category}</span></Button>
                       </Card.Body>
                   </Card>
                   ))}

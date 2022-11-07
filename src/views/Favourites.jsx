@@ -8,7 +8,12 @@ import Select from '../components/Select';
 import Back from '../components/Back';
 
 
+
 const Favourites = () => {
+  const {productList, setProductList} = useContext(Context)
+
+  
+
   return (
     <div>
       <Header />
@@ -19,10 +24,11 @@ const Favourites = () => {
             <Select />
 
             <div className="row justify-content-between align-items-center">
-                <CstmCard />
-                <CstmCard />
-                <CstmCard />
-                <CstmCard />
+              {productList.filter((e)=>e.liked).map((e, i)=>(
+                <CstmCard  key={i} product={e} />
+
+              ))}
+              
             </div>
             
         </Container>

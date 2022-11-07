@@ -41,8 +41,9 @@ function App() {
             <Route path="/registro" element={<Register />}/>
             <Route path="/categorias" element={<Categories />}/>
             <Route path="/categorias/:category" element={<CategoryGrid />}/>
+            {/* <Route path="/categorias/:category/:type" element={<CategoryGrid />}/> */}
+            <Route path="/categorias/:category/:id" element={<Details />}/>
             {/* <Route path="/categorias/living/detalle" element={<Details />}/>
-            <Route path="/categorias/dormitorio" element={<Dormitorio />}/>
             <Route path="/categorias/dormitorio/detalle" element={<Details />}/>
             <Route path="/categorias/entrada" element={<Entrada />}/>
             <Route path="/categorias/entrada/detalle" element={<Details />}/> */}
