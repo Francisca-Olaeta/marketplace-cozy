@@ -28,6 +28,16 @@
     &__price{
         font-size: 2rem;
     }
+    &__btns-container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &__btn{
+        display: flex;
+        align-items: center;
+        margin-right: 1rem;
+    }
 
     @media(min-width: 992px){
         width: 70rem;
@@ -44,9 +54,13 @@
             width: 40rem;
             display: flex;
             justify-content: space-between;
-            align-items: stretch;
-            
+            align-items: stretch;   
         }
+        &__price{
+            margin: 3rem 0rem;
+        }
+       
+       
     }
 }
 
@@ -54,7 +68,7 @@
     font-size: 1.5rem;
     color: $secondary;
     &:hover{
-        color: $primary;
+        color: #d1aa9e;
         transition: .5s ease;
     }
 }

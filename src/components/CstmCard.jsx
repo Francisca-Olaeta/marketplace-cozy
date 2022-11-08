@@ -15,12 +15,12 @@ import {
 } from 'mdb-react-ui-kit';
 
 function CstmCard({product}) {
-  const {productList, addToFavs} = useContext(Context);
+  const { addToFav } = useContext(Context);
   const navigate = useNavigate();
   const { category } = useParams();
 
   /*Función para agregar a la url el nombre o id del producto con useNavigate. En este caso, {product} retorna todo, por lo que deno asufnar un "id" o "name" dentro de la función onClick con (product.name) o (product.id)*/
-  const detailsLink = (product) => {
+  const getDetails = (product) => {
     navigate(`/categorias/${category}/${product}`)
   };
 
@@ -28,7 +28,7 @@ function CstmCard({product}) {
     <MDBCard className="item-card mx-4 my-5 pe-3">
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
         <MDBCardImage className="item-card__img" src={product.img} fluid alt='...' />
-        <a onClick={() => detailsLink(product.id)}>
+        <a onClick={() => getDetails(product.id)}>
           <div className='mask item-card__img' style={{ backgroundColor: '#e6b9ad8f' }}></div>
         </a>
       </MDBRipple>
@@ -36,10 +36,10 @@ function CstmCard({product}) {
         <MDBCardTitle className="item-card__title">{product.name}</MDBCardTitle>
         <MDBCardText className="item-card__price">${product.price.toLocaleString("es-CL")}</MDBCardText>
         <div className='item-card__align-icons'>
-         <Button onClick={() => detailsLink(product.id)} className="item-card__btn" variant="outline-dark">Ver más</Button>
+         <Button onClick={() => getDetails(product.id)} className="item-card__btn" variant="outline-dark">Ver más</Button>
           <FontAwesomeIcon icon={faCartShopping} className="icon item-card__align-icons__mb"/>
-           <FontAwesomeIcon onClick={()=>addToFavs(product.id)} icon={faHeart} 
-           className= { product.liked ? "liked" : "me-1 icon item-card__align-icons__mb not-liked"}/>
+           <FontAwesomeIcon onClick={()=>addToFav(product.id)} icon={faHeart} 
+           className= { product.liked ? "btn me-1 icon item-card__align-icons__mb liked" : "btn-rounded me-1 icon item-card__align-icons__mb not-liked"}/>
        </div>
       </MDBCardBody>
     </MDBCard>

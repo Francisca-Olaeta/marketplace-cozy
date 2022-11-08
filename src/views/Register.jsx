@@ -2,10 +2,12 @@ import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, Button, Container } from 'react-bootstrap';
 import Header from '../components/Header';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 const Register = () => {
-  const navigate = useNavigate();
+
+  const { loginWithRedirect } = useAuth0();
   return (
     <>
     <div>
@@ -47,7 +49,7 @@ const Register = () => {
           <Button variant="dark" type="submit" className='my-1'>
               Crear cuenta
           </Button>
-         <p>¿Ya tienes cuenta?<Link to="/login"> Inicia sesión </Link></p>
+         <p>¿Ya tienes cuenta? <Button variant="link" onClick={ () => loginWithRedirect()}> Inicia sesión </Button></p>
         </div>
           </Form>
         </div>

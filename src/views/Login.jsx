@@ -9,9 +9,11 @@ from 'mdb-react-ui-kit';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faFacebook, faTwitter, faGoogle} from '@fortawesome/free-brands-svg-icons';
 import Header from '../components/Header';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 const Login = () => {
+  const { loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
   return (
     <>
@@ -37,7 +39,7 @@ const Login = () => {
 
 
         <div className="login_container my-4">
-          <Button onClick={ () => navigate(`/categorias`)} variant="dark" type="submit" className='mt-1 mb-3'>
+          <Button onClick={ () => loginWithRedirect()} variant="dark" type="submit" className='mt-1 mb-3'>
               Iniciar sesión
           </Button>
           <Button onClick={ () => navigate(`/registro`)} variant="outline-dark" type="submit">

@@ -21,17 +21,22 @@ import Details from "./views/Details";
 import Publication from "./views/Publication";
 import Cart from "./views/Cart";
 import NotFound from "./views/NotFound";
+import Results from "./views/Results";
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 
 function App() {
 
+  const { isAuthenticated } = useAuth0();
+
   return (
     <div className="App">
       <ContextProvider>
         <BrowserRouter>
-        {/* <PublicNavbar /> */}
-            <MyNavbar />
+    
+        {isAuthenticated ? <MyNavbar /> : <PublicNavbar />}
+            
            
             
           <Routes>
@@ -41,6 +46,7 @@ function App() {
             <Route path="/registro" element={<Register />}/>
             <Route path="/categorias" element={<Categories />}/>
             <Route path="/categorias/:category" element={<CategoryGrid />}/>
+            {/* <Route path="/categorias/:category/:search" element={<Results />}/> */}
             {/* <Route path="/categorias/:category/:type" element={<CategoryGrid />}/> */}
             <Route path="/categorias/:category/:id" element={<Details />}/>
             {/* <Route path="/categorias/living/detalle" element={<Details />}/>

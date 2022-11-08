@@ -5,7 +5,9 @@ import Context from '../Context';
 import Header from '../components/Header';
 import CstmCard from '../components/CstmCard';
 import Back from '../components/Back';
+
 import Select from '../components/Select';
+import NotFound from './NotFound';
 
 
 const CategoryGrid = () => {
@@ -14,7 +16,7 @@ const CategoryGrid = () => {
   
 
   /*Paso variables a través del Context */
-  const {productList, setProductList, categories, setCategories, setCategory, setType, isChecked, setIsChecked, types} = useContext(Context);
+  const {productList, setProductList, categories, setCategories, setCategory, setType, isChecked, setIsChecked, types, handleChange, search, setSearch} = useContext(Context);
 
   /*Variable que guardará los productos filtrados por categoría */
   const selectedCategory = productList.filter((e) => e.category.includes(category));
@@ -111,7 +113,7 @@ const CategoryGrid = () => {
             <h2 key={i} className="mt-5 mb-3">{e.category}</h2>
             ))}
 
-            <Select type={type} />
+            {/* <Select type={type} /> */}
 
             <Form.Select defaultValue={""} onChange={sortArray} aria-label="Default select example">
               <option value="">Ordenar por:</option>
@@ -138,14 +140,21 @@ const CategoryGrid = () => {
             // </Container>
 /*-------------------------------------------------------------------------------------------------- */ }
             <div className="row justify-content-between align-items-center">
+            {selectedCategory.filter((e)=> {
+              if(search===""){
+                return e;
+              }
+              else if (e.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+              || e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+              || e.type.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+              || e.seller.toLocaleLowerCase().includes(search.toLocaleLowerCase())){
+                return e;
+              }
+            }).map((e)=>(
+                <CstmCard key={e.id} product={e} />
+              ))}
     
-              {selectedCategory.map((e, i) => (
-            
-            <CstmCard key={i} product={e} />
-          ))
-              } 
-      
-       
+           
         
         {/* {selectedType.map((e, i) => (
             

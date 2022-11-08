@@ -20,9 +20,6 @@ const Categories = () => {
     /*Hook para cambiar la url según elemento seleccionado */
     const navigate = useNavigate();
 
-    console.log(categories);
-    console.log(productList)
-
        /*Función goToCategory*/ 
        const goToCategory = (category) => {
          if(category){
@@ -38,7 +35,6 @@ const Categories = () => {
          goToCategory(category);
        }, []);
    
-       console.log(category);
 
    
 

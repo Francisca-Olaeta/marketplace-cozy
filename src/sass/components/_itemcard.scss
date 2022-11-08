@@ -55,26 +55,30 @@
  
 
     @media(min-width: 576px){
-        width: 44%;
-        &__align-icons{
-        justify-content: space-between;
-        &__mb{
-            margin-left: 0rem;
-        }
+        width: 100%;
+    }
 
-        }
+    @media(min-width: 768px){
+        width: 41%;
+
     }
 
     @media(min-width: 1235px){
-        width: 16rem;
+        width: 17rem;
+        &__align-icons{
+            justify-content: space-between;
+            &__mb{
+                margin-left: 0rem;
+            }
+        }
     }
 }
 
 .icon{
     font-size: 1.5rem;
-    color: $secondary;
+    color: $primary;
     &:hover{
-        color: $primary;
+        color: $light;
         transition: .5s ease;
     }
 }

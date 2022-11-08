@@ -12,7 +12,7 @@ const ContextProvider = ({ children }) => {
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
     const [search, setSearch] = useState("");
-    const [isChecked, setIsChecked] = useState(false);
+
 
 
 
@@ -34,7 +34,6 @@ const ContextProvider = ({ children }) => {
                 price: e.price,
                 liked: false
             }))
-            console.log(data);
             setProductList(dataConLiked);
             // setProductList(data, {liked: false});
        
@@ -61,15 +60,11 @@ const ContextProvider = ({ children }) => {
         getCategories();
     }, []);
 
-   
-    console.log("prueba")
-
     /*Función para reducir la lista de tipos*/
   const types = productList.reduce((acc,item) => {
     if(!acc.includes(item.type)){
       acc.push(item.type)
     }
-    console.log(acc)
     return acc;
   },[])
 
@@ -79,10 +74,16 @@ const ContextProvider = ({ children }) => {
     productList[index].liked = !productList[index].liked
     setProductList([...productList]);
   }
-    
+
+/*Función para capturar el input de la barra de búsqueda */
+    const handleChange= (e) => {
+      setSearch('');
+      setSearch(e.target.value);
+      console.log(search);
+    };
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, isChecked, setIsChecked, types, addToFav}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange}}>
         {children}
     </Context.Provider>
 

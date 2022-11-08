@@ -7,12 +7,20 @@ import { MDBBtn } from 'mdb-react-ui-kit';
 import Header from '../components/Header';
 import PublicationCard from '../components/PublicationCard';
 import Back from '../components/Back';
+import Profile from '../components/Profile';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 
 const MyProfile = () => {
 
   const navigate=useNavigate();
+  const {user, isAuthenticated, isLoading} = useAuth0();
+  const { logout } = useAuth0();
+
+  if (isLoading) {
+    return <div>Loading...</div>
+}
 
   return (
     <>
@@ -28,31 +36,37 @@ const MyProfile = () => {
           <div className='profile-container'>
             <div>
               <h3 className="my-3">Datos personales</h3>
-              <Table borderless>
-              <tbody>
-                <tr>
-                  <td className='userinfo-tag'>Nombre:</td>
-                  <td className='userinfo'>Francisca Olaeta</td>
-                </tr>
-                <tr>
-                  <td className='userinfo-tag'>Correo electrónico:</td>
-                  <td className='userinfo'>francisca@gmail.com</td>
-                </tr>
-                <tr>
-                  <td className='userinfo-tag'>Teléfono:</td>
-                  <td className='userinfo'>5691234567</td>
-                </tr>
-                <tr>
-                  <td className='userinfo-tag'>Rut:</td>
-                  <td className='userinfo'>12345678-9</td>
-                </tr>
-                <tr>
-                  <td className='userinfo-tag'>Dirección:</td>
-                  <td className='userinfo'>Acá va la dirección</td>
-                </tr>
-              </tbody>
-              </Table>
-              <Button variant="outline-dark">Editar datos personales</Button>
+              
+              <div>
+                <img className="my-5 rounded" src={user.picture} />
+                <div>
+                  <Table borderless>
+                  <tbody>
+                    <tr>
+                      <td className='userinfo-tag'>Nombre:</td>
+                      <td className='userinfo'>{user.name}</td>
+                    </tr>
+                    <tr>
+                      <td className='userinfo-tag'>Correo electrónico:</td>
+                      <td className='userinfo'>{user.email}</td>
+                    </tr>
+                    <tr>
+                      <td className='userinfo-tag'>Teléfono:</td>
+                      <td className='userinfo'>5691234567</td>
+                    </tr>
+                    <tr>
+                      <td className='userinfo-tag'>Rut:</td>
+                      <td className='userinfo'>12345678-9</td>
+                    </tr>
+                    <tr>
+                      <td className='userinfo-tag'>Dirección:</td>
+                      <td className='userinfo'>Acá va la dirección</td>
+                    </tr>
+                  </tbody>
+                  </Table>
+                  <Button variant="outline-dark">Editar datos personales</Button>
+                </div>
+              </div>
              
             </div>
             <hr className='my-5'/>
@@ -78,7 +92,15 @@ const MyProfile = () => {
                   <PublicationCard />
                   
             </div>
+        <hr className='my-5'/>
         </div>
+
+{/* /*------------------------Sección Logout -------------------------------------------------------------------*/ }
+          <div className="mb-5">
+          <h3 className="my-3">Logout</h3>
+          <Button variant="outline-dark" onClick={()=>logout({returnTo: window.location.origin})}>Cerrar sesión</Button>
+            
+          </div>
         </Container>
     </div>
     </>

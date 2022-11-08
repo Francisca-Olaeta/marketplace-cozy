@@ -1,5 +1,5 @@
 import { React, useContext } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,22 +13,16 @@ import Context from '../Context';
 function MyNavbar() {
 
   /*Estados que provee el Context */
-  const {productList, setProductList, search, setSearch} = useContext(Context);
+  const {productList, setProductList, setSearch, search, handleChange} = useContext(Context);
 
   /*Clases activas e inactivas */
   const setActiveClass = ({isActive}) => (isActive ? "active" : "inactive");
 
-  /*Búsqueda */
-  const searchChange = (e) => {
-    const text = e.target.value;
-    if (text.length === 0) {
-      setSearch(search)
+  // const { search } = useParams();
 
-    }else{
-      setSearch(search);
 
-    }
-  };
+
+
 
   return (
     <div>
@@ -104,6 +98,8 @@ function MyNavbar() {
             <Container fluid className='search-nav__container'>
                     <Form className="search-nav__container__form">
                       <Form.Control
+                      onChange={handleChange}
+                      value={search}
                         type="search"
                         placeholder="¿Qué estás buscando?"
                         className=" search-nav__container__form__control"

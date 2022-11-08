@@ -1,9 +1,9 @@
 import {React, useContext} from 'react';
-import {Container, Nav} from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import {Container} from 'react-bootstrap';
+import { useParams, useNavigate } from 'react-router-dom';
 import Context from '../Context';
 import Header from '../components/Header';
-import DetailsCard from '../components/DetailsCardAnterior';
+import DetailsCard from '../components/DetailsCard';
 
 import Back from '../components/Back';
 
@@ -11,9 +11,8 @@ const Details = () => {
     const {productList} = useContext(Context);
 
 const { id } = useParams();
-const { category } = useParams();
+const navigate = useNavigate();
 
-    const navigate = useNavigate();
 
   const selectedProduct = productList.filter((e)=>e.id===id);
 
@@ -28,10 +27,10 @@ const { category } = useParams();
        
 
             <div className="row justify-content-between align-items-center">
-              {selectedProduct.length > 0 ? selectedProduct.map((e, i)=>(
-                <DetailsCard selectedProduct={e} key={i} />
+              {selectedProduct.length > 0 ? selectedProduct.map((p, i)=>(
+                <DetailsCard selectedProduct={p} key={i} />
 
-              )) : null
+              )) : console.log("no renderiza detalles")
             }
             </div>
             

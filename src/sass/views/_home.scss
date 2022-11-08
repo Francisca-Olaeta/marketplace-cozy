@@ -18,3 +18,10 @@ body {
     margin-bottom: 3rem;
     justify-content: center;
 }
+
+.logline{
+    margin: 3rem 0rem;
+    @media(min-width: 768px){
+        font-size: 1.3rem;
+    }
+}
