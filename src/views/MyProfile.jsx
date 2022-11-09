@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import PublicationCard from '../components/PublicationCard';
 import Back from '../components/Back';
 import Profile from '../components/Profile';
+import MySpinner from '../components/MySpinner';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
@@ -19,7 +20,10 @@ const MyProfile = () => {
   const { logout } = useAuth0();
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div>
+      <MySpinner />
+      Loading...
+      </div>
 }
 
   return (

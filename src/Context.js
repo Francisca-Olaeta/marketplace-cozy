@@ -12,6 +12,7 @@ const ContextProvider = ({ children }) => {
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
     const [search, setSearch] = useState("");
+    const [user, setUser] = useState("");
 
 
 
@@ -83,7 +84,7 @@ const ContextProvider = ({ children }) => {
     };
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser}}>
         {children}
     </Context.Provider>
 

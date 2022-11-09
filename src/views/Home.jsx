@@ -10,11 +10,11 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const Home = () => {
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
  
   const {productList} = useContext(Context);
-  const { loginWithRedirect } = useAuth0();
+ 
   return (
     <div>
      <Container className="py-5">

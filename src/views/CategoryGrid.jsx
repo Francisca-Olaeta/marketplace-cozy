@@ -29,22 +29,6 @@ const CategoryGrid = () => {
 
   const navigate = useNavigate();
 
-  /*Función goToType */
-  // const goToType = () => {
-  //   if(type){
-  //     /*Si es que hay algo en "type", ejecuta el useNavigate y agrega al fenal de la url el type */
-  //     navigate(`/categorias/${category}/${type}`);
-  //     setType('');
-  //   }
-  //   else console.log("selecciona un tipo")
-  // }
-
-  // useEffect(()=>{
-  //   /*Callback */
-  //   goToType(type);
-  // }, []);
-
-  // console.log(type);
 
 
 
@@ -139,12 +123,12 @@ const CategoryGrid = () => {
 
             // </Container>
 /*-------------------------------------------------------------------------------------------------- */ }
-            <div className="row justify-content-between align-items-center">
+            <div className="row justify-content-start align-items-center">
             {selectedCategory.filter((e)=> {
               if(search===""){
                 return e;
               }
-              else if (e.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+              else if (e.name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '').includes(search.toLocaleLowerCase())
               || e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
               || e.type.toLocaleLowerCase().includes(search.toLocaleLowerCase())
               || e.seller.toLocaleLowerCase().includes(search.toLocaleLowerCase())){

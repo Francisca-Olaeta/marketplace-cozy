@@ -23,6 +23,7 @@ import Cart from "./views/Cart";
 import NotFound from "./views/NotFound";
 import Results from "./views/Results";
 import { useAuth0 } from '@auth0/auth0-react';
+import NotRegistered from "./views/NotRegistered";
 
 
 
@@ -44,19 +45,21 @@ function App() {
             <Route path="/" element={<Home />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/registro" element={<Register />}/>
-            <Route path="/categorias" element={<Categories />}/>
-            <Route path="/categorias/:category" element={<CategoryGrid />}/>
-            {/* <Route path="/categorias/:category/:search" element={<Results />}/> */}
-            {/* <Route path="/categorias/:category/:type" element={<CategoryGrid />}/> */}
-            <Route path="/categorias/:category/:id" element={<Details />}/>
-            {/* <Route path="/categorias/living/detalle" element={<Details />}/>
-            <Route path="/categorias/dormitorio/detalle" element={<Details />}/>
-            <Route path="/categorias/entrada" element={<Entrada />}/>
-            <Route path="/categorias/entrada/detalle" element={<Details />}/> */}
-            <Route path="/miperfil" element={<MyProfile />}/>
-            <Route path="/miperfil/publicacion" element={<Publication />}/>
-            <Route path="/miperfil/favoritos" element={<Favourites />}/>
-            <Route path="/carrito" element={<Cart />}/>
+
+            {isAuthenticated ? <Route path="/categorias" element={<Categories />}/> : <Route path="/categorias" element={<NotRegistered />}/>}
+            
+            {isAuthenticated ? <Route path="/categorias/:category" element={<CategoryGrid />}/> : <Route path="/categorias/:category" element={<NotRegistered />}/> }
+   
+            {isAuthenticated ? <Route path="/categorias/:category/:id" element={<Details />}/> : <Route path="/categorias/:category/:id" element={<NotRegistered />}/> }
+
+            {isAuthenticated ? <Route path="/miperfil" element={<MyProfile />}/> : <Route path="/miperfil" element={<MyProfile />}/> }
+
+            {isAuthenticated ? <Route path="/miperfil/publicacion" element={<Publication />}/> : <Route path="/miperfil/publicacion" element={<NotRegistered />}/> }
+
+            {isAuthenticated ? <Route path="/miperfil/favoritos" element={<Favourites />}/> : <Route path="/miperfil/favoritos" element={<Favourites />}/> }
+
+            {isAuthenticated ? <Route path="/carrito" element={<Cart />}/> : <Route path="/carrito" element={<NotRegistered />}/> }
+            
             <Route path="*" element={<NotFound />}/>
 
           </Routes>
