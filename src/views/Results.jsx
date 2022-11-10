@@ -1,48 +1,47 @@
 import {React, useContext} from 'react';
-import {Container, Nav} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import { useNavigate, NavLink, useParams } from 'react-router-dom';
+import {
+  MDBBtn,
+} from 'mdb-react-ui-kit';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faX} from '@fortawesome/free-solid-svg-icons';
 import Context from '../Context';
-import Header from '../components/Header';
 import CstmCard from '../components/CstmCard';
 import Back from '../components/Back';
-import NotFound from './NotFound';
-
+import NoCoincidence from '../components/NoCoincidence';
 
 const Results = () => {
-    const {productList, setProductList, handleChange, setSearch} = useContext(Context);
+    const {productList, setProductList, handleChange, search, setSearch} = useContext(Context);
 
     const navigate = useNavigate();
-    const { search } = useParams();
 
 
   return (
     <div>
-        <Header />
-        <Container className="cat-container my-5">
-            <Back />
+  
+        <div className="row justify-content-start align-items-center">
 
-            <h2 className="mt-5 mb-3">Resultados</h2>
+        {productList.filter((results)=> {
+          if (results.name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '').includes(search.toLocaleLowerCase())
+          || results.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+          || results.type.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+          || results.seller.toLocaleLowerCase().includes(search.toLocaleLowerCase())){
+            return results;
+          }
+        }).map((results)=>(
+          <CstmCard key={results.id} product={results} />
+          ))
+        }
+        <div>
+          <MDBBtn floating outline rounded size='lg' color='dark' onClick={()=>setSearch('')}>
+          <FontAwesomeIcon icon={faX}/>
+          </MDBBtn>
+          <MDBBtn outline color='link' onClick={()=>setSearch('')}>Limpiar</MDBBtn>
+        
+        </div>
             
-            <div className="row justify-content-between align-items-center">
-              {productList.filter((e)=>{
-                if(search===''){
-                  console.log("sin filtro");
-                  return e;
-                }
-                else if ((e.name).toLocaleLowerCase().includes(search.toLocaleLowerCase()) || (e.category).toLocaleLowerCase().includes(search.toLocaleLowerCase()) || (e.type).toLocaleLowerCase().includes(search.toLocaleLowerCase()) || (e.id).toLocaleLowerCase().includes(search.toLocaleLowerCase()) || (e.seller).toLocaleLowerCase().includes(search.toLocaleLowerCase())){
-                  console.log('con buscador');
-                  return e;
-                }
-                else{
-                  console.log("cueck")
-                }
-              }).map((e)=>(
-                <CstmCard key={e.id} product={e} />
-              ))}
-               
-            </div>
-            
-        </Container>
+        </div>
 
 
 

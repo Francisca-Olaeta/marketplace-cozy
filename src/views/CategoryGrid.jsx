@@ -1,6 +1,11 @@
 import {React, useState, useContext, useEffect} from 'react';
 import {Container, Button, Form} from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import {
+  MDBBtn,
+} from 'mdb-react-ui-kit';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faX} from '@fortawesome/free-solid-svg-icons';
 import Context from '../Context';
 import Header from '../components/Header';
 import CstmCard from '../components/CstmCard';
@@ -8,15 +13,16 @@ import Back from '../components/Back';
 
 import Select from '../components/Select';
 import NotFound from './NotFound';
+import NoCoincidence from '../components/NoCoincidence';
+
 
 
 const CategoryGrid = () => {
   const { category } = useParams();
-  const { type } = useParams();
   
 
   /*Paso variables a través del Context */
-  const {productList, setProductList, categories, setCategories, setCategory, setType, isChecked, setIsChecked, types, handleChange, search, setSearch} = useContext(Context);
+  const {productList, setProductList, categories, setCategories, setCategory, type, setType, isChecked, setIsChecked, types, handleChange, search, setSearch} = useContext(Context);
 
   /*Variable que guardará los productos filtrados por categoría */
   const selectedCategory = productList.filter((e) => e.category.includes(category));
@@ -41,27 +47,15 @@ const CategoryGrid = () => {
     }
 /*Función para filtrar con checkbox------------------------------ */
 
-// const handleOnChange = (e) => {
-//   const currentIndex = isChecked.indexOf(e);
-//   const newChecked = [...isChecked];
-//   if(currentIndex === -1){
-//     newChecked.push(e)
-//   }else{
-//     newChecked.splice(currentIndex, 1)
-//   }
+const filterType = (e) => {
+  if(e.type===type){
+    return !isChecked
+  }
+  }
+ 
+  
 
-//  setIsChecked(newChecked);
-// }
-
-  // const filterResult = (type) => {
-  //   const resultOfFilter = selectedType.filter((e)=>{
-  //     return e.type===type
-  //   });
-  //   setProductList(resultOfFilter);
-
-  // };
-
-    /*Función para ordenar de mayor a menor */
+/*Función para ordenar de mayor a menor------------------------ */
     const sortArray = (e) => {
      let arrayOrdenado
      if ((e.target.value) === ""){
@@ -97,8 +91,8 @@ const CategoryGrid = () => {
             <h2 key={i} className="mt-5 mb-3">{e.category}</h2>
             ))}
 
-            {/* <Select type={type} /> */}
-
+            {search ? null : 
+            
             <Form.Select defaultValue={""} onChange={sortArray} aria-label="Default select example">
               <option value="">Ordenar por:</option>
               <option value="ascend">Precio, de menor a mayor</option>
@@ -106,22 +100,14 @@ const CategoryGrid = () => {
               <option value="az">Nombre, ascendente</option>
               <option value="za">Nombre, descendente</option>
             </Form.Select>
+            
+            }
+
+            
 
             <h3>{type}</h3>
 {/* 
-            /*Intento de hacer filtros con checkbox -------------------------------------------------*/
-            // <Container>
-            // <Form  value={type}>
-            // <Form.Group 
-            // className="mb-3" 
-            // controlId="formBasicCheckbox">
-             
-            //      <Form.Check onChange={()=>filterResult({type})} value="" type="checkbox" label="Alfombras" />
-            
-            //   </Form.Group>
-            // </Form>
 
-            // </Container>
 /*-------------------------------------------------------------------------------------------------- */ }
             <div className="row justify-content-start align-items-center">
             {selectedCategory.filter((e)=> {
@@ -134,25 +120,34 @@ const CategoryGrid = () => {
               || e.seller.toLocaleLowerCase().includes(search.toLocaleLowerCase())){
                 return e;
               }
+              else if (isChecked=true){
+                return e;
+              }
+
             }).map((e)=>(
                 <CstmCard key={e.id} product={e} />
-              ))}
-    
-           
-        
-        {/* {selectedType.map((e, i) => (
-            
-           <CstmCard key={i} product={e} />
-         )) 
-            
-       }   */}
-      
-          
-           
-              
+              ))
 
+              }
+
+              <div>
+                <Form.Group controlId="formBasicCheckbox" onChange={()=>filterType()}>
+                  {types.map((e)=>(
+                    <Form.Check type="checkbox" label={e} value={isChecked} />
+                  ))}
+                </Form.Group>
+              </div>
+    
                 
                 
+            </div>
+
+            <div className='my-3'>
+              <MDBBtn floating outline rounded size='lg' color='dark' onClick={()=>setSearch('')}>
+              <FontAwesomeIcon icon={faX}/>
+              </MDBBtn>
+              <MDBBtn outline color='link' onClick={()=>setSearch('')}>Limpiar</MDBBtn>
+            
             </div>
             
         </Container>

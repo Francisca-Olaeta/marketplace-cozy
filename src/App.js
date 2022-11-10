@@ -47,6 +47,8 @@ function App() {
             <Route path="/registro" element={<Register />}/>
 
             {isAuthenticated ? <Route path="/categorias" element={<Categories />}/> : <Route path="/categorias" element={<NotRegistered />}/>}
+
+            {isAuthenticated ? <Route path="/categorias" element={<Results />}/> : <Route path="/resultados" element={<NotRegistered />}/>}
             
             {isAuthenticated ? <Route path="/categorias/:category" element={<CategoryGrid />}/> : <Route path="/categorias/:category" element={<NotRegistered />}/> }
    
