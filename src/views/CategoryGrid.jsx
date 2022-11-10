@@ -22,7 +22,7 @@ const CategoryGrid = () => {
   
 
   /*Paso variables a través del Context */
-  const {productList, setProductList, categories, setCategories, setCategory, type, setType, isChecked, setIsChecked, types, handleChange, search, setSearch} = useContext(Context);
+  const {productList, setProductList, categories, setCategories, setCategory, type, setType, types, handleChange, search, setSearch} = useContext(Context);
 
   /*Variable que guardará los productos filtrados por categoría */
   const selectedCategory = productList.filter((e) => e.category.includes(category));
@@ -33,25 +33,22 @@ const CategoryGrid = () => {
   /*Variable que guardará los productos filtrados por tipo */
   const selectedType = selectedCategory.filter((e) => e.type.includes(type));
 
-  const navigate = useNavigate();
 
+  /*Estado para los filtros con checkbox */
+  const [isChecked, setIsChecked] = useState(
+    new Array(types.length).fill(false)
+    );
+    console.log(isChecked);
 
-
-
-    if (productList === undefined){
-      return (
-        <div>
-          <h3>Está cargando</h3>
-        </div>
-      )
-    }
 /*Función para filtrar con checkbox------------------------------ */
+const handleChangeCheck = (position) => {
+  const updatedIsChecked = isChecked.map((e, index) => index === position ? !e : e);
 
-const filterType = (e) => {
-  if(e.type===type){
-    return !isChecked
-  }
-  }
+  setIsChecked(updatedIsChecked);
+}
+
+
+  
  
   
 
@@ -83,7 +80,18 @@ const filterType = (e) => {
   return (
     <div>
         <Header />
-        <Container className="cat-container my-5">
+        <Container fluid className='container-main d-flex'>
+        <div className='panel' width={45}>
+              <h4 className='panel__title'>Filtrar por tipo de productos:</h4>
+                <Form.Group controlId="formBasicCheckbox" >
+                  {types.map((e, index)=>(
+                    <Form.Check className='panel__checks' type="checkbox" label={e} value={e} onChange={()=>handleChangeCheck(index)} checked={isChecked[index]} key={index}/>
+                  ))}
+                </Form.Group>
+            </div>
+
+
+        <Container className="cat-container my-5 d-flex">
             <Back />
             
             {/* /*Título */ }
@@ -100,56 +108,51 @@ const filterType = (e) => {
               <option value="az">Nombre, ascendente</option>
               <option value="za">Nombre, descendente</option>
             </Form.Select>
-            
+
             }
+{/* ------------------------------------------------------------------------------------------------------------ */}
+   
+            
 
             
 
-            <h3>{type}</h3>
+            
 {/* 
 
-/*-------------------------------------------------------------------------------------------------- */ }
-            <div className="row justify-content-start align-items-center">
-            {selectedCategory.filter((e)=> {
-              if(search===""){
-                return e;
-              }
-              else if (e.name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '').includes(search.toLocaleLowerCase())
-              || e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-              || e.type.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-              || e.seller.toLocaleLowerCase().includes(search.toLocaleLowerCase())){
-                return e;
-              }
-              else if (isChecked=true){
-                return e;
-              }
+/*----------------------------------Filtrado y renderización de los productos---------------------------------------- */ }
+            <div>
+                <div className="row justify-content-start align-items-center">
+                {selectedCategory.filter((e)=> {
+                  if(search===""){
+                    return e;
+                  }
+                  else if (e.name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '').includes(search.toLocaleLowerCase())
+                  || e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+                  || e.type.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+                  || e.seller.toLocaleLowerCase().includes(search.toLocaleLowerCase())){
+                    return e;
+                  }
+                  else if (type.some()){
+                  }
+                  
+                }).map((e, i)=>(
+                    <CstmCard key={i} product={e} />
+                  ))
 
-            }).map((e)=>(
-                <CstmCard key={e.id} product={e} />
-              ))
+                  }  
+                </div>
 
-              }
+                <div className='my-3'>
+                  <MDBBtn floating outline rounded size='lg' color='dark' onClick={()=>setSearch('')}>
+                  <FontAwesomeIcon icon={faX}/>
+                  </MDBBtn>
+                  <MDBBtn outline color='link' onClick={()=>setSearch('')}>Limpiar</MDBBtn>
+                </div>
 
-              <div>
-                <Form.Group controlId="formBasicCheckbox" onChange={()=>filterType()}>
-                  {types.map((e)=>(
-                    <Form.Check type="checkbox" label={e} value={isChecked} />
-                  ))}
-                </Form.Group>
-              </div>
-    
-                
-                
             </div>
+             
+        </Container>
 
-            <div className='my-3'>
-              <MDBBtn floating outline rounded size='lg' color='dark' onClick={()=>setSearch('')}>
-              <FontAwesomeIcon icon={faX}/>
-              </MDBBtn>
-              <MDBBtn outline color='link' onClick={()=>setSearch('')}>Limpiar</MDBBtn>
-            
-            </div>
-            
         </Container>
 
 

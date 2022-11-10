@@ -12,7 +12,6 @@ const ContextProvider = ({ children }) => {
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
     const [search, setSearch] = useState("");
-    const [isChecked, setIsChecked] = useState(false);
     const [user, setUser] = useState("");
 
 
@@ -62,7 +61,7 @@ const ContextProvider = ({ children }) => {
         getCategories();
     }, []);
 
-    /*Función para reducir la lista de tipos*/
+  /*Función para reducir la lista de tipos*/
   const types = productList.reduce((acc,item) => {
     if(!acc.includes(item.type)){
       acc.push(item.type)
@@ -85,7 +84,7 @@ const ContextProvider = ({ children }) => {
     };
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser, isChecked, setIsChecked}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser}}>
         {children}
     </Context.Provider>
 

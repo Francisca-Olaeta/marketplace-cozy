@@ -38,9 +38,6 @@ const Categories = () => {
          goToCategory(category);
        }, []);
    
-
-   
-
   return (
     <div>
         <Header />

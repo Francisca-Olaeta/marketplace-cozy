@@ -1,0 +1,16 @@
+.panel{
+    width: auto;
+    background-color: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    margin: 3rem 0rem 3rem 0rem;
+
+    &__title{
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    &__checks{
+        margin: 1rem 0rem .5rem 0rem;
+    }
+}
