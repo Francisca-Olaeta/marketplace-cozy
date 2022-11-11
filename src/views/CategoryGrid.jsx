@@ -19,10 +19,11 @@ import NoCoincidence from '../components/NoCoincidence';
 
 const CategoryGrid = () => {
   const { category } = useParams();
+  const { type } = useParams();
   
 
   /*Paso variables a través del Context */
-  const {productList, setProductList, categories, setCategories, setCategory, type, setType, types, handleChange, search, setSearch} = useContext(Context);
+  const {productList, setProductList, categories, setCategories, setCategory, setType, types, handleChange, search, setSearch} = useContext(Context);
 
   /*Variable que guardará los productos filtrados por categoría */
   const selectedCategory = productList.filter((e) => e.category.includes(category));
@@ -31,7 +32,10 @@ const CategoryGrid = () => {
   const eachCategory = categories.filter((e) => e.category === category);
 
   /*Variable que guardará los productos filtrados por tipo */
-  const selectedType = selectedCategory.filter((e) => e.type.includes(type));
+  const selectedType = productList.filter((e) => e.type.includes(type));
+
+
+
 
 
   /*Estado para los filtros con checkbox */
@@ -47,6 +51,29 @@ const handleChangeCheck = (position) => {
   setIsChecked(updatedIsChecked);
 }
 
+// const filterCheck = (e, value) => {
+//   let arrayByType
+//   if((e.value)===""){
+//     console.log("nada");
+//   }
+//   else if ((e.value) === "alfombra"){
+//     arrayByType=[...selectedType].filter((e)=>e.type.includes(type));
+//     console.log("alfombras");
+//   }
+//   else if ((e.value) === "textil"){
+//     arrayByType=[...selectedType].filter((e)=>e.type.includes(type));
+//     console.log("textil");
+//   }
+//   else if ((e.value) === "deco"){
+//     arrayByType=[...selectedType].filter((e)=>e.type.includes(type));
+//     console.log("deco");
+//   }
+//   else if ((e.value) === "muebles"){
+//     arrayByType=[...selectedType].filter((e)=>e.type.includes(type));
+//     console.log("muebles");
+//   }
+
+// }
 
   
  
@@ -80,15 +107,7 @@ const handleChangeCheck = (position) => {
   return (
     <div>
         <Header />
-        <Container fluid className='container-main d-flex'>
-        <div className='panel' width={45}>
-              <h4 className='panel__title'>Filtrar por tipo de productos:</h4>
-                <Form.Group controlId="formBasicCheckbox" >
-                  {types.map((e, index)=>(
-                    <Form.Check className='panel__checks' type="checkbox" label={e} value={e} onChange={()=>handleChangeCheck(index)} checked={isChecked[index]} key={index}/>
-                  ))}
-                </Form.Group>
-            </div>
+
 
 
         <Container className="cat-container my-5 d-flex">
@@ -96,20 +115,33 @@ const handleChangeCheck = (position) => {
             
             {/* /*Título */ }
             {eachCategory.map((e, i) => (
-            <h2 key={i} className="mt-5 mb-3">{e.category}</h2>
-            ))}
+              <h2 key={i} className="mt-5 mb-3">{e.category}</h2>
+              ))}
 
             {search ? null : 
-            
-            <Form.Select defaultValue={""} onChange={sortArray} aria-label="Default select example">
-              <option value="">Ordenar por:</option>
-              <option value="ascend">Precio, de menor a mayor</option>
-              <option value="descend">Precio, de mayor a menor</option>
-              <option value="az">Nombre, ascendente</option>
-              <option value="za">Nombre, descendente</option>
-            </Form.Select>
 
-            }
+            <div className='filters-container'>
+                <div className='panel' width={45}>
+                  <h4 className='panel__title'>Filtrar por tipo de productos:</h4>
+                    <Form.Group controlId="formBasicCheckbox">
+                      {types.map((e, index)=>(
+                        <Form.Check className='panel__checks' type="checkbox" label={e} value={e} onChange={()=>handleChangeCheck(index)} checked={isChecked[index]} key={index}/>
+                      ))}
+                    </Form.Group>
+
+                </div>
+                <Form.Select className='select' defaultValue={""} onChange={sortArray} aria-label="Default select example">
+                  <option value="">Ordenar por:</option>
+                  <option value="ascend">Precio, de menor a mayor</option>
+                  <option value="descend">Precio, de mayor a menor</option>
+                  <option value="az">Nombre, ascendente</option>
+                  <option value="za">Nombre, descendente</option>
+                </Form.Select>
+
+            </div>
+            
+
+}
 {/* ------------------------------------------------------------------------------------------------------------ */}
    
             
@@ -132,14 +164,17 @@ const handleChangeCheck = (position) => {
                   || e.seller.toLocaleLowerCase().includes(search.toLocaleLowerCase())){
                     return e;
                   }
-                  else if (type.some()){
-                  }
                   
                 }).map((e, i)=>(
                     <CstmCard key={i} product={e} />
                   ))
-
                   }  
+
+                  {/* {selectedType.map((e, i)=>(
+                    <CstmCard key={i} product={e} />
+                  ))} */}
+
+                  
                 </div>
 
                 <div className='my-3'>
@@ -153,7 +188,6 @@ const handleChangeCheck = (position) => {
              
         </Container>
 
-        </Container>
 
 
 

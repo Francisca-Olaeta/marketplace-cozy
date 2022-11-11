@@ -11,11 +11,12 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBCardImage,
-  MDBRipple
+  MDBRipple,
+  MDBBtn,
 } from 'mdb-react-ui-kit';
 
 function CstmCard({product}) {
-  const { addToFav } = useContext(Context);
+  const { addToFav, addToCart } = useContext(Context);
   const navigate = useNavigate();
   const { category } = useParams();
 
@@ -37,7 +38,9 @@ function CstmCard({product}) {
         <MDBCardText className="item-card__price">${product.price.toLocaleString("es-CL")}</MDBCardText>
         <div className='item-card__align-icons'>
          <Button onClick={() => getDetails(product.id)} className="item-card__btn" variant="outline-dark">Ver más</Button>
-          <FontAwesomeIcon icon={faCartShopping} className="icon item-card__align-icons__mb"/>
+
+          <FontAwesomeIcon onClick={ () => addToCart(product.id)} icon={faCartShopping} className="btn-rounded me-1 icon item-card__align-icons__mb not-liked"/>
+
            <FontAwesomeIcon onClick={()=>addToFav(product.id)} icon={faHeart} 
            className= { product.liked ? "btn me-1 icon item-card__align-icons__mb liked" : "btn-rounded me-1 icon item-card__align-icons__mb not-liked"}/>
        </div>

@@ -61,7 +61,7 @@
 .active {
     color: $dark;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .active:visited {
@@ -91,6 +91,7 @@ color: $secondary;
 
 .toggle-cstm-container a:hover {
     color: $dark;
+    transition: .3 ease;
 }
 
 
@@ -99,7 +100,7 @@ color: $secondary;
 }
 
 .navbar-nav{
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .toggle-cstm-container {

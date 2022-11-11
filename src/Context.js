@@ -13,6 +13,7 @@ const ContextProvider = ({ children }) => {
     const [type, setType] = useState("");
     const [search, setSearch] = useState("");
     const [user, setUser] = useState("");
+    const [cart, setCart] = ([]);
 
 
 
@@ -20,6 +21,7 @@ const ContextProvider = ({ children }) => {
     /*Función para acceder a la información de productos desde el archivo json */
     
     const getInfoProducts = async() => {
+      
         try{
             const res = await fetch('./cozy.json');
             const data = await res.json();
@@ -83,8 +85,53 @@ const ContextProvider = ({ children }) => {
       console.log(search);
     };
 
+/*Función add to cart */
+const addToCart = ({ name, id, img, price, category, type}) => {
+  const foundItem = cart.findIndex((p)=>p.id===id);
+  const product = { name, id, img, price, category, type, qty: 1};
+  
+  // Si encuentra el mimo id, le digo que agregue 1 al índice
+  if(foundItem >= 0) {
+    cart[foundItem].qty++;
+    setCart([...cart])
+  // Si no encuentra el mismo id, agrega el producto tal cual
+  }else {
+    setCart([...cart, product]);
+  }
+}
+
+/*Función para incrementar la cantidad */
+const increment = (i) => {
+  cart[i].qty++;
+  setCart([...cart]);
+}
+
+
+/*Función para decrementar la cantidad */
+const decrement = (i) => {
+  const { qty } = cart[i];
+  if(qty === 1){
+    cart.splice(i, 1);
+    setCart([...cart]);
+  }
+  else{
+    cart[i].qty--;
+    setCart([...cart])
+  }
+}
+
+/*Función que muestra el tital del carro de compras */
+// const initialValue = 0;
+// const totalProducts = cart.reduce(
+//   (previousValue, { qty }) => previousValue + qty,
+//   initialValue
+// );
+
+
+
+
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser, addToCart, increment, decrement}}>
         {children}
     </Context.Provider>
 

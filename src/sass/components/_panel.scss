@@ -1,16 +1,47 @@
+.filters-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;  
+    width: 100%;
+
+    @media(min-width: 768px){
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        
+    
+    }
+    
+}
+
 .panel{
-    width: auto;
+    width: 22rem;
+    height: auto;
     background-color: white;
-    padding: 3rem;
+    padding: 1.3rem;
     border-radius: 1rem;
-    margin: 3rem 0rem 3rem 0rem;
+    margin: 0rem;
 
     &__title{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         margin-bottom: 1rem;
     }
 
     &__checks{
-        margin: 1rem 0rem .5rem 0rem;
+        display: flex;
+        margin: .5rem 0rem;
     }
+
+    @media(min-width: 768px){
+        margin: 3rem 3rem 3rem 0rem;
+        
+    }
+}
+
+.select{
+    width: 40%;
+    height: 3rem;
+    margin-top: 3rem;
+
 }
