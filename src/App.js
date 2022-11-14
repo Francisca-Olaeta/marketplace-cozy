@@ -19,7 +19,7 @@ import Favourites from "./views/Favourites";
 import MyProfile from "./views/MyProfile";
 import Details from "./views/Details";
 import Publication from "./views/Publication";
-import Cart from "./views/Cart";
+import MyCart from "./views/MyCart";
 import NotFound from "./views/NotFound";
 import Results from "./views/Results";
 import { useAuth0 } from '@auth0/auth0-react';
@@ -60,7 +60,7 @@ function App() {
 
             {isAuthenticated ? <Route path="/miperfil/favoritos" element={<Favourites />}/> : <Route path="/miperfil/favoritos" element={<Favourites />}/> }
 
-            {isAuthenticated ? <Route path="/carrito" element={<Cart />}/> : <Route path="/carrito" element={<NotRegistered />}/> }
+            {isAuthenticated ? <Route path="/carrito" element={<MyCart />}/> : <Route path="/carrito" element={<NotRegistered />}/> }
             
             <Route path="*" element={<NotFound />}/>
 

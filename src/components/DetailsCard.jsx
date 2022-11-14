@@ -18,6 +18,8 @@ const DetailsCard = ({selectedProduct}) => {
   const { addToFav, addToCart } = useContext(Context);
   const navigate = useNavigate();
 
+
+
   return (
     <MDBCard className="det-card mx-3 my-2 pe-3" key={selectedProduct.id}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay hover-zoom'>
@@ -35,7 +37,11 @@ const DetailsCard = ({selectedProduct}) => {
           ${selectedProduct.price.toLocaleString("es-CL")}
         </MDBCardText>
         <div className='det-card__btns-container'>
-        <Button onClick={()=>addToCart(selectedProduct.id)} className="det-card__btn" variant="outline-dark">Añadir al carro</Button>
+  
+  {selectedProduct ? 
+        <Button onClick={()=>addToCart(selectedProduct)} className="det-card__btn" variant="outline-dark">Añadir al carro</Button> : <Button className="det-card__btn" variant="dark">Añadido al carro</Button> }
+
+      
         
         <Button onClick={()=>navigate(`/categorias`)} className= "det-card__btn" variant="outline-dark">Volver</Button>
        

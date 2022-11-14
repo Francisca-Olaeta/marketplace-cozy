@@ -13,7 +13,7 @@ const ContextProvider = ({ children }) => {
     const [type, setType] = useState("");
     const [search, setSearch] = useState("");
     const [user, setUser] = useState("");
-    const [cart, setCart] = ([]);
+    const [cart, setCart] = useState([]);
 
 
 
@@ -89,11 +89,12 @@ const ContextProvider = ({ children }) => {
 const addToCart = ({ name, id, img, price, category, type}) => {
   const foundItem = cart.findIndex((p)=>p.id===id);
   const product = { name, id, img, price, category, type, qty: 1};
+  console.log(cart);
   
-  // Si encuentra el mimo id, le digo que agregue 1 al índice
+  // Si encuentra el mismo id, le digo que agregue 1 al índice
   if(foundItem >= 0) {
     cart[foundItem].qty++;
-    setCart([...cart])
+    setCart([...cart]);
   // Si no encuentra el mismo id, agrega el producto tal cual
   }else {
     setCart([...cart, product]);
@@ -120,18 +121,32 @@ const decrement = (i) => {
   }
 }
 
-/*Función que muestra el tital del carro de compras */
-// const initialValue = 0;
-// const totalProducts = cart.reduce(
-//   (previousValue, { qty }) => previousValue + qty,
-//   initialValue
-// );
+/*Función que muestra el total del carro de compras */
+const initialValue = 0;
+const total = cart.reduce(
+  (previousValue, { qty, price }) => previousValue + (qty*price),
+  initialValue
+);
+
+/* Función para obtener el total parcial por producto */
+const getPartialTotal = (i) => {
+  const productTotal = i.price * i.qty;
+  return productTotal
+}
+
+/*Función para eliminar producto del carro */
+const remove = (id) => {
+  const index = cart.findIndex((p)=>p.id===id);
+  const removedFromCart = cart.splice(index, 1);
+  
+  setCart([...cart])
+}
 
 
 
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser, addToCart, increment, decrement}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser, cart, setCart, addToCart, increment, decrement, total, remove, getPartialTotal}}>
         {children}
     </Context.Provider>
 

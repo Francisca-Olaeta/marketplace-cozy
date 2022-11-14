@@ -28,7 +28,7 @@ function CstmCard({product}) {
   return (
     <MDBCard className="item-card mx-4 my-5 pe-3">
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-        <MDBCardImage className="item-card__img" src={product.img} fluid alt='...' />
+        <MDBCardImage className="item-card__img" src={product.img} fluid alt={product.name} />
         <a onClick={() => getDetails(product.id)}>
           <div className='mask item-card__img' style={{ backgroundColor: '#e6b9ad8f' }}></div>
         </a>
@@ -39,7 +39,7 @@ function CstmCard({product}) {
         <div className='item-card__align-icons'>
          <Button onClick={() => getDetails(product.id)} className="item-card__btn" variant="outline-dark">Ver más</Button>
 
-          <FontAwesomeIcon onClick={ () => addToCart(product.id)} icon={faCartShopping} className="btn-rounded me-1 icon item-card__align-icons__mb not-liked"/>
+          <FontAwesomeIcon onClick={ () => addToCart(product)} icon={faCartShopping} className="btn-rounded me-1 icon item-card__align-icons__mb not-liked"/>
 
            <FontAwesomeIcon onClick={()=>addToFav(product.id)} icon={faHeart} 
            className= { product.liked ? "btn me-1 icon item-card__align-icons__mb liked" : "btn-rounded me-1 icon item-card__align-icons__mb not-liked"}/>
