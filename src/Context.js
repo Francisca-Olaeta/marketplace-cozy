@@ -14,6 +14,8 @@ const ContextProvider = ({ children }) => {
     const [search, setSearch] = useState("");
     const [user, setUser] = useState("");
     const [cart, setCart] = useState([]);
+    const [agree, setAgree] = useState(false);
+    const [isDisabled, setIsDisabled] = useState(true);
 
 
 
@@ -142,11 +144,19 @@ const remove = (id) => {
   setCart([...cart])
 }
 
+/*Función para condicionar botón con check */
+// const handleCheck = (e) => {
+//   const field = e.target.value;
+//   if (field === "agree") {
+//     setAgree(e.target.checked)
+//   }
+// }
+
 
 
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser, cart, setCart, addToCart, increment, decrement, total, remove, getPartialTotal}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser, cart, setCart, addToCart, increment, decrement, total, remove, getPartialTotal, agree, setAgree, isDisabled, setIsDisabled}}>
         {children}
     </Context.Provider>
 

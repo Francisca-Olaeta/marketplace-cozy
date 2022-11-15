@@ -7,7 +7,6 @@ import {
   MDBRipple
 } from 'mdb-react-ui-kit';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import {faLock} from '@fortawesome/free-solid-svg-icons';
 
 import Context from '../Context';

@@ -6,6 +6,8 @@ import Header from '../components/Header';
 import CstmCard from '../components/CstmCard';
 import Select from '../components/Select';
 import Back from '../components/Back';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHeartBroken} from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -22,12 +24,15 @@ const Favourites = () => {
             <Back />
 
             <h2 className="mt-5 mb-3">Mis favoritos</h2>
-            {/* <Select /> */}
+            
 
             <div className="row justify-content-start fav-container">
               {productList.length === 0 ?
               <>
-              <h4 className='my-5'>No tienes ningún favorito :(</h4>
+              <p className='empty-cart-msg mt-5'>No tienes ningún favorito </p>
+              <div className="lock">
+                <FontAwesomeIcon icon={faHeartBroken} className="lock__icon"/>
+              </div>
               <Button className='mb-5' variant='outline-dark' onClick={()=>navigate(`/categorias`)}>Ir a vitrinear</Button>
 
               </> 

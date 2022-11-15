@@ -1,14 +1,26 @@
-import React from 'react';
+import { React, useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, Button, Container } from 'react-bootstrap';
 import Header from '../components/Header';
 import Back from '../components/Back';
+import Context from '../Context';
 
 
 
 
 const Publication = () => {
   const navigate = useNavigate();
+  const { agree, setAgree, isDisabled, setIsDisabled } = useContext(Context);
+
+  const canSubmit = () => {
+    return agree ? setIsDisabled(true) : setIsDisabled(false);
+  }
+
+  const onCheckboxClick = () => {
+    setAgree(!agree);
+    return canSubmit();
+  }
+
   return (
     <>
     <div>
@@ -18,7 +30,7 @@ const Publication = () => {
         <div className="col-lg-8 col-xl-4">
         <Back />
           <h2 className="my-5">Quiero vender</h2>
-          <h4 className="my-3">Ingresa la información del producto</h4>
+          <h4 className="mt-3 mb-5">Ingresa la información del producto</h4>
           <p>¿Qué tipo de producto que quieres vender?</p>
           
 
@@ -83,11 +95,11 @@ const Publication = () => {
           
 
           <Form.Group className="mt-5 mb-2" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Acepto los términos y condiciones" />
+              <Form.Check onClick={onCheckboxClick} type="checkbox" value="agree" label="Acepto los términos y condiciones" />
           </Form.Group>
 
         <div className="login_container">
-          <Button variant="dark" type="submit" className='my-1'>
+          <Button disabled={isDisabled} variant="dark" type="submit" className='my-1'>
               Publicar
           </Button>
          
