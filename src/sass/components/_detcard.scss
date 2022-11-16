@@ -21,12 +21,18 @@
         font-size: 1.5rem;
     }
 
+    &__seller{
+        font-size: 1.2rem;
+        margin: 1rem 0;
+    }
+
     &__desc{
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        margin: 1rem 0;
     }
 
     &__price{
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     &__btns-container{
         display: flex;
@@ -58,6 +64,12 @@
         }
         &__price{
             margin: 3rem 0rem;
+        }
+        &__title{
+            font-size: 2rem;
+        }
+        &__desc{
+            font-size: 1.3rem;
         }
        
        

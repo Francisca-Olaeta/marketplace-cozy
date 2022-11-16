@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, Button, Container } from 'react-bootstrap';
 import Header from '../components/Header';
@@ -8,7 +8,8 @@ import { useContext } from 'react';
 
 const Register = () => {
 
-  const { user, setUser } = useContext;
+  const { user, setUser, register } = useContext;
+  const inputRef = useRef(null);
 
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -18,7 +19,16 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [check, setCheck] = useState(false);
 
-  console.log(rut);
+  // console.log(rut);
+
+  const onChange = (e) => {
+
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setUser(inputRef.current.value);
+  };
 
   const getRegister = (e, i) => {
     e.preventDefault()
@@ -65,23 +75,27 @@ const Register = () => {
         <div className="col-xl-4">
           <h2>Crea tu cuenta</h2>
           <Form onSubmit={getRegister}>
-          <Form.Group className="mb-3" controlId="formBasicEmail" onChange={capturarInputName}>
+          <Form.Group className="mb-3" controlId="formBasicEmail" id="name" onChange={capturarInputName}>
               <Form.Control type="text" placeholder="Nombre" />
           </Form.Group>
 
-          <Form.Group className="mb-3" onChange={capturarInputLastName}>
+          <Form.Group className="mb-3" id="lastname" onChange={capturarInputLastName}>
               <Form.Control type="text" placeholder="Apellido" />
           </Form.Group>
 
-          <Form.Group className="mb-3" onChange={capturarInputMail}>
+          <Form.Group className="mb-3" id="username" onChange={capturarInputLastName}>
+              <Form.Control type="text" placeholder="Nombre de usuario" />
+          </Form.Group>
+
+          <Form.Group className="mb-3" id="email" onChange={capturarInputMail}>
               <Form.Control type="email" placeholder="Email" />
           </Form.Group>
 
-          <Form.Group className="mb-3" onChange={capturarInputPhone}>
+          <Form.Group className="mb-3" id="phone" onChange={capturarInputPhone}>
               <Form.Control type="phone" placeholder="Teléfono" />
           </Form.Group>
 
-          <Form.Group className="mb-3" onChange={capturarInputRut}>
+          <Form.Group className="mb-3" id="rut" onChange={capturarInputRut}>
               <Form.Control type="text" placeholder="Rut" />
           </Form.Group>
 
@@ -89,12 +103,12 @@ const Register = () => {
               <Form.Control type="password" placeholder="Contraseña" />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Group className="mb-3" id="checkterms" controlId="formBasicCheckbox">
               <Form.Check type="checkbox" label="Acepto los términos y condiciones" />
           </Form.Group>
 
         <div className="login_container">
-          <Button variant="dark" type="submit" className='my-1'>
+          <Button onClick={register} variant="dark" type="submit" className='my-1'>
               Crear cuenta
           </Button>
          <p>¿Ya tienes cuenta? <Button variant="link" onClick={ () => loginWithRedirect()}> Inicia sesión </Button></p>

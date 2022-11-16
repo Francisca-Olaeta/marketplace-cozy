@@ -33,6 +33,9 @@ const DetailsCard = ({selectedProduct}) => {
         <MDBCardText className="det-card__desc">
           {selectedProduct.desc}
         </MDBCardText>
+
+        <MDBCardText className='det-card__seller'>Vendido por {selectedProduct.seller}</MDBCardText>
+
         <MDBCardText className="det-card__price">
           ${selectedProduct.price.toLocaleString("es-CL")}
         </MDBCardText>

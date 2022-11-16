@@ -115,7 +115,7 @@ const handleChangeCheck = (position) => {
             
             {/* /*Título */ }
             {eachCategory.map((e, i) => (
-              <h2 key={i} className="mt-5 mb-3">{e.category}</h2>
+              <h2 key={i} className="mt-5 mb-3 caps">{e.category}</h2>
               ))}
 
             {search ? null : 
@@ -125,7 +125,7 @@ const handleChangeCheck = (position) => {
                   <h4 className='panel__title'>Filtrar por tipo de productos:</h4>
                     <Form.Group controlId="formBasicCheckbox">
                       {types.map((e, index)=>(
-                        <Form.Check className='panel__checks' type="checkbox" label={e} value={e} onChange={()=>handleChangeCheck(index)} checked={isChecked[index]} key={index}/>
+                        <Form.Check className='panel__checks caps' type="checkbox" label={e} value={e} onChange={()=>handleChangeCheck(index)} checked={isChecked[index]} key={index}/>
                       ))}
                     </Form.Group>
 

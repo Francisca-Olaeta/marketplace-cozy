@@ -14,8 +14,10 @@ import {faHeartBroken} from '@fortawesome/free-solid-svg-icons';
 const Favourites = () => {
   const {productList, setProductList} = useContext(Context)
   const navigate = useNavigate();
+console.log(productList)
 
-  
+
+ 
 
   return (
     <div>
@@ -27,7 +29,11 @@ const Favourites = () => {
             
 
             <div className="row justify-content-start fav-container">
-              {productList.length === 0 ?
+              {productList ? productList.filter((e)=>e.liked).map((e, i)=>(
+                <CstmCard  key={i} product={e} />
+
+              ))
+              :
               <>
               <p className='empty-cart-msg mt-5'>No tienes ningún favorito </p>
               <div className="lock">
@@ -36,11 +42,9 @@ const Favourites = () => {
               <Button className='mb-5' variant='outline-dark' onClick={()=>navigate(`/categorias`)}>Ir a vitrinear</Button>
 
               </> 
-               :
-              productList.filter((e)=>e.liked).map((e, i)=>(
-                <CstmCard  key={i} product={e} />
-
-              ))}
+               
+              
+              }
               
             </div>
             

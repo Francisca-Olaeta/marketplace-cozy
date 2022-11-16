@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Francisca",
+        "lastname": "Olaeta",
+        "username": "folaeta",
+        "email": "francisca.olaeta@gmail.com",
+        "phone": "5699995555",
+        "rut": "9876543-2",
+        "id": "1"
+      },
+    {
+        "name": "Fernando",
+        "lastname": "Fernández",
+        "username": "ffernandez",
+        "email": "fernando.fernandez@gmail.com",
+        "phone": "5688887777",
+        "rut": "9876543-1",
+        "id": "2"
+      }
+    
+]

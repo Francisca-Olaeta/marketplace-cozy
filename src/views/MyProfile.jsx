@@ -90,7 +90,7 @@ const MyProfile = () => {
             </div>
             <hr className='my-5'/>
 
-{/* /*------------------------Sección Mis Publicaciones -------------------------------------------------------------------*/ }
+{/* /*------------------------Sección Mis Publicaciones ----------------------------------------------------------------*/ }
             <div className="publications">
                   <h3 className="my-3">Mis publicaciones</h3>
                   <PublicationCard />

@@ -12,10 +12,11 @@ const ContextProvider = ({ children }) => {
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
     const [search, setSearch] = useState("");
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState();
     const [cart, setCart] = useState([]);
     const [agree, setAgree] = useState(false);
     const [isDisabled, setIsDisabled] = useState(true);
+    const [publication, setPublication] = useState("");
 
 
 
@@ -25,7 +26,7 @@ const ContextProvider = ({ children }) => {
     const getInfoProducts = async() => {
       
         try{
-            const res = await fetch('./cozy.json');
+            const res = await fetch('http://localhost:3000/cozy.json');
             const data = await res.json();
             const dataConLiked = data.map((e)=>({
                 name: e.name,
@@ -48,22 +49,17 @@ const ContextProvider = ({ children }) => {
 
         }
 }
-    useEffect(()=>{
-        getInfoProducts();
-    }, []);
 
 
 
     /*Función para acceder al listado de las categorías de productos */
     const getCategories = async() => {
-        const response = await fetch('./categories.json');
+        const response = await fetch('http://localhost:3000/categories.json');
         const datas = await response.json();
 
         setCategories(datas);
     }
-    useEffect(()=>{
-        getCategories();
-    }, []);
+    
 
   /*Función para reducir la lista de tipos*/
   const types = productList.reduce((acc,item) => {
@@ -72,6 +68,47 @@ const ContextProvider = ({ children }) => {
     }
     return acc;
   },[])
+
+
+/*Función para acceder a los usuarios */
+const getUsers = async() => {
+  const res = await fetch('http://localhost:3000/users.json');
+  const data = await res.json();
+  setUser(data);
+};
+
+useEffect(()=>{
+  getInfoProducts();
+    getCategories();
+    getUsers();
+}, []);
+
+
+/*Función para registrarse */
+const register = () => {
+  let i = 2;
+  let name = document.getElementById("name").value;
+  let lastname = document.getElementById("lastname").value;
+  let username = document.getElementById("username").value;
+  let email = document.getElementById("email").value;
+  let phone = document.getElementById("phone").value;
+  let rut = document.getElementById("rut").value;
+  if (name !== "" && lastname !== "" && username !== "" && email !== "" && phone !== "" && rut !== ""){
+    let isUser = user.filter((e) => e.email === email);
+    if (isUser.length === 0){
+      setUser([...user, {id: i++, name: name, lastname: lastname, username: username, email: email, phone: phone, rut: rut }]);
+      changeForm(true);
+      alert("Registro exitoso");
+    }else {
+      alert("Este email ya está registrado");
+    }
+  }
+  else{
+    alert("Debes rellenar todos los campos");
+  }
+}
+
+
 
 /*Función para añadir a favoritos */
   const addToFav = (id) => {
@@ -144,19 +181,12 @@ const remove = (id) => {
   setCart([...cart])
 }
 
-/*Función para condicionar botón con check */
-// const handleCheck = (e) => {
-//   const field = e.target.value;
-//   if (field === "agree") {
-//     setAgree(e.target.checked)
-//   }
-// }
 
 
 
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser, cart, setCart, addToCart, increment, decrement, total, remove, getPartialTotal, agree, setAgree, isDisabled, setIsDisabled}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, user, setUser, cart, setCart, addToCart, increment, decrement, total, remove, getPartialTotal, agree, setAgree, isDisabled, setIsDisabled, publication, setPublication, register}}>
         {children}
     </Context.Provider>
 
