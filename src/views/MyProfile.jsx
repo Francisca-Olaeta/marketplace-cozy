@@ -10,14 +10,16 @@ import Back from '../components/Back';
 import Profile from '../components/Profile';
 import MySpinner from '../components/MySpinner';
 import { useAuth0 } from '@auth0/auth0-react';
+import { useContext } from 'react';
+import Context from '../Context';
 
 
 
 const MyProfile = () => {
-
+const {userInfo, setUserInfo} = useContext(Context)
   const navigate=useNavigate();
-  const {user, isAuthenticated, isLoading} = useAuth0();
-  const { logout } = useAuth0();
+  const {user, isAuthenticated, isLoading, logout} = useAuth0();
+
 
   if (isLoading) {
     return <div>
@@ -56,15 +58,15 @@ const MyProfile = () => {
                     </tr>
                     <tr>
                       <td className='userinfo-tag'>Teléfono:</td>
-                      <td className='userinfo'>5691234567</td>
+                      <td className='userinfo'></td>
                     </tr>
                     <tr>
                       <td className='userinfo-tag'>Rut:</td>
-                      <td className='userinfo'>12345678-9</td>
+                      <td className='userinfo'></td>
                     </tr>
                     <tr>
                       <td className='userinfo-tag'>Dirección:</td>
-                      <td className='userinfo'>Acá va la dirección</td>
+                      <td className='userinfo'>Agregar dirección</td>
                     </tr>
                   </tbody>
                   </Table>

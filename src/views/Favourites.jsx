@@ -1,10 +1,9 @@
 import {React, useContext} from 'react';
-import {Container, Nav, Button} from 'react-bootstrap';
-import { useNavigate, NavLink } from 'react-router-dom';
+import {Container, Button} from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Context from '../Context';
 import Header from '../components/Header';
 import CstmCard from '../components/CstmCard';
-import Select from '../components/Select';
 import Back from '../components/Back';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeartBroken} from '@fortawesome/free-solid-svg-icons';
@@ -12,9 +11,10 @@ import {faHeartBroken} from '@fortawesome/free-solid-svg-icons';
 
 
 const Favourites = () => {
-  const {productList, setProductList} = useContext(Context)
+  const {productList} = useContext(Context)
   const navigate = useNavigate();
-console.log(productList)
+  const favs = productList.filter((e)=>e.liked);
+console.log(favs.length)
 
 
  
@@ -29,7 +29,7 @@ console.log(productList)
             
 
             <div className="row justify-content-start fav-container">
-              {productList ? productList.filter((e)=>e.liked).map((e, i)=>(
+              {(favs.length > 0) ? favs.map((e, i)=>(
                 <CstmCard  key={i} product={e} />
 
               ))

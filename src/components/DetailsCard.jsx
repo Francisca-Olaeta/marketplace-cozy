@@ -15,10 +15,12 @@ import Context from '../Context';
 
 const DetailsCard = ({selectedProduct}) => {
 
-  const { addToFav, addToCart } = useContext(Context);
+  const { addToFav, addToCart, isInCart, setIsInCart } = useContext(Context);
   const navigate = useNavigate();
 
-
+ 
+    
+    
 
   return (
     <MDBCard className="det-card mx-3 my-2 pe-3" key={selectedProduct.id}>
@@ -40,10 +42,13 @@ const DetailsCard = ({selectedProduct}) => {
           ${selectedProduct.price.toLocaleString("es-CL")}
         </MDBCardText>
         <div className='det-card__btns-container'>
-  
-  {selectedProduct ? 
-        <Button onClick={()=>addToCart(selectedProduct)} className="det-card__btn" variant="outline-dark">Añadir al carro</Button> : <Button className="det-card__btn" variant="dark">Añadido al carro</Button> }
 
+  
+        {isInCart ? 
+        <Button className="det-card__btn" variant="dark">Añadido al carro</Button>
+        :
+        <Button onClick={()=>addToCart(selectedProduct)} className="det-card__btn" variant="outline-dark">Añadir al carro</Button>
+        }
       
         
         <Button onClick={()=>navigate(`/categorias`)} className= "det-card__btn" variant="outline-dark">Volver</Button>

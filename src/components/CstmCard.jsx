@@ -17,7 +17,7 @@ import {
 } from 'mdb-react-ui-kit';
 
 function CstmCard({product}) {
-  const { addToFav, addToCart, cart } = useContext(Context);
+  const { addToFav, addToCart, cart, total, isInCart } = useContext(Context);
   const navigate = useNavigate();
   const { category } = useParams();
 
@@ -25,8 +25,9 @@ function CstmCard({product}) {
   const getDetails = (product) => {
     navigate(`/categorias/${category}/${product}`)
   };
-  
 
+  
+console.log(isInCart)
    
 
   return (
@@ -44,11 +45,17 @@ function CstmCard({product}) {
          <Button onClick={() => getDetails(product.id)} className="item-card__btn" variant="outline-dark">Ver más
          </Button>
 
-{/* /*Contador de productos en badge */ }
-         <div className="btn-rounded icon item-card__align-icons__mb not-liked d-flex align-items-center">
+{/* /*Contador de productos en badge 
+className="btn-rounded icon item-card__align-icons__mb not-liked d-flex align-items-center"
+*/ }
+         <div >
           <FontAwesomeIcon onClick={ () => addToCart(product)} icon={faCartShopping} 
+           className= { isInCart ? "btn me-1 icon item-card__align-icons__mb liked" : "btn-rounded me-1 icon item-card__align-icons__mb not-liked"}
           />
+          {/* {product.qty !== 0 ? 
          <h5><Badge className="notification mx-1" pill variant="success">{product.id}</Badge></h5>
+         : null
+        } */}
          </div>
 
         

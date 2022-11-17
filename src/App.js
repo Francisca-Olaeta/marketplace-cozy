@@ -1,20 +1,24 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+/*Hooks */
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react';
+
+/*Context provider */
 import { ContextProvider } from './Context';
 
+/*Components */
 import MyNavbar from "./components/PrivateNavbar";
-
 import PublicNavbar from "./components/PublicNavbar";
 import Footer from "./components/Footer";
 
-/*Import views */
+/*Views */
 import Home from "./views/Home";
 import Login from "./views/Login";
 import Register from "./views/Register";
 import Categories from "./views/Categories";
 import CategoryGrid from "./views/CategoryGrid";
-
 import Favourites from "./views/Favourites";
 import MyProfile from "./views/MyProfile";
 import Details from "./views/Details";
@@ -22,7 +26,6 @@ import Publication from "./views/Publication";
 import MyCart from "./views/MyCart";
 import NotFound from "./views/NotFound";
 import Results from "./views/Results";
-import { useAuth0 } from '@auth0/auth0-react';
 import NotRegistered from "./views/NotRegistered";
 
 

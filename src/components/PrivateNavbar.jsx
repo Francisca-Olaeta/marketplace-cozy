@@ -18,8 +18,6 @@ function MyNavbar() {
   /*Clases activas e inactivas */
   const setActiveClass = ({isActive}) => (isActive ? "active" : "inactive");
 
-  // const { search } = useParams();
-
 
 
 

@@ -32,7 +32,7 @@ const CategoryGrid = () => {
   const eachCategory = categories.filter((e) => e.category === category);
 
   /*Variable que guardará los productos filtrados por tipo */
-  const selectedType = productList.filter((e) => e.type.includes(type));
+  const selectedType = selectedCategory.filter((e) => e.type.includes(type));
 
 
 
@@ -42,7 +42,7 @@ const CategoryGrid = () => {
   const [isChecked, setIsChecked] = useState(
     new Array(types.length).fill(false)
     );
-    console.log(isChecked);
+    // console.log(isChecked);
 
 /*Función para filtrar con checkbox------------------------------ */
 const handleChangeCheck = (position) => {
@@ -125,7 +125,7 @@ const handleChangeCheck = (position) => {
                   <h4 className='panel__title'>Filtrar por tipo de productos:</h4>
                     <Form.Group controlId="formBasicCheckbox">
                       {types.map((e, index)=>(
-                        <Form.Check className='panel__checks caps' type="checkbox" label={e} value={e} onChange={()=>handleChangeCheck(index)} checked={isChecked[index]} key={index}/>
+                        <Form.Check className='panel__checks caps' type="checkbox" label={e} value={e} id={e} onChange={()=>handleChangeCheck(index)} checked={isChecked[index]} key={index}/>
                       ))}
                     </Form.Group>
 
@@ -141,12 +141,7 @@ const handleChangeCheck = (position) => {
             </div>
             
 
-}
-{/* ------------------------------------------------------------------------------------------------------------ */}
-   
-            
-
-            
+}        
 
             
 {/* 
@@ -154,6 +149,8 @@ const handleChangeCheck = (position) => {
 /*----------------------------------Filtrado y renderización de los productos---------------------------------------- */ }
             <div>
                 <div className="row justify-content-start align-items-center">
+                
+                {/* // // selectedCategory ?  */}
                 {selectedCategory.filter((e)=> {
                   if(search===""){
                     return e;
@@ -168,11 +165,14 @@ const handleChangeCheck = (position) => {
                 }).map((e, i)=>(
                     <CstmCard key={i} product={e} />
                   ))
-                  }  
+                  // :
 
-                  {/* {selectedType.map((e, i)=>(
-                    <CstmCard key={i} product={e} />
-                  ))} */}
+                  // selectedType.map((e, i)=>(
+                  //   <CstmCard key={i} product={e} />
+                  // ))
+
+                 } 
+                  
 
                   
                 </div>

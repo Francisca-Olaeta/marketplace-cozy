@@ -11,14 +11,14 @@ import Modal from '../components/Modal';
 
 const Publication = () => {
   const navigate = useNavigate();
-  const { agree, setAgree, isDisabled, setIsDisabled, publication, setPublication } = useContext(Context);
-  const inputRef = useRef(null);
+  const { agree, setAgree, isDisabled, setIsDisabled, publication, setPublication, type, category } = useContext(Context);
+  // const inputRef = useRef(null);
 
 
-const captureInput = (e) =>{
-  setPublication(e.target.value);
-  console.log(e.target.value)
-}
+// const captureInput = (e) =>{
+//   setPublication(e.target.value);
+//   console.log(e.target.value)
+// }
 
   const canSubmit = () => {
     return agree ? setIsDisabled(true) : setIsDisabled(false);
@@ -28,11 +28,25 @@ const captureInput = (e) =>{
       setAgree(!agree);
       return canSubmit();
     }
-  
+    
+    let newType = document.getElementById("inputType").value;
+    let newProductName = document.getElementById("inputProductName").value;
+    let newBrand = document.getElementById("inputBrand").value;
+    let newDesc = document.getElementById("inputDesc").value;
+    let newPrice = document.getElementById("inputPrice").value;
+    let newCategory = document.getElementById("inputCategory").value;
+    let newImg = document.getElementById("inputImg").value;
+    let i = 100;
+    
     const sendForm = (e) => {
       e.preventDefault()
-      {publication === "" ? alert("Debes rellenar todos los campos") : <Modal /> }
+
+      {publication !== "" ? setPublication([...publication, {type: newType, productName: newProductName, id: i++, brand: newBrand, desc: newDesc, price: newPrice, category: newCategory, img: newImg}]) : alert("Debes rellenar todos los campos") }
+      console.log(publication);
     }
+
+    console.log(publication);
+
 
   return (
     <>
@@ -47,69 +61,73 @@ const captureInput = (e) =>{
           <p>¿Qué tipo de producto que quieres vender?</p>
           
 
-      <Form onSubmit={sendForm} onChange={captureInput}>
-          <Form.Select className="mb-3" aria-label="Default select example">
+      <Form >
+          <Form.Select className="mb-3" aria-label="Default select example" id="inputType" required>
             <option >Seleccionar tipo de producto</option>
-            <option value="alfombra">Alfombras</option>
-            <option value="textil">Textil</option>
-            <option value="deco">Decoración</option>
-            <option value="muebles">Muebles</option>
+            <option id="alfombra">Alfombras</option>
+            <option id="textil">Textil</option>
+            <option id="deco">Decoración</option>
+            <option id="muebles">Muebles</option>
             </Form.Select>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="text" placeholder="Nombre del producto" />
+          <Form.Group className="mb-3">
+              <Form.Control type="text" placeholder="Nombre del producto" id="inputProductName" required/>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="text" placeholder="Marca" />
+          <Form.Group className="mb-3">
+              <Form.Control type="text" placeholder="Marca" id="inputBrand" required/>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="text" placeholder="Descripción" />
+          <Form.Group className="mb-3">
+              <Form.Control type="text" placeholder="Descripción" id="inputDesc" required/>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="number" placeholder="Precio" />
+          <Form.Group className="mb-3">
+              <Form.Control type="number" placeholder="Precio" id="inputPrice" required/>
           </Form.Group>
           
           <Form.Group className='mb-3'>
           <p>¿A qué categoría pertenece el producto que quieres vender?</p>
-      {['checkbox'].map((type) => (
-        <div key={`inline-${type}`} >
+      {['checkbox'].map((category) => (
+        <div key={`inline-${category}`} id="inputCategory">
           <Form.Check
+            required
             inline
             label="Living"
             value="living"
             name="group1"
-            type={type}
-            id={`inline-${type}-Living`}
+            type={category}
+            id={category}
+            // id={`inline-${category}-Living`}
           />
           <Form.Check
             inline
             label="Dormitorio"
-            value={"dormitorio"}
+            value="dormitorio"
             name="group1"
-            type={type}
-            id={`inline-${type}-Dormitorio`}
+            type={category}
+            id={category}
+            // id={`inline-${category}-Dormitorio`}
           />
           <Form.Check
             inline
             label="Entrada"
             value="entrada"
-            type={type}
-            id={`inline-${type}-Entrada`}
+            type={category}
+            id={category}
+            // id={`inline-${category}-Entrada`}
           />
         </div>
       ))}
     </Form.Group>
 
-        <Form.Group controlId="formFile" className="my-4">
+        <Form.Group className="my-4">
             <Form.Label>Sube una foto del producto</Form.Label>
-            <Form.Control type="file"/>
+            <Form.Control type="file" id="inputImg"/>
         </Form.Group>
 
     </Form>
     
-          <Form.Group className="mt-5 mb-2" controlId="formBasicCheckbox">
+          <Form.Group className="mt-5 mb-2">
               <Form.Check onClick={onCheckboxClick} type="checkbox" value="agree" label="Acepto los términos y condiciones" />
           </Form.Group>
 

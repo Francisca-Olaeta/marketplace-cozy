@@ -9,7 +9,7 @@ import Context from '../Context';
 
 const MyCart = () => {
   const { cart, increment, decrement, total, remove, getPartialTotal } = useContext(Context);
-  console.log(cart)
+  
 
   return (
 
