@@ -42,7 +42,7 @@ const CategoryGrid = () => {
   const [isChecked, setIsChecked] = useState(
     new Array(types.length).fill(false)
     );
-    // console.log(isChecked);
+    console.log(isChecked);
 
 /*Función para filtrar con checkbox------------------------------ */
 const handleChangeCheck = (position) => {

@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import { rcompareIdentifiers } from "semver";
 
@@ -18,9 +18,10 @@ const ContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [agree, setAgree] = useState(false);
     const [isDisabled, setIsDisabled] = useState(true);
-    const [publication, setPublication] = useState({});
+    const [publication, setPublication] = useState([]);
     const [isRegistered, setIsRegistered] = useState(false);
     const [isInCart, setIsInCart] = useState(false);
+   
 
     const {user, isAuthenticated} = useAuth0();
    

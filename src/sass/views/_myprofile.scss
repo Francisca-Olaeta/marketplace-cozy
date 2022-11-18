@@ -14,11 +14,64 @@
     font-size: 1rem;
 }
 
-.publications-container {
+.publication-table{
+    width: 100%;
+    font-weight: 400;
+    font-size: 1rem;
     display: flex;
-    justify-content: flex-start; 
-    align-items: center;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0rem;
+    padding: 0rem;
+
+    &__body{
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__row{
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        &--head{
+            height: 6rem;
+        }
+    }
+
+    &__cell{
+        width: 10rem;
+        display: flex;
+        justify-content: flex-start;
+
+        &--body{
+            font-weight: 700;
+        }
+
+        &--name{
+            width: 8rem;
+            margin: 0rem 3rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: start;
+            }
+        &--img{
+            width: 6rem;
+            }
+        &--chev-left{
+            justify-content: flex-end;
+            }
+        &--chev-right{
+            justify-content: flex-start;
+            }
+        &--icon{
+            width: 2rem;
+            margin: 0rem;
+            }
+    }
+
     &__img{
         width: 5rem;
         height: 5rem;
@@ -27,12 +80,111 @@
         margin: 0rem;
         padding: 0rem;
     }
-    &__name{
-        font-weight: 700;
-    }
+
     &__price{
+        width: 10rem;
+        margin-left: 1rem;
         font-size: 1.3rem;
         font-weight: 700;
+        text-align: start;
+        margin-top: 1rem;
     }
+
+    &__icons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    @media(min-width: 768px){
+        &__row{
+            width: 100%;
+            flex-flow: row nowrap;
+        }
+    
+        &__cell{
+           
+            &--name{
+            width: 8rem;
+            text-align: start;
+            }
+        }
+
+        &__img{
+        width: 8rem;
+        height: 8rem;
+        }
+
+        &__name{
+        font-size: 1.1rem;
+        margin-top: 0rem;
+        }
+
+        &__price{
+            text-align: center;
+            font-size: 1.3rem;
+            text-align: start;
+            margin-top: 0rem;
+        }
+
+        &__icons{
+            margin-top: 0rem;
+        }
+    }
+
+    @media(min-width: 992px){
+        flex-flow: row wrap;
+
+        &__row{
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+
+        &__cell{
+            &--name{
+            width: 15rem;
+            margin: 0rem 7rem;
+            font-size: 1.3rem;
+            text-align: start;
+            }
+
+            &--qty{
+                width: 2rem;
+                font-size: 1.3rem;
+                text-align: center;
+            }
+        }
+
+        &__img{
+        width: 10rem;
+        height: 10rem;
+        }
+
+        &__price{
+            width: 10rem;
+            font-size: 1.3rem;
+            text-align: start;
+            margin-top: 0rem;
+        }
+
+        &__icons{
+            margin-top: 0rem;
+        }
+    }
+
+
 }
+
+.publication-text{
+    display: flex;
+    flex-direction: column;
+    font-size: .8rem;
+    font-weight: 400;
+}
+
+
+    
+
+
 

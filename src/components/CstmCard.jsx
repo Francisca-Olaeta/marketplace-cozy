@@ -27,7 +27,7 @@ function CstmCard({product}) {
   };
 
   
-console.log(isInCart)
+// console.log(isInCart)
    
 
   return (
@@ -48,7 +48,7 @@ console.log(isInCart)
 {/* /*Contador de productos en badge 
 className="btn-rounded icon item-card__align-icons__mb not-liked d-flex align-items-center"
 */ }
-         <div >
+          <div className='icons-container'>
           <FontAwesomeIcon onClick={ () => addToCart(product)} icon={faCartShopping} 
            className= { isInCart ? "btn me-1 icon item-card__align-icons__mb liked" : "btn-rounded me-1 icon item-card__align-icons__mb not-liked"}
           />
@@ -56,12 +56,10 @@ className="btn-rounded icon item-card__align-icons__mb not-liked d-flex align-it
          <h5><Badge className="notification mx-1" pill variant="success">{product.id}</Badge></h5>
          : null
         } */}
-         </div>
-
-        
 
            <FontAwesomeIcon onClick={()=>addToFav(product.id)} icon={faHeart} 
            className= { product.liked ? "btn me-1 icon item-card__align-icons__mb liked" : "btn-rounded me-1 icon item-card__align-icons__mb not-liked"}/>
+          </div>
        </div>
       </MDBCardBody>
     </MDBCard>

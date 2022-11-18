@@ -16,7 +16,7 @@ import Context from '../Context';
 
 
 const MyProfile = () => {
-const {userInfo, setUserInfo} = useContext(Context)
+const {userInfo, setUserInfo, publication} = useContext(Context)
   const navigate=useNavigate();
   const {user, isAuthenticated, isLoading, logout} = useAuth0();
 
@@ -95,7 +95,24 @@ const {userInfo, setUserInfo} = useContext(Context)
 {/* /*------------------------Sección Mis Publicaciones ----------------------------------------------------------------*/ }
             <div className="publications">
                   <h3 className="my-3">Mis publicaciones</h3>
-                  <PublicationCard />
+
+            {/* <Table borderless className='publication-table col-8'>
+            <thead >
+              <tr className='publication-table__row'>
+                <td className='publication-table__img'></td>
+                <td className='publication-table__cell'>Nombre producto</td>
+                <td className='publication-table__cell'>Marca</td>
+                <td className='publication-table__cell'>Precio</td>
+                <td className='publication-table__cell'>ID producto</td>
+                <td className='publication-table__cell'>Fecha de publicación</td>
+                <td className='publication-table__cell'></td>
+              </tr>
+            </thead>
+            </Table> */}
+                  {publication.map((e, i)=>(
+                    <PublicationCard publicationInfo={e} key={i} />
+
+                  ))}
                   
             </div>
         <hr className='my-5'/>
