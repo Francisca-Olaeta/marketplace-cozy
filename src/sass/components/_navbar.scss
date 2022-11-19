@@ -1,3 +1,20 @@
+// Rutas activas e inactivas 
+.active {
+    color: $dark;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.active:visited {
+    color: $dark;
+    text-decoration: none;
+}
+
+.inactive, .inactive:visited {
+    color: $dark;
+    text-decoration: none;
+}
+
 .navbar-main-container{
     display: flex;
     flex-direction: column;
@@ -7,8 +24,6 @@
     padding-top: 2rem;
     font-weight: 500;
     color: $secondary;
-
-
     @media(min-width: 992px){
         padding-top: 0rem;
     }
@@ -58,34 +73,34 @@
     box-shadow: none;
 }
 
-.active {
-    color: $dark;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.active:visited {
-    color: $dark;
-    text-decoration: none;
-}
-
-.inactive, .inactive:visited {
-    color: $dark;
-    text-decoration: none;
-}
-
+// Personalización del navbar
+/*OK*/
 .cstm-navlink  {
     // color: $dark;
-    text-decoration: none !important;   
+    width: auto;
+    text-decoration: none !important;  
+    font-weight: 500;
+    padding: .5rem .3rem; 
+    &--perfil{
+        width: 12rem;
+    }
+    &:hover{
+        font-weight: 500;
+        transition: .3 ease all;
+        border-radius: 2rem;
+    }
 }
 
 .dropdown-menu, .dropdown-item {
     //color: $dark;
     text-decoration: none !important;  
+    flex-wrap: nowrap;
 }
 
 
 .dropdown-toggle, .toggle-cstm-container a {
+justify-content: flex-end;
+font-weight: 500;
 color: $secondary;
 }
 
@@ -95,13 +110,14 @@ color: $secondary;
 }
 
 
+
 .cstm-navlink:visited{
     text-decoration: none;
 }
 
-.navbar-nav{
-    font-weight: 600;
-}
+// .navbar-nav{
+//     font-weight: 700;
+// }
 
 .toggle-cstm-container {
     display: flex;
@@ -122,6 +138,7 @@ color: $secondary;
             align-items: flex-start;
             align-content: center;
             &__link{
+                width: 10rem;
                 align-items: center;
             }
         }
@@ -138,4 +155,27 @@ color: $secondary;
 .navbar-toggler{
     border-color: transparent;
 
+}
+
+.my-dropdown-menu{
+    width: auto;
+
+}
+
+.new-dropdown{
+    
+    display: flex;
+    margin: 1rem;
+    flex-flow: column nowrap;
+}
+
+.cstm-btn{
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    color: $secondary;
+    margin: 0rem .5rem;
+    &:hover{
+        font-weight: 700;
+    }
 }

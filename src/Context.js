@@ -2,6 +2,7 @@ import { createContext } from "react";
 import { useState, useEffect, useRef } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
 import { rcompareIdentifiers } from "semver";
+import { nanoid } from 'nanoid'
 
 
 /*Creo el contexto*/
@@ -14,14 +15,14 @@ const ContextProvider = ({ children }) => {
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
     const [search, setSearch] = useState("");
-    const [userInfo, setUserInfo] = useState([]);
+    const [userInfoAuth, setUserInfoAuth] = useState([]);
+    const [userJson, setUserJson] = useState([]);
     const [cart, setCart] = useState([]);
     const [agree, setAgree] = useState(false);
     const [isDisabled, setIsDisabled] = useState(true);
-    const [publication, setPublication] = useState([]);
     const [isRegistered, setIsRegistered] = useState(false);
     const [isInCart, setIsInCart] = useState(false);
-   
+    const [publication, setPublication] = useState([]);
 
     const {user, isAuthenticated} = useAuth0();
    
@@ -36,7 +37,8 @@ const ContextProvider = ({ children }) => {
         try{
             const res = await fetch('http://localhost:3000/cozy.json');
             const data = await res.json();
-            const dataConLiked = data.map((e)=>({
+            const dataConLiked = data.map((e)=>(
+              {
                 name: e.name,
                 id: e.id,
                 category: e.category,
@@ -67,6 +69,14 @@ const ContextProvider = ({ children }) => {
     }
     
 
+    /*Acceder a la info de usuario traida de Auth0 */
+    // const getUserInfoAuth = async() => {
+    //   const res = await fetch('/api/v2/users/dev-6hoqqjhetlobw8ix.us.auth0.com');
+    //   const data = await res.json();
+    //   setUserInfoAuth(data);
+    //   console.log(data)
+    // };
+
   /*Función para reducir la lista de tipos ---------------------------------------------------------------------------------------*/
   const types = productList.reduce((acc,item) => {
     if(!acc.includes(item.type)){
@@ -76,75 +86,20 @@ const ContextProvider = ({ children }) => {
   },[])
 
 
-/*Función para acceder a los usuarios --------------------------------------------------------------------------------------- */
-const getUsers = async() => {
+/*Función para acceder a los usuarios del json-------------------------------------------------------------------------------------- */
+const getUsersJson = async() => {
   const res = await fetch('http://localhost:3000/users.json');
   const data = await res.json();
-  setUserInfo(data);
+  setUserJson(data);
 };
 
 useEffect(()=>{
   getInfoProducts();
     getCategories();
-    getUsers();
+    getUsersJson();
+  //  getUserInfoAuth();
 }, []);
 
-
-
-// /*Función para registrarse ----------------------------------------------------------------------------------------*/
-// const register = () => {
-//   let i = 2;
-//   let name = document.getElementById("name").value;
-//   let lastname = document.getElementById("lastname").value;
-//   let username = document.getElementById("username").value;
-//   let email = document.getElementById("email").value;
-//   let phone = document.getElementById("phone").value;
-//   let rut = document.getElementById("rut").value;
-//   let password = document.getElementById("password").value;
-//   let passwordrep = document.getElementById("passwordrep").value;
-//   let checkterms = document.getElementById("checkterms").value;
-
-// if (name !== "" && lastname !== "" && username !== "" && email !== "" && phone !== "" && rut !== "" && password !== "" && passwordrep !== ""){
-//   setUserInfo([...userInfo, { id: i++, name: name, lastname: lastname, username: username, email: email, phone: phone, rut: rut }] );
-//   console.log(userInfo)
-//   alert("usuario registrado")
-
-// }
-// else{
-//   alert("debes completar tu registro")
-// }
-// console.log(email)
-
-
-
-
-  // if (name !== "" && lastname !== "" && username !== "" && email !== "" && phone !== "" && rut !== "" && password !== "" && passwordrep !== ""){
-  //   /*Si todos los campos están llenos, guarda en isUser*/
-  //   if (password !== passwordrep) {
-  //     alert("Contraseñas distintas")
-  //   }
-  //   else{
-  //     if(user.email === email){
-  //       let isUser = userInfo.filter((e) => e.email === email);
-  //       if (isUser.length === 0){
-  //         setUserInfo([...userInfo, {id: i++, name: name, lastname: lastname, username: username, email: email, phone: phone, rut: rut }]);
-  //         setIsRegistered(true);
-  //         alert("Registro exitoso");
-  //       }else {
-  //         alert("Este email ya está registrado");
-  //       }
-  //     }
-  //     else{
-  //       alert("Usuario no registrado")
-  //     }
-      
-  //   }
-  // }
-  // else{
-  //   alert("Debes rellenar todos los campos");
-  // }
-  // console.log(userInfo)
-// }
 
 
 
@@ -224,12 +179,20 @@ const decrement = (i) => {
 
 
 
-/*Función que muestra el total del carro de compras ---------------------------------------------------------------------------*/
+/*Función que muestra el total $ del carro de compras ---------------------------------------------------------------------------*/
 const initialValue = 0;
 const total = cart.reduce(
   (previousValue, { qty, price }) => previousValue + (qty*price),
   initialValue
 );
+
+
+/*Función que muestra el total de produtos en el navbar, sección carro de compras */
+const initialValueProducts = 0;
+const totalProducts = cart.reduce (
+  (previousValue, { qty }) => previousValue + qty,
+  initialValueProducts
+)
 
 
 
@@ -255,7 +218,7 @@ const remove = (id) => {
 
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfo, setUserInfo, cart, setCart, addToCart, increment, decrement, total, remove, getPartialTotal, agree, setAgree, isDisabled, setIsDisabled, publication, setPublication, isRegistered, setIsRegistered, isInCart, setIsInCart}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfoAuth, setUserInfoAuth, userJson, setUserJson, cart, setCart, addToCart, increment, decrement, total, totalProducts, remove, getPartialTotal, agree, setAgree, isDisabled, setIsDisabled, isRegistered, setIsRegistered, isInCart, setIsInCart, publication, setPublication}}>
         {children}
     </Context.Provider>
 

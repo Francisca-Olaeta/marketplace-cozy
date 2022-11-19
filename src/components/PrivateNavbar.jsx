@@ -1,19 +1,20 @@
 import { React, useContext } from 'react';
 import { NavLink, Link, useParams } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form';
+import { Container, Nav, Navbar, NavDropdown, Form, Button, Badge } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faUser, faShoppingCart, faList} from '@fortawesome/free-solid-svg-icons';
 import cozy from '../assets/img/cozy.png';
 import Context from '../Context';
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 function MyNavbar() {
 
   /*Estados que provee el Context */
-  const {productList, setProductList, setSearch, search, handleChange} = useContext(Context);
+  const {totalProducts, search, handleChange} = useContext(Context);
+
+/*Estados que provee el Auth0 */
+  const {user, logout} = useAuth0();
 
   /*Clases activas e inactivas */
   const setActiveClass = ({isActive}) => (isActive ? "active" : "inactive");
@@ -33,7 +34,7 @@ function MyNavbar() {
             
             <Container fluid>
               <Navbar.Brand>
-              <NavLink end className={setActiveClass} to="/">
+              <NavLink end className={setActiveClass} to="/categorias">
                 <img 
                 height="60" 
                 src={cozy}
@@ -51,35 +52,33 @@ function MyNavbar() {
                         <FontAwesomeIcon icon={faList} className={`{${setActiveClass} me-1`}/>
                           Categorías
                         </NavLink>
-                        <div className={`${setActiveClass} d-flex justify-content-center align-items-center`}>
+                        <div className={`${setActiveClass} d-flex justify-content-center align-items-center mx-2`}>
                         <FontAwesomeIcon icon={faUser} className={`nav-item ms-3 p-0 ${setActiveClass}`}/>
-                        <NavDropdown className={`${setActiveClass}`} to="/miperfil" title="Mi Perfil" id="collasible-nav-dropdown">
+                        <NavDropdown className={`my-dropdown-menu miperfil ${setActiveClass}`} to="/miperfil" title="Mi Perfil" id="collasible-nav-dropdown">
                         
-                            <NavDropdown.Item>
+                            <div className="new-dropdown cstm-navlink--perfil">
                               <Link className="cstm-navlink mx-3" to="/miperfil">Datos personales</Link>
-                            </NavDropdown.Item>
-
-                            <NavDropdown.Item>
                               <Link className="cstm-navlink mx-3" to="/miperfil/favoritos">Mis favoritos</Link>
-                            </NavDropdown.Item>
-
-                            <NavDropdown.Item>
-                              <Link className="cstm-navlink mx-3" to="/miperfil/publicacion">Hacer una publicación</Link>
-                            </NavDropdown.Item>
-
-                            <NavDropdown.Item>
+                              <Link className="cstm-navlink mx-3" to="/miperfil/publicacion">Quiero vender</Link>
                               <Link className="cstm-navlink mx-3" to="/miperfil">Mis publicaciones</Link>
-                            </NavDropdown.Item>
+                              <Button variant="link" className="cstm-btn" onClick={()=>logout({returnTo: window.location.origin})}>Cerrar sesión</Button>
+                            </div>
 
                         </NavDropdown>
 
                 </div>
 
 
-                        <NavLink className={`cstm-navlink mx-3 ${setActiveClass}`} to="/carrito">
+                        <NavLink className={`cstm-navlink mx-2 ${setActiveClass}`} to="/carrito">
                         <FontAwesomeIcon icon={faShoppingCart} className="me-1"/>
                           Carrito de compras
+
+                          {/* Si el total de productos es distinto a 0, muestra una badge con el número de productos */}
+
+                          {totalProducts > 0 ? <Badge pill> {totalProducts} </Badge> : null}
+
                         </NavLink>
+
 
                       </Nav>
                     </Navbar.Collapse>

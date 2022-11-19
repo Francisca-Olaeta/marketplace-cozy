@@ -27,6 +27,7 @@ const {userInfo, setUserInfo, publication} = useContext(Context)
       Loading...
       </div>
 }
+console.log(publication)
 
   return (
     <>
@@ -57,20 +58,14 @@ const {userInfo, setUserInfo, publication} = useContext(Context)
                       <td className='userinfo'>{user.email}</td>
                     </tr>
                     <tr>
-                      <td className='userinfo-tag'>Teléfono:</td>
-                      <td className='userinfo'></td>
+                      <td className='userinfo-tag'>Usuario:</td>
+                      <td className='userinfo'>{user.nickname}</td>
                     </tr>
-                    <tr>
-                      <td className='userinfo-tag'>Rut:</td>
-                      <td className='userinfo'></td>
-                    </tr>
-                    <tr>
-                      <td className='userinfo-tag'>Dirección:</td>
-                      <td className='userinfo'>Agregar dirección</td>
-                    </tr>
+                  
+                   
                   </tbody>
                   </Table>
-                  <Button variant="outline-dark">Editar datos personales</Button>
+                  <Button onClick={() => navigate(`./registro`)} variant="outline-dark">Completa tu perfil</Button>
                 </div>
               </div>
              
@@ -96,19 +91,6 @@ const {userInfo, setUserInfo, publication} = useContext(Context)
             <div className="publications">
                   <h3 className="my-3">Mis publicaciones</h3>
 
-            {/* <Table borderless className='publication-table col-8'>
-            <thead >
-              <tr className='publication-table__row'>
-                <td className='publication-table__img'></td>
-                <td className='publication-table__cell'>Nombre producto</td>
-                <td className='publication-table__cell'>Marca</td>
-                <td className='publication-table__cell'>Precio</td>
-                <td className='publication-table__cell'>ID producto</td>
-                <td className='publication-table__cell'>Fecha de publicación</td>
-                <td className='publication-table__cell'></td>
-              </tr>
-            </thead>
-            </Table> */}
                   {publication.map((e, i)=>(
                     <PublicationCard publicationInfo={e} key={i} />
 

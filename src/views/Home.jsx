@@ -3,6 +3,7 @@ import { Container, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Context from '../Context';
 import CarruselHome from '../components/CarruselHome';
+import Categories from './Categories';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
@@ -25,15 +26,11 @@ const Home = () => {
 
       {/* /*Sección login */}
       <Container className='login'>
-        {isAuthenticated ? 
-        <>
-        <Button onClick={ () => navigate(`/categorias`)} variant="dark" type="submit" className='mt-1 mb-2'>Ingresa a tienda</Button> 
-        <Button  onClick={()=>logout({returnTo: window.location.origin})} variant="outline-dark" type="submit" className='mt-1 mb-3'>Logout</Button> 
-        </> :
+        {isAuthenticated ?
+        navigate(`/categorias`)
+        :
           <>
-          <Button onClick={ () => loginWithRedirect()} variant="dark" type="submit" className='mt-1 mb-2'>Ingresa</Button>
-          <Button onClick={ () => navigate('/registro')} variant="outline-dark" type="submit" className='mt-1 mb-3'>Crear cuenta</Button>
-          {/* <Logout onClick={ () => navigate(`/registro`)}variant='outline-dark' className='my-1'>Crear cuenta</Logout> */}
+          <Button onClick={ () => loginWithRedirect()} variant="dark" type="submit" className='mt-1 mb-2'>Ingresa o Regístrate</Button>
         
         </>}
       </Container>

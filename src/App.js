@@ -15,7 +15,6 @@ import Footer from "./components/Footer";
 
 /*Views */
 import Home from "./views/Home";
-import Login from "./views/Login";
 import Register from "./views/Register";
 import Categories from "./views/Categories";
 import CategoryGrid from "./views/CategoryGrid";
@@ -34,6 +33,8 @@ function App() {
 
   const { isAuthenticated } = useAuth0();
 
+
+
   return (
     <div className="App">
       <ContextProvider>
@@ -46,8 +47,6 @@ function App() {
           <Routes>
         
             <Route path="/" element={<Home />}/>
-            <Route path="/login" element={<Login />}/>
-            <Route path="/registro" element={<Register />}/>
 
             {isAuthenticated ? <Route path="/categorias" element={<Categories />}/> : <Route path="/categorias" element={<NotRegistered />}/>}
 
@@ -61,7 +60,9 @@ function App() {
 
             {isAuthenticated ? <Route path="/miperfil/publicacion" element={<Publication />}/> : <Route path="/miperfil/publicacion" element={<NotRegistered />}/> }
 
-            {isAuthenticated ? <Route path="/miperfil/favoritos" element={<Favourites />}/> : <Route path="/miperfil/favoritos" element={<Favourites />}/> }
+            {isAuthenticated ? <Route path="/miperfil/favoritos" element={<Favourites />}/> : <Route path="/miperfil/favoritos" element={<NotRegistered />}/>} 
+
+            {/* {isAuthenticated ? <Route path="/miperfil/completa-registro" element={<CompleteProfile />}/> : <Route path="/miperfil/completa-registro" element={<NotRegistered />}/> } */}
 
             {isAuthenticated ? <Route path="/carrito" element={<MyCart />}/> : <Route path="/carrito" element={<NotRegistered />}/> }
             

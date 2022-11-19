@@ -1,47 +1,82 @@
-import { React, useState, useRef, useContext } from 'react';
+import { React, useState, useRef, useEffect, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Form, Button, Container, InputGroup } from 'react-bootstrap';
 import Header from '../components/Header';
 import Back from '../components/Back';
 import Context from '../Context';
 import Modal from '../components/Modal';
-import { useEffect } from 'react';
-
+import { nanoid } from 'nanoid'
 
 
 
 const Publication = () => {
   const navigate = useNavigate();
-  const { agree, setAgree, isDisabled, setIsDisabled, publication, setPublication, type, category } = useContext(Context);
+  const { agree, setAgree, isDisabled, setIsDisabled, type, category, publication, setPublication } = useContext(Context);
 
-  const typeRef = useRef(null);
+   /*No poner value acá !!!!!!! */
+   const validarInputs = () => {
+    if (productNameRef.current.value === null){
+      console.log("productName está nulo")
+    }
+    else if (typeRef.current.value === null){
+      console.log("typeRef está nulo")
+    }
+    else if (brandRef.current.value === null){
+      console.log("brandRef está nulo")
+    }
+    else if (descRef.current.value === null){
+      console.log("descRef está nulo")
+    }
+    else if (imgRef.current.value === null){
+      console.log("imgRef está nulo")
+    }
+    else{
+      console.log("vaaamoooooo")
+    }
+  }
+
+  /*Poner current.value en useEffect */
+  useEffect(()=> {
+    validarInputs();
+    
+    console.log(newProductNameRef);
+    console.log(newBrandRef);
+    console.log(newDescRef);
+    console.log(newPriceRef);
+    console.log(newTypeRef);
+    console.log(newImgRef);
+    
+    console.log(productNameRef.current?.value || console.log("ay"));
+    console.log(typeRef.current?.value || console.log("ay"));
+    console.log(brandRef.current?.value || console.log("ay"));
+    console.log(descRef.current?.value || console.log("ay"));
+    console.log(priceRef.current?.value || console.log("ay"));
+    console.log(imgRef.current?.value || console.log("ay"));
+    setPublication();
+  }, []);
+  
   const productNameRef = useRef(null);
   const brandRef = useRef(null);
   const descRef = useRef(null);
   const priceRef = useRef(null);
   const categoryRef = useRef(null);
+  const typeRef = useRef(null);
   const imgRef = useRef(null);
+  
+ 
+  let newProductNameRef = productNameRef.current;
+  let newBrandRef = brandRef.current;
+  let newDescRef = descRef.current;
+  let newPriceRef = priceRef.current;
+  let newCategoryRef = categoryRef.current;
+  let newTypeRef = typeRef.current;
+  let newImgRef = imgRef.current;
+  
 
 
-
-
-let newType = typeRef.current;
-let newProductName = productNameRef.current;
-let newBrand = brandRef.current;
-let newDesc = descRef.current;
-let newPrice = priceRef.current;
-let newCategory = categoryRef.current;
-// let newCategoryL = categoryRefL.current;
-// let newCategoryD = categoryRefD.current;
-// let newCategoryE = categoryRefE.current;
-let newImg = imgRef.current;
-let i = 100;
-
-console.log(newDesc)
-
-  const canSubmit = () => {
-    return agree ? setIsDisabled(true) : setIsDisabled(false);
-  }
+  // const canSubmit = () => {
+  //   return agree ? setIsDisabled(true) : setIsDisabled(false);
+  // }
 
 
 
@@ -55,28 +90,45 @@ console.log(newDesc)
   //     alert("Debes llenar los campos")
   //   }
   //   }
+    
 
-  // const ifCategoryCheck = (e) => {
-  //   // console.log(e.target.checked, e.target.name)
-  //   if (e.target.checked = true){
-  //     setPublication([...publication, {category: e.target.name}])
+  //   
   //   }
-  // }
-    
-    
-    const sendForm = (e) => {
-      e.preventDefault()
-  
-      if (newType !== "" && newProductName !== "" && newBrand !== "" && newDesc !== "" && newPrice !== "" && newImg !== ""){
-        setPublication([...publication, {type: newType.value, productName: newProductName.value, id: i++, brand: newBrand.value, desc: newDesc.value, price: newPrice.value, img: newImg.value }]) 
-      }
-      else {
-        alert("rellena los campos")
-      }
-     console.log(publication)
+
+
+  /*No poner value acá */
+const sendForm = (e) => {
+  e.preventDefault()
+  const newValues = 
+  [
+    ...publication, {
+      productName: newProductNameRef,
+      brand: newBrandRef,
+      desc: newDescRef,
+      price: newPriceRef,
+      img: newImgRef,
+      type: newTypeRef,
+      category: newCategoryRef,
+      id: nanoid()
     }
+  ] 
 
-
+  
+  // if (newProductNameRef === null && newBrandRef === null && newDescRef === null && newPriceRef === null && newImgRef === null && newTypeRef === null) {
+  //  // alert("Recargar el DOM")
+  // }
+  // else if (newProductNameRef !== "" && newBrandRef !== "" && newDescRef !== "" && newPriceRef !== "" && newImgRef !== "" && newTypeRef !== "Seleccionar tipo de producto"){
+    console.log(newValues)
+    setPublication(newValues)
+  // }
+  // else{
+  //   alert("Debes rellenar todos los campos")
+  // }
+  
+  //console.log(productNameRef.current.value)
+  
+}
+console.log(publication)
   return (
     <>
     <div>
@@ -90,8 +142,14 @@ console.log(newDesc)
           <p>¿Qué tipo de producto que quieres vender?</p>
           
 
-      <Form onSubmit={sendForm}>
-          <Form.Select className="mb-3" aria-label="Default select example" ref={typeRef} required>
+      <Form >
+          <Form.Select 
+          //onChange={handleInputChange}
+          ref={typeRef}
+          className="mb-3" 
+          aria-label="Default select example" 
+          name="type"
+          required>
             <option >Seleccionar tipo de producto</option>
             <option id="alfombra">Alfombras</option>
             <option id="textil">Textil</option>
@@ -100,27 +158,54 @@ console.log(newDesc)
             </Form.Select>
 
           <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Nombre del producto" id="inputProductName" ref={productNameRef} required/>
+              <Form.Control 
+           //   onChange={handleInputChange}
+              ref={productNameRef}
+              type="text" 
+              placeholder="Nombre del producto" 
+              id="inputProductName" 
+              name="productName"
+              required/>
           </Form.Group>
 
           <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Marca" id="inputBrand" ref={brandRef} required/>
+              <Form.Control 
+      //        onChange={handleInputChange}
+              ref={brandRef}
+              type="text" 
+              placeholder="Marca" 
+              id="inputBrand" 
+              name="brand"
+              required/>
           </Form.Group>
 
           <Form.Group className="mb-3">
-              <Form.Control type="text" placeholder="Descripción" id="inputDesc" ref={descRef} required/>
+              <Form.Control 
+         //     onChange={handleInputChange}
+              ref={descRef}
+              type="text" 
+              placeholder="Descripción" 
+              id="inputDesc" 
+              name="desc"
+              required/>
           </Form.Group>
 
           <Form.Group className="mb-3">
-              <Form.Control type="number" placeholder="Precio" id="inputPrice" ref={priceRef} required/>
+              <Form.Control 
+          //    onChange={handleInputChange}
+             ref={priceRef}
+              type="number" 
+              placeholder="Precio" 
+              id="inputPrice" 
+              name="price"
+              required/>
           </Form.Group>
           
          
-          <Form.Group className='my-4' required ref={categoryRef} >
+          <Form.Group className='my-4' required name="category" ref={categoryRef}>
           <p>¿A qué categoría pertenece el producto que quieres vender? </p>
               <Form.Check
-
-               // ref={categoryRefL}
+            //    onChange={handleInputChange}
                 inline
                 label="Living"
                 name="living"
@@ -130,7 +215,7 @@ console.log(newDesc)
                 
               />
               <Form.Check
-            //   ref={categoryRefD}
+        //        onChange={handleInputChange}
                 inline
                 label="Dormitorio"
                 name="dormitorio"
@@ -140,7 +225,7 @@ console.log(newDesc)
               />
 
               <Form.Check
-           //    ref={categoryRefE}
+         //       onChange={handleInputChange}
                 inline
                 label="Entrada"
                 name="entrada"
@@ -151,7 +236,15 @@ console.log(newDesc)
          </Form.Group>
      
          <Form.Label htmlFor="basic-url">Sube una foto del producto</Form.Label>
-            <Form.Control type="url" id="basic-url" aria-describedby="basic-addon3" placeholder='Ingresa url' ref={imgRef}/>
+            <Form.Control 
+      //      onChange={handleInputChange}
+            ref={imgRef}
+            type="url" 
+            id="basic-url" 
+            aria-describedby="basic-addon3" 
+            placeholder='Ingresa url' 
+            name="img"
+           />
        
 
     
@@ -160,7 +253,7 @@ console.log(newDesc)
           </Form.Group>
 
         <div className="login_container">
-          <Button disabled={false} variant="dark" type="submit" className='my-1'>
+          <Button onClick={sendForm} variant="dark" type="submit" className='my-1'>
               Publicar
           </Button>
         </div>

@@ -1,0 +1,99 @@
+[
+    {
+        "Id":"auth0|6373f3cfc0f8aabff64a3b86",
+        "Nickname":"francisca.olaeta",
+        "Name":"francisca.olaeta@gmail.com",
+        "Email":"francisca.olaeta@gmail.com",
+        "Email Verified":false,
+        "Picture":"https://s.gravatar.com/avatar/88357c559d76e16fdc29cc761ba7634b?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Ffr.png",
+        "Connection":"Username-Password-Authentication",
+        "Created At":"2022-11-15T20:17:19.578Z",
+        "Updated At":"2022-11-18T02:59:46.397Z"
+    },
+
+    {
+        "Id":"auth0|6373f7f532de0084d4edbdb5",
+        "Nickname":"blabla",
+        "Name":"blabla@gmail.com",
+        "Email":"blabla@gmail.com",
+        "Email Verified":false,
+        "Picture":"https://s.gravatar.com/avatar/3052964980b947903205a4af5c4c9165?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fbl.png",
+        "Connection":"Username-Password-Authentication",
+        "Created At":"2022-11-15T20:35:01.254Z",
+        "Updated At":"2022-11-15T20:35:01.254Z"
+    },
+
+    {
+        "Id":"auth0|6376f41937595e4c99566930",
+        "Nickname":"juan",
+        "Name":"juan@perez.cl",
+        "Email":"juan@perez.cl",
+        "Email Verified":false,
+        "Picture":"https://s.gravatar.com/avatar/88cc666f050d093ec69523e241617210?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fju.png",
+        "Connection":"Username-Password-Authentication",
+        "Created At":"2022-11-18T02:55:21.206Z",
+        "Updated At":"2022-11-18T02:55:21.206Z"
+    },
+
+    {
+        "Id":"auth0|6376f4f6c3cfed678ac0d048",
+        "Nickname":"juan.perez",
+        "Name":"juan.perez@gmail.com",
+        "Email":"juan.perez@gmail.com",
+        "Email Verified":false,
+        "Picture":"https://s.gravatar.com/avatar/9ec510ae1d11252a8a116b6ed7a9b305?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fju.png",
+        "Connection":"Username-Password-Authentication",
+        "Created At":"2022-11-18T02:59:02.700Z",
+        "Updated At":"2022-11-18T03:00:22.186Z"
+    },
+
+    {
+        "Id":"auth0|63777ad967ad3e09030c9148",
+        "Nickname":"juanita",
+        "Name":"juanita@gmail.com",
+        "Email":"juanita@gmail.com",
+        "Email Verified":false,
+        "Picture":"https://s.gravatar.com/avatar/71bed566f663844405c50efafbc0b039?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fju.png",
+        "Connection":"Username-Password-Authentication",
+        "Created At":"2022-11-18T12:30:17.187Z",
+        "Updated At":"2022-11-18T12:30:17.187Z"
+    },
+
+    {
+        "Id":"auth0|63777fa4c3cfed678ac0d2cd",
+        "Nickname":"juanita",
+        "Name":"juanita@mail.com",
+        "Email":"juanita@mail.com",
+        "Email Verified":false,
+        "Picture":"https://s.gravatar.com/avatar/0a8ffb92cd457db54b77b9d75e251f9a?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fju.png",
+        "Connection":"Username-Password-Authentication",
+        "Created At":"2022-11-18T12:50:44.241Z",
+        "Updated At":"2022-11-18T12:53:53.436Z"
+    },
+
+    {
+        "Id":"auth0|6377860eb1efd98a1a40a906",
+        "Nickname":"fernando.fernandez",
+        "Name":"Fernando",
+        "Email":"fernando.fernandez@gmail.com",
+        "Email Verified":false,
+        "Picture":"https://secure.gravatar.com/avatar/499fbc4f4e2b36d02d6525191ebb144b?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Ffe.png",
+        "Connection":"Username-Password-Authentication",
+        "Created At":"2022-11-18T13:18:06.490Z",
+        "Updated At":"2022-11-18T13:18:06.490Z"
+    },
+
+    {
+        "Id":"google-oauth2|106277531988791314331",
+        "Given Name":"Francisca",
+        "Family Name":"Olaeta",
+        "Nickname":"francisca.olaeta",
+        "Name":"Francisca Olaeta",
+        "Email":"francisca.olaeta@gmail.com",
+        "Email Verified":true,
+        "Picture":"https://lh3.googleusercontent.com/a/ALm5wu1dDtfMt_PskE3AuHroRzeVssebyXtHS69iwvzQ=s96-c",
+        "Connection":"google-oauth2",
+        "Created At":"2022-11-07T23:27:21.117Z",
+        "Updated At":"2022-11-18T12:23:10.270Z"
+    }
+]

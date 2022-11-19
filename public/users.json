@@ -6,7 +6,8 @@
         "email": "francisca.olaeta@gmail.com",
         "phone": "5699995555",
         "rut": "9876543-2",
-        "id": "1"
+        "id": "1",
+        "favoritos": []
       },
     {
         "name": "Fernando",
@@ -15,7 +16,8 @@
         "email": "fernando.fernandez@gmail.com",
         "phone": "5688887777",
         "rut": "9876543-1",
-        "id": "2"
+        "id": "2",
+        "favoritos": []
       }
     
 ]

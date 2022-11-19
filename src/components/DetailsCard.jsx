@@ -53,7 +53,7 @@ const DetailsCard = ({selectedProduct}) => {
         
         <Button onClick={()=>navigate(`/categorias`)} className= "det-card__btn" variant="outline-dark">Volver</Button>
        
-        <FontAwesomeIcon onClick={()=>addToFav(selectedProduct.id)} icon={faHeart} className={selectedProduct.liked ? "btn me-1 icon liked btn-floating" : "btn-rounded me-1 icon not-liked btn-floating"}/>
+        <FontAwesomeIcon onClick={()=>addToFav(selectedProduct.id)} icon={faHeart} className="btn me-1 " />
         
         </div>
       </MDBCardBody>
