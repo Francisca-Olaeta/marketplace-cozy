@@ -1,10 +1,7 @@
 import {React, useContext, useEffect} from 'react';
-import {Card, Button, Container, Form} from 'react-bootstrap';
+import {Card, Container} from 'react-bootstrap';
 import {
-    MDBCard,
-    MDBCardBody,
-    MDBCardTitle,
-    MDBCardText,
+    
     MDBCardImage,
     MDBBtn,
     MDBRipple
@@ -64,7 +61,7 @@ const Categories = () => {
                     <Card.Text>
                         {c.desc}
                     </Card.Text>
-                    <Button variant="outline-dark" onClick={() => goToCategory(c.category)}> Ir a <span className="category-card__btn">{c.category}</span></Button>
+                    <MDBBtn color="outline-dark" onClick={() => goToCategory(c.category)}> Ir a <span className="category-card__btn">{c.category}</span></MDBBtn>
                     </Card.Body>
                 </Card>
                 ))

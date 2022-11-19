@@ -69,13 +69,13 @@ function MyNavbar() {
                 </div>
 
 
-                        <NavLink className={`cstm-navlink mx-2 ${setActiveClass}`} to="/carrito">
+                        <NavLink className={`cstm-navlink mx-2 d-flex align-items-center ${setActiveClass}`} to="/carrito">
+                          {/* Si el total de productos es distinto a 0, muestra una badge con el número de productos */}
+
+                          {totalProducts > 0 ? <Badge className="me-1" pill> {totalProducts} </Badge> : null}
                         <FontAwesomeIcon icon={faShoppingCart} className="me-1"/>
                           Carrito de compras
 
-                          {/* Si el total de productos es distinto a 0, muestra una badge con el número de productos */}
-
-                          {totalProducts > 0 ? <Badge pill> {totalProducts} </Badge> : null}
 
                         </NavLink>
 

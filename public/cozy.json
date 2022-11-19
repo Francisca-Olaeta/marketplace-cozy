@@ -60,7 +60,7 @@
     "price": 169990
   },
   {
-    "name": "Alfombra shaggy",
+    "name": "Alfombra shaggy zigzag",
     "desc": "Suave alfombra de pelo largo, ideal para dormitorio, de 140 x 200 cm. Material: 100% poliéster.",
     "id": "A07",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/alfombra-7.jpg",
@@ -70,7 +70,7 @@
     "price": 99990
   },
   {
-    "name": "Cubrecama quilt gris",
+    "name": "Cubrecama quilt 2 plazas color gris",
     "desc": "Ligero y liviano cobertor de dos plazas y dos fundas para almohadas. Suave y de fácil mantención.",
     "id": "T01",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cama-1.jpg",
@@ -80,7 +80,7 @@
     "price": 59990
   },
   {
-    "name": "Cubrecama quilt crudo",
+    "name": "Cubrecama quilt 2 plazas color crudo",
     "desc": "Ligero y liviano cobertor de dos plazas y dos fundas para almohadas. Suave y de fácil mantención.",
     "id": "T02",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cama-2.jpg",
@@ -90,7 +90,7 @@
     "price": 59990
   },
   {
-    "name": "Cubrecama quilt crudo king",
+    "name": "Cubrecama quilt color crudo king",
     "desc": "Ligero y liviano cobertor tamaño king y dos fundas para almohadas. Suave y de fácil mantención.",
     "id": "T03",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cama-3.jpg",
@@ -112,7 +112,7 @@
     "price": 17990
   },
   {
-    "name": "Cojín shaggy blanco",
+    "name": "Cojín shaggy pelo largo blanco",
     "desc": "Cojín de pelo largo, de 40x40 cm.",
     "id": "T05",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-2.jpg",
@@ -136,7 +136,7 @@
     "price": 16990
   },
   {
-    "name": "Cojín macramé rosado",
+    "name": "Cojín de macramé rosado",
     "desc": "Cojín con textura, de 40x40 cm.",
     "id": "T07",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-4.jpg",
@@ -208,7 +208,7 @@
     "price": 18990
   },
   {
-    "name": "Cojín macramé crudo",
+    "name": "Cojín de macramé crudo",
     "desc": "Cojín con textura, de 45x45 cm.",
     "id": "T13",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/cojin-10.jpg",
@@ -460,7 +460,7 @@
     "price": 79990
   },
   {
-    "name": "Mesas laterales Boho",
+    "name": "Mesas laterales estilo Boho",
     "desc": "Set de dos mesas redondas de madera, 50 cm y 40 cm de alto.",
     "id": "M08",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-lat-2.jpg",
@@ -484,7 +484,7 @@
     "price": 159990
   },
   {
-    "name": "Mesa lateral Minimal",
+    "name": "Mesa lateral con cajón Minimal",
     "desc": "Mesa rectangular de madera con cajón, 50 x 47 x 50 cm.",
     "id": "M10",
     "img": "https://redigital.cl/wp-content/uploads/2022/10/mesa-lat-5.jpg",

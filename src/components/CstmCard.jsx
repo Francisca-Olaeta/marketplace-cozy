@@ -49,16 +49,19 @@ function CstmCard({product}) {
 className="btn-rounded icon item-card__align-icons__mb not-liked d-flex align-items-center"
 */ }
           <div className='icons-container'>
-          <FontAwesomeIcon onClick={ () => addToCart(product)} icon={faCartShopping} 
-           className= { isInCart ? "btn me-1 icon item-card__align-icons__mb liked" : "btn-rounded me-1 icon item-card__align-icons__mb not-liked"}
-          />
+          <MDBBtn color="light" className="item-card__align-icons__mb d-flex justify-content-center align-items-center">
+                <FontAwesomeIcon onClick={ () => addToCart(product)} icon={faCartShopping} 
+                className= "icon"
+                />
+            </MDBBtn>
           {/* {product.qty !== 0 ? 
          <h5><Badge className="notification mx-1" pill variant="success">{product.id}</Badge></h5>
          : null
         } */}
-
-           <FontAwesomeIcon onClick={()=>addToFav(product.id)} icon={faHeart} 
-           className= { product.liked ? "btn me-1 icon item-card__align-icons__mb liked" : "btn-rounded me-1 icon item-card__align-icons__mb not-liked"}/>
+          <MDBBtn onClick={()=>addToFav(product.id)} color="light" className="item-card__align-icons__mb d-flex justify-content-center align-items-center">
+              <FontAwesomeIcon icon={faHeart} 
+              className= {product.liked ? "icon liked" : "icon not-liked"}/>
+          </MDBBtn>
           </div>
        </div>
       </MDBCardBody>

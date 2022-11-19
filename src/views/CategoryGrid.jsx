@@ -1,6 +1,6 @@
-import {React, useState, useContext, useEffect} from 'react';
-import {Container, Button, Form} from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import {React, useState, useContext} from 'react';
+import {Container, Form} from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import {
   MDBBtn,
 } from 'mdb-react-ui-kit';
@@ -10,10 +10,6 @@ import Context from '../Context';
 import Header from '../components/Header';
 import CstmCard from '../components/CstmCard';
 import Back from '../components/Back';
-
-import Select from '../components/Select';
-import NotFound from './NotFound';
-import NoCoincidence from '../components/NoCoincidence';
 
 
 
@@ -108,8 +104,6 @@ const handleChangeCheck = (position) => {
     <div>
         <Header />
 
-
-
         <Container className="cat-container my-5 d-flex">
             <Back />
             
@@ -148,7 +142,7 @@ const handleChangeCheck = (position) => {
 
 /*----------------------------------Filtrado y renderización de los productos---------------------------------------- */ }
             <div>
-                <div className="row justify-content-start align-items-center">
+                <div className="row justify-content-start align-items-start">
                 
                 {/* // // selectedCategory ?  */}
                 {selectedCategory.filter((e)=> {

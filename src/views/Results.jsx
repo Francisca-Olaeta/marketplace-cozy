@@ -20,7 +20,7 @@ const Results = () => {
   return (
     <div>
   
-        <div className="row justify-content-start align-items-center">
+        <div className="row justify-content-start align-items-start">
 
         {productList.filter((results)=> {
           if (results.name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '').includes(search.toLocaleLowerCase())

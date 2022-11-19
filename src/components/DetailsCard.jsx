@@ -1,5 +1,6 @@
 import { React, useContext } from 'react';
 import {
+  MDBBtn,
   MDBCard,
   MDBCardBody,
   MDBCardTitle,
@@ -42,18 +43,14 @@ const DetailsCard = ({selectedProduct}) => {
           ${selectedProduct.price.toLocaleString("es-CL")}
         </MDBCardText>
         <div className='det-card__btns-container'>
-
-  
-        {isInCart ? 
-        <Button className="det-card__btn" variant="dark">Añadido al carro</Button>
-        :
-        <Button onClick={()=>addToCart(selectedProduct)} className="det-card__btn" variant="outline-dark">Añadir al carro</Button>
-        }
+ 
+        <MDBBtn onClick={()=>addToCart(selectedProduct)} className="det-card__btn" color="outline-dark">Añadir al carro</MDBBtn>
       
         
-        <Button onClick={()=>navigate(`/categorias`)} className= "det-card__btn" variant="outline-dark">Volver</Button>
+        <MDBBtn onClick={()=>navigate(`/categorias`)} className= "det-card__btn" color="outline-dark">Volver</MDBBtn>
        
-        <FontAwesomeIcon onClick={()=>addToFav(selectedProduct.id)} icon={faHeart} className="btn me-1 " />
+        <FontAwesomeIcon onClick={()=>addToFav(selectedProduct.id)} icon={faHeart} 
+           className= { selectedProduct.liked ? "btn me-1 icon item-card__align-icons__mb liked" : "btn-rounded me-1 icon item-card__align-icons__mb not-liked"}/>
         
         </div>
       </MDBCardBody>
