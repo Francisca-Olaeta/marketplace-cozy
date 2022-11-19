@@ -6,12 +6,28 @@ import Back from '../components/Back';
 import Context from '../Context';
 import Modal from '../components/Modal';
 import { nanoid } from 'nanoid'
+import { data } from 'browserslist';
 
 
 
 const Publication = () => {
   const navigate = useNavigate();
-  const { agree, setAgree, isDisabled, setIsDisabled, type, category, publication, setPublication } = useContext(Context);
+  const { type, category, setCategory, publication, setPublication } = useContext(Context);
+
+  
+  /*Función para manejar los checkboxes */
+  const handleCheck = (e) => {
+    const value = e.target.value;
+    const checked = e.target.checked;
+    console.log(value, checked);
+    if(checked){
+      setCategory([
+        ...category, value
+      ])
+    }else{ //Filtra los elementos repetidos
+      setCategory(category.filter( (e) => (e !== value) ));
+    }
+  }
 
   /*Referencias */
   const productNameRef = useRef(null);
@@ -20,6 +36,10 @@ const Publication = () => {
   const priceRef = useRef(null);
   const typeRef = useRef(null);
   const imgRef = useRef(null);
+  const livingRef = useRef(null);
+  const dormitorioRef = useRef(null);
+  const entradaRef = useRef(null);
+  const categoryRef = useRef(null);
 
 
   /*Poner current.value en useEffect */
@@ -41,38 +61,44 @@ const Publication = () => {
     
   }, [publication]);
   
-  /*No poner value acá !!!!!!! */
   
   
   
   /*No poner value acá */
   const sendForm = (e) => {
     e.preventDefault()
-    
+
     let productName = productNameRef.current;
     let brand = brandRef.current;
     let desc = descRef.current;
     let price = priceRef.current;
     let type = typeRef.current;
     let img = imgRef.current;
-  
-
-    setPublication([
-      ...publication, 
-      { productName: productName.value,
-        brand: brand.value,
-        desc: desc.value,
-        price: price.value,
-        img: img.value,
-        type: type.value,
-        id: nanoid()}
-      ])
-
-    console.log(productName.value)
 
   
+
+    if(productName !== "" && brand !== "" && desc !== "" && price !== "" && type !== "Seleccionar tipo de producto" && img !== ""){
+      setPublication([
+        ...publication, 
+        { productName: productName.value,
+          brand: brand.value,
+          desc: desc.value,
+          price: price.value,
+          img: img.value,
+          type: type.value,
+          category: category,
+          id: nanoid()}
+        ])
+    }
+    else {
+      alert("Debes rellenar todos los campos")
+    }
+
+    console.log(category)
+
 }
 console.log(publication)
+
   return (
     <>
     <div>
@@ -88,7 +114,6 @@ console.log(publication)
 
       <Form >
           <Form.Select 
-          //onChange={handleInputChange}
           ref={typeRef}
           className="mb-3" 
           aria-label="Default select example" 
@@ -103,7 +128,6 @@ console.log(publication)
 
           <Form.Group className="mb-3">
               <Form.Control 
-           //   onChange={handleInputChange}
               ref={productNameRef}
               type="text" 
               placeholder="Nombre del producto" 
@@ -114,7 +138,6 @@ console.log(publication)
 
           <Form.Group className="mb-3">
               <Form.Control 
-      //        onChange={handleInputChange}
               ref={brandRef}
               type="text" 
               placeholder="Marca" 
@@ -125,7 +148,6 @@ console.log(publication)
 
           <Form.Group className="mb-3">
               <Form.Control 
-         //     onChange={handleInputChange}
               ref={descRef}
               type="text" 
               placeholder="Descripción" 
@@ -136,7 +158,6 @@ console.log(publication)
 
           <Form.Group className="mb-3">
               <Form.Control 
-          //    onChange={handleInputChange}
              ref={priceRef}
               type="number" 
               placeholder="Precio" 
@@ -146,10 +167,10 @@ console.log(publication)
           </Form.Group>
           
          
-          <Form.Group className='my-4' required name="category">
+          <Form.Group className='my-4' required name="category" >
           <p>¿A qué categoría pertenece el producto que quieres vender? </p>
               <Form.Check
-            //    onChange={handleInputChange}
+                onChange={handleCheck}
                 inline
                 label="Living"
                 name="living"
@@ -159,7 +180,7 @@ console.log(publication)
                 
               />
               <Form.Check
-        //        onChange={handleInputChange}
+                onChange={handleCheck}
                 inline
                 label="Dormitorio"
                 name="dormitorio"
@@ -170,6 +191,7 @@ console.log(publication)
 
               <Form.Check
          //       onChange={handleInputChange}
+                onChange={handleCheck}
                 inline
                 label="Entrada"
                 name="entrada"
@@ -181,7 +203,6 @@ console.log(publication)
      
          <Form.Label htmlFor="basic-url">Sube una foto del producto</Form.Label>
             <Form.Control 
-      //      onChange={handleInputChange}
             ref={imgRef}
             type="url" 
             id="basic-url" 

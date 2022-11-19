@@ -142,7 +142,7 @@ const handleChangeCheck = (position) => {
 
 /*----------------------------------Filtrado y renderización de los productos---------------------------------------- */ }
             <div>
-                <div className="row justify-content-start align-items-start">
+                <div className="row justify-content-start align-items-center">
                 
                 {/* // // selectedCategory ?  */}
                 {selectedCategory.filter((e)=> {

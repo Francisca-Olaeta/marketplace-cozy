@@ -18,8 +18,7 @@ const ContextProvider = ({ children }) => {
     const [userInfoAuth, setUserInfoAuth] = useState([]);
     const [userJson, setUserJson] = useState([]);
     const [cart, setCart] = useState([]);
-    const [agree, setAgree] = useState(false);
-    const [isDisabled, setIsDisabled] = useState(true);
+    const [checked, setChecked] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
     const [isInCart, setIsInCart] = useState(false);
     const [publication, setPublication] = useState([]);
@@ -67,15 +66,9 @@ const ContextProvider = ({ children }) => {
 
         setCategories(datas);
     }
-    
+   
+  
 
-    /*Acceder a la info de usuario traida de Auth0 */
-    // const getUserInfoAuth = async() => {
-    //   const res = await fetch('/api/v2/users/dev-6hoqqjhetlobw8ix.us.auth0.com');
-    //   const data = await res.json();
-    //   setUserInfoAuth(data);
-    //   console.log(data)
-    // };
 
   /*Función para reducir la lista de tipos ---------------------------------------------------------------------------------------*/
   const types = productList.reduce((acc,item) => {
@@ -118,17 +111,6 @@ useEffect(()=>{
       setSearch('');
       setSearch(e.target.value);
     };
-
-
-
-
-
-/*Función is in cart --------------------------------------------------------------------------------------------------------------*/
-// const findInCart = (id) => {
-//   const index = productList.findIndex((e) => e.id === id);
-//   productList[index] = !productList[index]
-//   setIsInCart(!isInCart);
-// }
 
 
 
@@ -226,7 +208,7 @@ const removePublication = (id) => {
 
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfoAuth, setUserInfoAuth, userJson, setUserJson, cart, setCart, addToCart, increment, decrement, total, totalProducts, remove, getPartialTotal, agree, setAgree, isDisabled, setIsDisabled, isRegistered, setIsRegistered, isInCart, setIsInCart, publication, setPublication, removePublication}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfoAuth, setUserInfoAuth, userJson, setUserJson, cart, setCart, addToCart, increment, decrement, total, totalProducts, remove, getPartialTotal, checked, setChecked, isRegistered, setIsRegistered, isInCart, setIsInCart, publication, setPublication, removePublication}}>
         {children}
     </Context.Provider>
 
