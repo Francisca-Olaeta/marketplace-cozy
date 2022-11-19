@@ -29,10 +29,9 @@ const Home = () => {
         {isAuthenticated ?
         navigate(`/categorias`)
         :
-          <>
-          <Button onClick={ () => loginWithRedirect()} variant="dark" type="submit" className='mt-1 mb-2'>Ingresa o Regístrate</Button>
-        
-        </>}
+          <Button onClick={ () => loginWithRedirect()} variant="dark" type="submit" className='my-2'>Ingresa o Regístrate</Button>
+
+        }
       </Container>
      </Container>
 

@@ -5,7 +5,7 @@ import Context from '../Context';
 
 const PublicationCard = ({publicationInfo}) => {
 
-  const { remove } = useContext(Context);
+  const { removePublication } = useContext(Context);
   return (
     <div>
        
@@ -17,9 +17,8 @@ const PublicationCard = ({publicationInfo}) => {
                 <td className='publication-table__cell--body me-5'><span className='publication-text'>Marca: </span>{publicationInfo.brand}</td>
                 <td className='publication-table__cell--body me-5'><span className='publication-text'>Precio: </span>${publicationInfo.price}</td>
                 <td className='publication-table__cell--body me-5'><span className='publication-text'>ID producto: </span>{publicationInfo.id}</td>
-                <td className='publication-table__cell--body me-5'><span className='publication-text'>Publicado el: </span>fecha</td>
                 <td className='publication-table__cell--body'>
-                        <MDBBtn onClick={()=>remove(publicationInfo)} className='text-center p-0' floating color="dark" tag='a'>
+                        <MDBBtn onClick={()=>removePublication(publicationInfo)} className='text-center p-0' floating color="dark" tag='a'>
                         <MDBIcon fas icon="times" />
                         </MDBBtn> </td>
               </tr>

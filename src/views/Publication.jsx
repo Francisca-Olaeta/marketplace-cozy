@@ -13,119 +13,63 @@ const Publication = () => {
   const navigate = useNavigate();
   const { agree, setAgree, isDisabled, setIsDisabled, type, category, publication, setPublication } = useContext(Context);
 
-   /*No poner value acá !!!!!!! */
-   const validarInputs = () => {
-    if (productNameRef.current.value === null){
-      console.log("productName está nulo")
-    }
-    else if (typeRef.current.value === null){
-      console.log("typeRef está nulo")
-    }
-    else if (brandRef.current.value === null){
-      console.log("brandRef está nulo")
-    }
-    else if (descRef.current.value === null){
-      console.log("descRef está nulo")
-    }
-    else if (imgRef.current.value === null){
-      console.log("imgRef está nulo")
-    }
-    else{
-      console.log("vaaamoooooo")
-    }
-  }
+  /*Referencias */
+  const productNameRef = useRef(null);
+  const brandRef = useRef(null);
+  const descRef = useRef(null);
+  const priceRef = useRef(null);
+  const typeRef = useRef(null);
+  const imgRef = useRef(null);
+
 
   /*Poner current.value en useEffect */
   useEffect(()=> {
-    validarInputs();
-    
-    console.log(newProductNameRef);
-    console.log(newBrandRef);
-    console.log(newDescRef);
-    console.log(newPriceRef);
-    console.log(newTypeRef);
-    console.log(newImgRef);
-    
+
+    // productNameRef.current.focus();
+    // brandRef.current;
+    // descRef.current;
+    // typeRef.current;
+    // priceRef.current;
+    // imgRef.current;
+
     console.log(productNameRef.current?.value || console.log("ay"));
     console.log(typeRef.current?.value || console.log("ay"));
     console.log(brandRef.current?.value || console.log("ay"));
     console.log(descRef.current?.value || console.log("ay"));
     console.log(priceRef.current?.value || console.log("ay"));
     console.log(imgRef.current?.value || console.log("ay"));
-    setPublication();
-  }, []);
-  
-  const productNameRef = useRef(null);
-  const brandRef = useRef(null);
-  const descRef = useRef(null);
-  const priceRef = useRef(null);
-  const categoryRef = useRef(null);
-  const typeRef = useRef(null);
-  const imgRef = useRef(null);
-  
- 
-  let newProductNameRef = productNameRef.current;
-  let newBrandRef = brandRef.current;
-  let newDescRef = descRef.current;
-  let newPriceRef = priceRef.current;
-  let newCategoryRef = categoryRef.current;
-  let newTypeRef = typeRef.current;
-  let newImgRef = imgRef.current;
-  
-
-
-  // const canSubmit = () => {
-  //   return agree ? setIsDisabled(true) : setIsDisabled(false);
-  // }
-
-
-
-  // const onCheckboxClick = () => {
-  //   if (newType.value !== "" && newProductName.value !== "" && newBrand.value !== "" && newDesc.value !== "" && newPrice.value !== "") {
-  //     setIsDisabled(false);
-  //     setAgree(true);
-  //     return canSubmit();
-  //   }
-  //   else {
-  //     alert("Debes llenar los campos")
-  //   }
-  //   }
     
-
-  //   
-  //   }
-
-
+  }, [publication]);
+  
+  /*No poner value acá !!!!!!! */
+  
+  
+  
   /*No poner value acá */
-const sendForm = (e) => {
-  e.preventDefault()
-  const newValues = 
-  [
-    ...publication, {
-      productName: newProductNameRef,
-      brand: newBrandRef,
-      desc: newDescRef,
-      price: newPriceRef,
-      img: newImgRef,
-      type: newTypeRef,
-      category: newCategoryRef,
-      id: nanoid()
-    }
-  ] 
+  const sendForm = (e) => {
+    e.preventDefault()
+    
+    let productName = productNameRef.current;
+    let brand = brandRef.current;
+    let desc = descRef.current;
+    let price = priceRef.current;
+    let type = typeRef.current;
+    let img = imgRef.current;
+  
 
-  
-  // if (newProductNameRef === null && newBrandRef === null && newDescRef === null && newPriceRef === null && newImgRef === null && newTypeRef === null) {
-  //  // alert("Recargar el DOM")
-  // }
-  // else if (newProductNameRef !== "" && newBrandRef !== "" && newDescRef !== "" && newPriceRef !== "" && newImgRef !== "" && newTypeRef !== "Seleccionar tipo de producto"){
-    console.log(newValues)
-    setPublication(newValues)
-  // }
-  // else{
-  //   alert("Debes rellenar todos los campos")
-  // }
-  
-  //console.log(productNameRef.current.value)
+    setPublication([
+      ...publication, 
+      { productName: productName.value,
+        brand: brand.value,
+        desc: desc.value,
+        price: price.value,
+        img: img.value,
+        type: type.value,
+        id: nanoid()}
+      ])
+
+    console.log(productName.value)
+
   
 }
 console.log(publication)
@@ -202,7 +146,7 @@ console.log(publication)
           </Form.Group>
           
          
-          <Form.Group className='my-4' required name="category" ref={categoryRef}>
+          <Form.Group className='my-4' required name="category">
           <p>¿A qué categoría pertenece el producto que quieres vender? </p>
               <Form.Check
             //    onChange={handleInputChange}

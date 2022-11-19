@@ -213,12 +213,20 @@ const remove = (id) => {
   setCart([...cart])
 }
 
+/*Función para eliminar producto del carro---------------------------------------------------------------------------------- */
+const removePublication = (id) => {
+  const index = publication.findIndex((p)=>p.id===id);
+  const removedFromPublication = publication.splice(index, 1);
+  
+  setPublication([...publication])
+}
+
 
 
 
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfoAuth, setUserInfoAuth, userJson, setUserJson, cart, setCart, addToCart, increment, decrement, total, totalProducts, remove, getPartialTotal, agree, setAgree, isDisabled, setIsDisabled, isRegistered, setIsRegistered, isInCart, setIsInCart, publication, setPublication}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfoAuth, setUserInfoAuth, userJson, setUserJson, cart, setCart, addToCart, increment, decrement, total, totalProducts, remove, getPartialTotal, agree, setAgree, isDisabled, setIsDisabled, isRegistered, setIsRegistered, isInCart, setIsInCart, publication, setPublication, removePublication}}>
         {children}
     </Context.Provider>
 
