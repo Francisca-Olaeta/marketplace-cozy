@@ -1,15 +1,7 @@
-import {React, useContext} from 'react';
-import {Button, Container, Nav} from 'react-bootstrap';
-import {
-
-  MDBIcon,
-  MDBBtn,
-  MDBRipple
-} from 'mdb-react-ui-kit';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faLock} from '@fortawesome/free-solid-svg-icons';
-
-import Context from '../Context';
+import { React } from 'react';
+import { Button, Container } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLock } from '@fortawesome/free-solid-svg-icons';
 import Header from '../components/Header';
 import Back from '../components/Back';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -17,7 +9,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const NotRegistered = () => {
 
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
 
 
   return (

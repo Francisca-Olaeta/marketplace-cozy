@@ -5,7 +5,7 @@ import Context from '../Context';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons';
-import { Badge } from 'react-bootstrap';
+
 import {
   MDBCard,
   MDBCardBody,
@@ -25,10 +25,6 @@ function CstmCard({product}) {
   const getDetails = (product) => {
     navigate(`/categorias/${category}/${product}`)
   };
-
-  
-// console.log(isInCart)
-   
 
   return (
     <MDBCard className="item-card mx-4 my-5 pe-3">

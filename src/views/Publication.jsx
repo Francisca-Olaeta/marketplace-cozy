@@ -1,6 +1,6 @@
 import { React, useState, useRef, useEffect, useContext } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { Form, Button, Container, InputGroup } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { Form, Button, Container } from 'react-bootstrap';
 import Header from '../components/Header';
 import Back from '../components/Back';
 import Context from '../Context';
@@ -20,26 +20,14 @@ import {
 
 const Publication = () => {
   const navigate = useNavigate();
-  const { category, setCategory, publication, setPublication } = useContext(Context);
+  const { category, publication, setPublication, handleCheck } = useContext(Context);
   const [basicModal, setBasicModal] = useState(false);
   const toggleShow = () => setBasicModal(!basicModal);
   const [disable, setDisable] = useState(true);
   const [agree, setAgree] = useState(false);
 
   
-  /*Función para manejar los checkboxes */
-  const handleCheck = (e) => {
-    const value = e.target.value;
-    const checked = e.target.checked;
-    console.log(value, checked);
-    if(checked){
-      setCategory([
-        ...category, value
-      ])
-    }else{ //Filtra los elementos repetidos
-      setCategory(category.filter( (e) => (e !== value) ));
-    }
-  }
+ 
 
   /*Referencias */
   const productNameRef = useRef(null);
@@ -72,18 +60,6 @@ const Publication = () => {
     console.log(btnRef.current?.value || console.log("ey"));
     
   }, [publication]);
-  
-
-  /*Función para manejar el checkbox de términos y condiciones */
-  // const handleAgree = (e) => {
-  //   const value = e.target.value;
-  //   const checked = e.target.checked;
-  //   console.log(value, checked);
-    
-  //   if(checked){
-  //     setDisable(!disable)
-  //   }
-  // };
   
   
   /*Función global que envía publicación----------------------------------------------------------------------------------------- */
@@ -127,6 +103,7 @@ const Publication = () => {
     }
 }
 
+// Función que permite la activación del botón para publicar
 const canSubmit = () => {
 return agree ? setDisable(true):
 setDisable(false)

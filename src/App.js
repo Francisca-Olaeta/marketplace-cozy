@@ -15,7 +15,6 @@ import Footer from "./components/Footer";
 
 /*Views */
 import Home from "./views/Home";
-import Register from "./views/Register";
 import Categories from "./views/Categories";
 import CategoryGrid from "./views/CategoryGrid";
 import Favourites from "./views/Favourites";
@@ -56,7 +55,7 @@ function App() {
    
             {isAuthenticated ? <Route path="/categorias/:category/:id" element={<Details />}/> : <Route path="/categorias/:category/:id" element={<NotRegistered />}/> }
 
-            {isAuthenticated ? <Route path="/miperfil" element={<MyProfile />}/> : <Route path="/miperfil" element={<MyProfile />}/> }
+            {isAuthenticated ? <Route path="/miperfil" element={<MyProfile />}/> : <Route path="/miperfil" element={<NotRegistered />}/> }
 
             {isAuthenticated ? <Route path="/miperfil/publicacion" element={<Publication />}/> : <Route path="/miperfil/publicacion" element={<NotRegistered />}/> }
 

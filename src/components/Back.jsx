@@ -12,7 +12,7 @@ const Back = () => {
     <div>
          <Nav>
                 <Nav.Item>
-                    <NavLink className="me-2" to={isAuthenticated ? "/categorias" : "/"}><FontAwesomeIcon icon={faChevronLeft} className="me-1"/>Volver</NavLink>
+                    <NavLink className="back me-2" to={isAuthenticated ? "/categorias" : "/"}><FontAwesomeIcon icon={faChevronLeft} className="me-1"/>Volver</NavLink>
                 </Nav.Item>
         </Nav>
     </div>

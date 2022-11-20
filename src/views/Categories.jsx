@@ -44,9 +44,8 @@ const Categories = () => {
             
             <div className="row justify-content-between align-items-center">
 
-              {search ? 
-                <Results results={search}/>
-              :
+{/* //Si hay algo en la barra de búsqueda, retorna resultados, si no, muestra las categorías */}
+             {search ? <Results results={search}/> :
               categories.map((c)=>(
                 <Card className="category-card mx-3 my-2 pe-3" key={c.id}>
                     <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>

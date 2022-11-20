@@ -8,7 +8,6 @@ import {
   MDBCardImage,
   MDBRipple
 } from 'mdb-react-ui-kit';
-import {Button} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +15,7 @@ import Context from '../Context';
 
 const DetailsCard = ({selectedProduct}) => {
 
-  const { addToFav, addToCart, isInCart, setIsInCart } = useContext(Context);
+  const { addToFav, addToCart } = useContext(Context);
   const navigate = useNavigate();
 
  

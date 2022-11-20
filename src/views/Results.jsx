@@ -1,20 +1,12 @@
 import {React, useContext} from 'react';
-import {Button} from 'react-bootstrap';
-import { useNavigate, NavLink, useParams } from 'react-router-dom';
-import {
-  MDBBtn,
-} from 'mdb-react-ui-kit';
+import { MDBBtn } from 'mdb-react-ui-kit';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faX} from '@fortawesome/free-solid-svg-icons';
 import Context from '../Context';
 import CstmCard from '../components/CstmCard';
-import Back from '../components/Back';
-import NoCoincidence from '../components/NoCoincidence';
 
 const Results = () => {
-    const {productList, setProductList, handleChange, search, setSearch} = useContext(Context);
-
-    const navigate = useNavigate();
+    const {productList, search, setSearch} = useContext(Context);
 
 
   return (

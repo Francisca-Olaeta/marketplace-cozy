@@ -1,16 +1,11 @@
-import {React, useContext} from 'react';
-import {Container, Nav} from 'react-bootstrap';
-
-import Context from '../Context';
+import { React } from 'react';
+import { Container } from 'react-bootstrap';
 import Header from '../components/Header';
 
 import Back from '../components/Back';
 
 
 const NotFound = () => {
-    // const {productList} = useContext(Context);
-
-    // const navigate = useNavigate();
 
   return (
     <div>

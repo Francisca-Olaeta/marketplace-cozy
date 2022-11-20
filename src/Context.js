@@ -113,6 +113,22 @@ useEffect(()=>{
     };
 
 
+ /*Función para manejar los checkboxes */
+ const handleCheck = (e) => {
+  const value = e.target.value;
+  const checked = e.target.checked;
+  console.log(value, checked);
+  if(checked){
+    setCategory([
+      ...category, value
+    ])
+  }else{ //Filtra los elementos repetidos
+    setCategory(category.filter( (e) => (e !== value) ));
+  }
+}
+ 
+
+
 
 
 /*Función add to cart ----------------------------------------------------------------------------------------------------------- */
@@ -208,7 +224,7 @@ const removePublication = (id) => {
 
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfoAuth, setUserInfoAuth, userJson, setUserJson, cart, setCart, addToCart, increment, decrement, total, totalProducts, remove, getPartialTotal, checked, setChecked, isRegistered, setIsRegistered, isInCart, setIsInCart, publication, setPublication, removePublication}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfoAuth, setUserInfoAuth, userJson, setUserJson, cart, setCart, addToCart, increment, decrement, total, totalProducts, remove, getPartialTotal, checked, setChecked, isRegistered, setIsRegistered, isInCart, setIsInCart, publication, setPublication, removePublication, handleCheck}}>
         {children}
     </Context.Provider>
 
