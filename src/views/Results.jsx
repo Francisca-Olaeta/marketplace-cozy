@@ -12,7 +12,15 @@ const Results = () => {
   return (
     <div>
   
-        <div className="row justify-content-start align-items-start">
+        <div className="row d-flex justify-content-start align-items-start">
+       
+        <div>
+          <MDBBtn floating outline rounded size='lg' color='dark' onClick={()=>setSearch('')}>
+          <FontAwesomeIcon icon={faX}/>
+          </MDBBtn>
+          <MDBBtn outline color='link' onClick={()=>setSearch('')}>Limpiar</MDBBtn>
+        
+        </div>
 
         {productList.filter((results)=> {
           if (results.name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '').includes(search.toLocaleLowerCase())
@@ -25,13 +33,6 @@ const Results = () => {
           <CstmCard key={results.id} product={results} />
           ))
         }
-        <div>
-          <MDBBtn floating outline rounded size='lg' color='dark' onClick={()=>setSearch('')}>
-          <FontAwesomeIcon icon={faX}/>
-          </MDBBtn>
-          <MDBBtn outline color='link' onClick={()=>setSearch('')}>Limpiar</MDBBtn>
-        
-        </div>
             
         </div>
 

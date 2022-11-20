@@ -97,34 +97,34 @@ const arreglosPorTipo = (type) => {
 
 
   /*Estado para los filtros con checkbox */
-  const [isChecked, setIsChecked] = useState(
-    new Array(types.length).fill(false)
-    );
+  // const [isChecked, setIsChecked] = useState(
+  //   new Array(types.length).fill(false)
+  //   );
  //   console.log(isChecked);
 
 /*Función para filtrar con checkbox------------------------------ */
-const handleChangeCheck = (position) => {
-  const updatedIsChecked = isChecked.map((e, index) => index === position ? !e : e);
+// const handleChangeCheck = (position) => {
+//   const updatedIsChecked = isChecked.map((e, index) => index === position ? !e : e);
 
-  setIsChecked(updatedIsChecked);
-}
+//   setIsChecked(updatedIsChecked);
+// }
 
 /*Handle checkboxes por tipo */
-const handleCheckTypes = (e) => {
-  const value = e.target.value;
-  const checked = e.target.checked;
-//  console.log(value, checked);
-  if(checked){
-    setType([
-      ...type, value
-    ])
-  }else{ //Filtra los elementos repetidos
-    setType(type.filter( (e) => (e !== value) ));
-  }
-  return arreglosPorTipo(e);
-}
-console.log(arreglosPorTipo);
-console.log(selectedCategory);
+// const handleCheckTypes = (e) => {
+//   const value = e.target.value;
+//   const checked = e.target.checked;
+// //  console.log(value, checked);
+//   if(checked){
+//     setType([
+//       ...type, value
+//     ])
+//   }else{ //Filtra los elementos repetidos
+//     setType(type.filter( (e) => (e !== value) ));
+//   }
+//   return arreglosPorTipo(e);
+// }
+// console.log(arreglosPorTipo);
+// console.log(selectedCategory);
 
 
 
@@ -171,11 +171,24 @@ console.log(selectedCategory);
               }
             {/* <MDBBtn onClick={arreglosPorTipo}>Buscar</MDBBtn> */}
 
+            
+
             </div>
 
-            {search ? null : 
+            {search ? 
+            
+            <div className='my-3'>
+                  <MDBBtn floating outline rounded size='lg' color='dark' onClick={()=>setSearch('')}>
+                  <FontAwesomeIcon icon={faX}/>
+                  </MDBBtn>
+                  <MDBBtn outline color='link' onClick={()=>setSearch('')}>Limpiar</MDBBtn>
+                </div>
+                
+            : 
 //Si no hay nada en la barra de búsqueda, retorna el array por categoría
             <div className='filters-container'>
+
+              
 
               {/* // Filtros por checkbox, por desarrollar */}
                 {/* <div className='panel' width={45}>
@@ -236,12 +249,7 @@ console.log(selectedCategory);
                   
                 </div>
 
-                <div className='my-3'>
-                  <MDBBtn floating outline rounded size='lg' color='dark' onClick={()=>setSearch('')}>
-                  <FontAwesomeIcon icon={faX}/>
-                  </MDBBtn>
-                  <MDBBtn outline color='link' onClick={()=>setSearch('')}>Limpiar</MDBBtn>
-                </div>
+               
 
             </div>
              
