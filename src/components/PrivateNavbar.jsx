@@ -48,12 +48,12 @@ function MyNavbar() {
                     <Navbar.Collapse className={`toggle-cstm__collapse ${setActiveClass}`} id="basic-navbar-nav">
                       
                       <Nav className={`${setActiveClass} toggle-cstm__collapse__nav me-auto`}>
-                        <NavLink className={`cstm-navlink toggle-cstm__collapse__nav__navlink mx-3 ${setActiveClass}`} to="/categorias">
+                        <NavLink className={`cstm-navlink toggle-cstm__collapse__nav__navlink me-3 ${setActiveClass}`} to="/categorias">
                         <FontAwesomeIcon icon={faList} className={`{${setActiveClass} me-1`}/>
                           Categorías
                         </NavLink>
                         <div className={`${setActiveClass} d-flex justify-content-center align-items-center mx-2`}>
-                        <FontAwesomeIcon icon={faUser} className={`nav-item ms-3 p-0 ${setActiveClass}`}/>
+                        <FontAwesomeIcon icon={faUser} className={`nav-item me-1 p-0 ${setActiveClass}`}/>
                         <NavDropdown className={`my-dropdown-menu miperfil ${setActiveClass}`} to="/miperfil" title="Mi Perfil" id="collasible-nav-dropdown">
                         
                             <div className="new-dropdown cstm-navlink--perfil">
@@ -69,7 +69,7 @@ function MyNavbar() {
                 </div>
 
 
-                        <NavLink className={`cstm-navlink mx-2 d-flex align-items-center ${setActiveClass}`} to="/carrito">
+                        <NavLink className={`cstm-navlink d-flex align-items-center ${setActiveClass}`} to="/carrito">
                           {/* Si el total de productos es distinto a 0, muestra una badge con el número de productos */}
 
                           {totalProducts > 0 ? <Badge className="me-1" pill> {totalProducts} </Badge> : null}

@@ -25,9 +25,9 @@ const DetailsCard = ({selectedProduct}) => {
   return (
     <MDBCard className="det-card mx-3 my-2 pe-3" key={selectedProduct.id}>
       <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay hover-zoom'>
-        <MDBCardImage className="det-card__img" src={selectedProduct.img} fluid alt={selectedProduct.name}/>
+        <MDBCardImage className="det-card__img hover-overlay hover-zoom" src={selectedProduct.img} fluid alt={selectedProduct.name}/>
         <a>
-          <div className='mask det-card__img bg-image hover-overlay hover-zoom' style={{ backgroundColor: '#e6b9ad8f' }}></div>
+          <div className='mask det-card__img' style={{ backgroundColor: '#e6b9ad8f' }}></div>
         </a>
       </MDBRipple>
       <MDBCardBody>

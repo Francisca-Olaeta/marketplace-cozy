@@ -29,12 +29,12 @@ const MyCart = () => {
 
 cart.map((p, i) =>(
   <div className='mb-3 row' key={i}>
-     <Table borderless className='cart-table col-8'>
+     <Table borderless className='cart-table'>
         <tbody className='cart-table__body col-8'>
           <tr className='cart-table__row'>
-            <td className='cart-table__cell--img'> <img className='cart-table__img' src={p.img} alt={p.name}/></td>
-            <td className='cart-table__cell--name'>{p.name}</td>
-            <td className='cart-table__cell--chev-left'>
+            <td className='cart-table__cell--img col-auto'> <img className='cart-table__img' src={p.img} alt={p.name}/></td>
+            <td className='cart-table__cell--name col-auto'>{p.name}</td>
+            <td className='cart-table__cell--chev-left col-auto'>
               <MDBBtn onClick={()=>decrement(i)} className='text-center p-0' floating color="light" tag='a'>
               <MDBIcon fas icon="chevron-left" />
               </MDBBtn></td>

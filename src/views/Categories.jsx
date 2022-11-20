@@ -38,7 +38,7 @@ const Categories = () => {
   return (
     <div>
         <Header />
-        <Container className="cat-container my-5">
+        <Container className="cat-container my-5 ">
         {/* {search ? <Back /> : null} */}
           {search ? <h2 className="my-5">Resultados de la búsqueda</h2> : <h2 className="my-5">Categorías</h2>}
             

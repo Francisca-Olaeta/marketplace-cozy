@@ -111,7 +111,7 @@ console.log(publication)
           <h3 className="my-3">Logout</h3>
           <Button variant="outline-dark" onClick={()=>logout({returnTo: window.location.origin})}>Cerrar sesión</Button>
           </div>
-</>
+        </>
 
         }
         </Container>

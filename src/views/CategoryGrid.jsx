@@ -157,7 +157,7 @@ console.log(selectedCategory);
 
 
   return (
-    <div>
+    <div className='margin-0 padding-0'>
         <Header />
 
         <Container className="cat-container my-5 d-flex">
@@ -176,15 +176,18 @@ console.log(selectedCategory);
             {search ? null : 
 //Si no hay nada en la barra de búsqueda, retorna el array por categoría
             <div className='filters-container'>
-                <div className='panel' width={45}>
+
+              {/* // Filtros por checkbox, por desarrollar */}
+                {/* <div className='panel' width={45}>
                   <h4 className='panel__title'>Filtrar por tipo de productos:</h4>
                     <Form.Group controlId="formBasicCheckbox">
                       {types.map((e, i)=>(
                         <Form.Check key={i} className='panel__checks caps' type="checkbox" label={e} value={e} id={e} name={e} onChange={handleCheckTypes} />
                       ))}
                     </Form.Group>
+                </div> */}
 
-                </div>
+                
                 <Form.Select className='select' defaultValue={""} onChange={sortArray} aria-label="Default select example">
                   <option value="">Ordenar por:</option>
                   <option value="ascend">Precio, de menor a mayor</option>
@@ -203,7 +206,7 @@ console.log(selectedCategory);
 
 /*----------------------------------Filtrado y renderización de los productos---------------------------------------- */ }
             <div>
-                <div className="row justify-content-start align-items-center">
+                <div className="row justify-content-start align-items-center mx-1">
                 
                 {/* {selectedCategory ? */}
                { selectedCategory.filter((e)=> {

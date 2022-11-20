@@ -28,7 +28,7 @@ const NotRegistered = () => {
           
     
             
-              <Button onClick={ () => loginWithRedirect()} width={40} variant='outline-dark' className='my-5'>Iniciar sesión </Button>
+              <Button onClick={ () => loginWithRedirect()} width={35} variant='outline-dark' className='my-5'>Iniciar sesión </Button>
               
             </div>
             

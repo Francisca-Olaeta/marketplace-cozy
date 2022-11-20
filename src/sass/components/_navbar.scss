@@ -77,10 +77,12 @@
 /*OK*/
 .cstm-navlink  {
     // color: $dark;
+    align-items: flex-start;
     width: auto;
     text-decoration: none !important;  
     font-weight: 500;
     padding: .5rem .3rem; 
+    justify-content: flex-start;
     &--perfil{
         width: 12rem;
     }
@@ -132,8 +134,9 @@ color: $secondary;
     align-items: flex-start;
  
     &__collapse{
+        width: auto;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-end;
         &__nav{
             align-items: flex-start;
             align-content: center;
