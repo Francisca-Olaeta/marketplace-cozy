@@ -4,15 +4,27 @@ import { Form, Button, Container, InputGroup } from 'react-bootstrap';
 import Header from '../components/Header';
 import Back from '../components/Back';
 import Context from '../Context';
-import Modal from '../components/Modal';
 import { nanoid } from 'nanoid'
-import { data } from 'browserslist';
+import {
+  MDBBtn,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter,
+} from 'mdb-react-ui-kit';
 
 
 
 const Publication = () => {
   const navigate = useNavigate();
-  const { type, category, setCategory, publication, setPublication } = useContext(Context);
+  const { category, setCategory, publication, setPublication } = useContext(Context);
+  const [basicModal, setBasicModal] = useState(false);
+  const toggleShow = () => setBasicModal(!basicModal);
+  const [disable, setDisable] = useState(true);
+  const [agree, setAgree] = useState(false);
 
   
   /*Función para manejar los checkboxes */
@@ -36,10 +48,8 @@ const Publication = () => {
   const priceRef = useRef(null);
   const typeRef = useRef(null);
   const imgRef = useRef(null);
-  const livingRef = useRef(null);
-  const dormitorioRef = useRef(null);
-  const entradaRef = useRef(null);
-  const categoryRef = useRef(null);
+  const agreeCheckRef = useRef(null);
+  const btnRef = useRef(null);
 
 
   /*Poner current.value en useEffect */
@@ -58,26 +68,44 @@ const Publication = () => {
     console.log(descRef.current?.value || console.log("ay"));
     console.log(priceRef.current?.value || console.log("ay"));
     console.log(imgRef.current?.value || console.log("ay"));
+    console.log(agreeCheckRef.current?.value || console.log("uy"));
+    console.log(btnRef.current?.value || console.log("ey"));
     
   }, [publication]);
   
+
+  /*Función para manejar el checkbox de términos y condiciones */
+  // const handleAgree = (e) => {
+  //   const value = e.target.value;
+  //   const checked = e.target.checked;
+  //   console.log(value, checked);
+    
+  //   if(checked){
+  //     setDisable(!disable)
+  //   }
+  // };
   
   
-  
-  /*No poner value acá */
+  /*Función global que envía publicación----------------------------------------------------------------------------------------- */
   const sendForm = (e) => {
     e.preventDefault()
-
+    
     let productName = productNameRef.current;
     let brand = brandRef.current;
     let desc = descRef.current;
     let price = priceRef.current;
     let type = typeRef.current;
     let img = imgRef.current;
+    
+    let agreeCheck = agreeCheckRef.current;
+    let btn = btnRef.current;
+    console.log(type.value )
 
   
-
-    if(productName !== "" && brand !== "" && desc !== "" && price !== "" && type !== "Seleccionar tipo de producto" && img !== ""){
+//Condición de que todos los campos estén llenos
+    if (productName.value !== '' && brand.value !== '' && desc.value !== '' && price.value !== '' && type.value !== 'Seleccionar tipo de producto' && img.value !== '' && category.length !== 0 && agreeCheck.checked === true){
+      
+      // Función que setea la publicación
       setPublication([
         ...publication, 
         { productName: productName.value,
@@ -88,15 +116,27 @@ const Publication = () => {
           type: type.value,
           category: category,
           id: nanoid()}
-        ])
-    }
-    else {
-      alert("Debes rellenar todos los campos")
+        ]);
+
+        // Función que despliega el modal
+        toggleShow();
     }
 
-    console.log(category)
-
+    else{
+      alert("Debes rellenar todos los campos");
+    }
 }
+
+const canSubmit = () => {
+return agree ? setDisable(true):
+setDisable(false)
+}
+
+const onCheckboxClick = () => {
+  setAgree(!agree);
+  return canSubmit();
+}
+
 console.log(publication)
 
   return (
@@ -119,14 +159,14 @@ console.log(publication)
           aria-label="Default select example" 
           name="type"
           required>
-            <option >Seleccionar tipo de producto</option>
+            <option defaultValue=''>Seleccionar tipo de producto</option>
             <option id="alfombra">Alfombras</option>
             <option id="textil">Textil</option>
             <option id="deco">Decoración</option>
             <option id="muebles">Muebles</option>
             </Form.Select>
 
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" defaultValue=''>
               <Form.Control 
               ref={productNameRef}
               type="text" 
@@ -136,7 +176,7 @@ console.log(publication)
               required/>
           </Form.Group>
 
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" defaultValue=''>
               <Form.Control 
               ref={brandRef}
               type="text" 
@@ -146,7 +186,7 @@ console.log(publication)
               required/>
           </Form.Group>
 
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" defaultValue=''>
               <Form.Control 
               ref={descRef}
               type="text" 
@@ -156,7 +196,7 @@ console.log(publication)
               required/>
           </Form.Group>
 
-          <Form.Group className="mb-3">
+          <Form.Group className="mb-3" defaultValue=''>
               <Form.Control 
              ref={priceRef}
               type="number" 
@@ -167,7 +207,7 @@ console.log(publication)
           </Form.Group>
           
          
-          <Form.Group className='my-4' required name="category" >
+          <Form.Group className='my-4' required name="category">
           <p>¿A qué categoría pertenece el producto que quieres vender? </p>
               <Form.Check
                 onChange={handleCheck}
@@ -190,7 +230,6 @@ console.log(publication)
               />
 
               <Form.Check
-         //       onChange={handleInputChange}
                 onChange={handleCheck}
                 inline
                 label="Entrada"
@@ -203,6 +242,7 @@ console.log(publication)
      
          <Form.Label htmlFor="basic-url">Sube una foto del producto</Form.Label>
             <Form.Control 
+            defaultValue=''
             ref={imgRef}
             type="url" 
             id="basic-url" 
@@ -212,18 +252,58 @@ console.log(publication)
            />
        
 
-    
           <Form.Group className="mt-5 mb-2">
-              <Form.Check  type="checkbox" label="Acepto los términos y condiciones" />
+              <Form.Check
+              onChange={onCheckboxClick}
+              value="agree"
+              ref={agreeCheckRef} 
+              type="checkbox" 
+              label="Acepto los términos y condiciones" 
+              required/>
           </Form.Group>
 
+
+    
+
         <div className="login_container">
-          <Button onClick={sendForm} variant="dark" type="submit" className='my-1'>
+
+      
+          <Button 
+          ref={btnRef}
+          disabled={disable}
+          onClick={sendForm} 
+          variant="dark" 
+          type="submit" 
+          className='my-3' 
+          > 
               Publicar
           </Button>
+       
+
         </div>
    
     </Form>
+
+        <>
+            <MDBModal show={basicModal} setShow={setBasicModal} tabIndex='-1'>
+            <MDBModalDialog>
+              <MDBModalContent>
+                <MDBModalHeader>
+                  <MDBModalTitle>¡Tu publicación fue realizada con éxito!</MDBModalTitle>
+                  <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+                </MDBModalHeader>
+                <MDBModalBody>Recuerda ponerte en contacto con tu comprador para concretar la venta.</MDBModalBody>
+
+                <MDBModalFooter>
+                  <MDBBtn color='outline-dark' onClick={toggleShow}>
+                    Cerrar
+                  </MDBBtn>
+                  <MDBBtn color='dark' onClick={()=>navigate(`/miperfil`)}>Ver publicación</MDBBtn>
+                </MDBModalFooter>
+              </MDBModalContent>
+            </MDBModalDialog>
+          </MDBModal>
+        </>
 
 
         </div>
