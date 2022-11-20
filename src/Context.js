@@ -34,7 +34,7 @@ const ContextProvider = ({ children }) => {
     const getInfoProducts = async() => {
       
         try{
-            const res = await fetch('http://localhost:3000/cozy.json');
+            const res = await fetch('https://marketplace-cozy.vercel.app/cozy.json');
             const data = await res.json();
             const dataConLiked = data.map((e)=>(
               {
@@ -61,7 +61,7 @@ const ContextProvider = ({ children }) => {
 
     /*Función para acceder al listado de las categorías de productos ------------------------------------------------------------------*/
     const getCategories = async() => {
-        const response = await fetch('http://localhost:3000/categories.json');
+        const response = await fetch('https://marketplace-cozy.vercel.app/categories.json');
         const datas = await response.json();
 
         setCategories(datas);
@@ -79,17 +79,10 @@ const ContextProvider = ({ children }) => {
   },[])
 
 
-/*Función para acceder a los usuarios del json-------------------------------------------------------------------------------------- */
-const getUsersJson = async() => {
-  const res = await fetch('http://localhost:3000/users.json');
-  const data = await res.json();
-  setUserJson(data);
-};
 
 useEffect(()=>{
   getInfoProducts();
     getCategories();
-    getUsersJson();
   //  getUserInfoAuth();
 }, []);
 
