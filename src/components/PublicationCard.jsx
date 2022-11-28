@@ -6,6 +6,14 @@ import Context from '../Context';
 const PublicationCard = ({publicationInfo}) => {
 
   const { removePublication } = useContext(Context);
+
+//Función para eliminar elementos repetidos en el array
+  const result = publicationInfo.category.filter((e, index) =>{
+    return publicationInfo.category.indexOf(e) === index;
+  });
+  console.log(result);
+
+
   return (
     <div>
        
@@ -17,7 +25,7 @@ const PublicationCard = ({publicationInfo}) => {
                 <td className='publication-table__cell--body'><span className='publication-text'>Marca: </span>{publicationInfo.brand}</td>
                 <td className='publication-table__cell--body'><span className='publication-text'>Precio: </span>${publicationInfo.price.toLocaleString("es-CL")}</td>
                 <td className='publication-table__cell--body'><span className='publication-text'>Categoría: </span>
-                {publicationInfo.category.map((e, i) => (
+                {result.map((e, i) => (
                   <p key={i} className="caps m-0 p-0">{e}</p>
 
                 ))}</td>

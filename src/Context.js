@@ -34,7 +34,8 @@ const ContextProvider = ({ children }) => {
     const getInfoProducts = async() => {
       
         try{
-            const res = await fetch('https://marketplace-cozy.vercel.app/cozy.json');
+            // const res = await fetch('https://marketplace-cozy.vercel.app/cozy.json');
+            const res = await fetch('http://localhost:3000/cozy.json');
             const data = await res.json();
             const dataConLiked = data.map((e)=>(
               {
