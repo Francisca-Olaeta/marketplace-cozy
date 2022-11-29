@@ -50,14 +50,14 @@ const Publication = () => {
     // priceRef.current;
     // imgRef.current;
 
-    console.log(productNameRef.current?.value || console.log("ay"));
-    console.log(typeRef.current?.value || console.log("ay"));
-    console.log(brandRef.current?.value || console.log("ay"));
-    console.log(descRef.current?.value || console.log("ay"));
-    console.log(priceRef.current?.value || console.log("ay"));
-    console.log(imgRef.current?.value || console.log("ay"));
-    console.log(agreeCheckRef.current?.value || console.log("uy"));
-    console.log(btnRef.current?.value || console.log("ey"));
+    console.log(productNameRef.current?.value);
+    console.log(typeRef.current?.value);
+    console.log(brandRef.current?.value);
+    console.log(descRef.current?.value);
+    console.log(priceRef.current?.value);
+    console.log(imgRef.current?.value);
+    console.log(agreeCheckRef.current?.value);
+    console.log(btnRef.current?.value);
     
   }, [publication]);
   

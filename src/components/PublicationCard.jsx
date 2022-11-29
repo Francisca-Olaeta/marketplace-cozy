@@ -23,7 +23,7 @@ const PublicationCard = ({publicationInfo}) => {
                 <td className='publication-table__cell--img'> <img className='cart-table__img' src={publicationInfo.img} alt={publicationInfo.name}/></td>
                 <td className='publication-table__cell--body'><span className='publication-text'>Nombre producto: </span>{publicationInfo.productName}</td>
                 <td className='publication-table__cell--body'><span className='publication-text'>Marca: </span>{publicationInfo.brand}</td>
-                <td className='publication-table__cell--body'><span className='publication-text'>Precio: </span>${publicationInfo.price.toLocaleString("es-CL")}</td>
+                <td className='publication-table__cell--body'><span className='publication-text'>Precio: </span>${parseInt(publicationInfo.price).toLocaleString("es-CL")}</td>
                 <td className='publication-table__cell--body'><span className='publication-text'>Categoría: </span>
                 {result.map((e, i) => (
                   <p key={i} className="caps m-0 p-0">{e}</p>

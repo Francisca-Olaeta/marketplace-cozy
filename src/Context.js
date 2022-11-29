@@ -18,7 +18,7 @@ const ContextProvider = ({ children }) => {
     const [userInfoAuth, setUserInfoAuth] = useState([]);
     const [userJson, setUserJson] = useState([]);
     const [cart, setCart] = useState([]);
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState([]);
     const [isRegistered, setIsRegistered] = useState(false);
     const [isInCart, setIsInCart] = useState(false);
     const [publication, setPublication] = useState([]);
@@ -62,7 +62,8 @@ const ContextProvider = ({ children }) => {
 
     /*Función para acceder al listado de las categorías de productos ------------------------------------------------------------------*/
     const getCategories = async() => {
-        const response = await fetch('https://marketplace-cozy.vercel.app/categories.json');
+        //const response = await fetch('https://marketplace-cozy.vercel.app/categories.json');
+        const response = await fetch('http://localhost:3000/categories.json');
         const datas = await response.json();
 
         setCategories(datas);
