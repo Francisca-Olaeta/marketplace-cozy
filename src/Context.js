@@ -22,6 +22,7 @@ const ContextProvider = ({ children }) => {
     const [isRegistered, setIsRegistered] = useState(false);
     const [isInCart, setIsInCart] = useState(false);
     const [publication, setPublication] = useState([]);
+    const [filters, setFilters] = useState([]);
 
     const {user, isAuthenticated} = useAuth0();
    
@@ -103,6 +104,7 @@ useEffect(()=>{
 
 /*Función para capturar el input de la barra de búsqueda -------------------------------------------------------------------------- */
     const handleChange= (e) => {
+      setFilters('');
       setSearch('');
       setSearch(e.target.value);
     };
@@ -219,7 +221,7 @@ const removePublication = (id) => {
 
 
 return (
-    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfoAuth, setUserInfoAuth, userJson, setUserJson, cart, setCart, addToCart, increment, decrement, total, totalProducts, remove, getPartialTotal, checked, setChecked, isRegistered, setIsRegistered, isInCart, setIsInCart, publication, setPublication, removePublication, handleCheck}}>
+    <Context.Provider value={{productList, setProductList, categories, category, setCategory, type, setType, search, setSearch, types, addToFav, handleChange, userInfoAuth, setUserInfoAuth, userJson, setUserJson, cart, setCart, addToCart, increment, decrement, total, totalProducts, remove, getPartialTotal, checked, setChecked, isRegistered, setIsRegistered, isInCart, setIsInCart, publication, setPublication, removePublication, handleCheck, filters, setFilters}}>
         {children}
     </Context.Provider>
 

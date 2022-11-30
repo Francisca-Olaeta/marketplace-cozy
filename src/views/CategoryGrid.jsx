@@ -17,13 +17,9 @@ import { useEffect } from 'react';
 const CategoryGrid = () => {
   const { category } = useParams();
 
-  /*Estado filters */
-  const [filters, setFilters] = useState([]);
-
-  
 
   /*Paso variables a través del Context */
-  const {productList, setProductList, categories, type, types, setType, handleChange, search, setSearch, checked, setIsChecked} = useContext(Context);
+  const {productList, setProductList, categories, type, types, setType, handleChange, search, setSearch, checked, setIsChecked, filters, setFilters} = useContext(Context);
 
   /*Variable que guardará los productos filtrados por categoría */
   const selectedCategory = productList.filter((e) => e.category.includes(category));
@@ -35,32 +31,32 @@ const CategoryGrid = () => {
   /*Funciones para filtrar por tipo de productos */
  
  /*Handle checkboxes por tipo */
-const handleCheckTypes = (e) => {
-  const value = e.target.value;
-  const checked = e.target.checked;
+const handleCheckTypes = (ele) => {
+  const value = ele.target.value;
+  const checked = ele.target.checked;
 //  console.log(value, checked);
   if(checked){
     setType([
       ...type, value
     ])
   }else{ //Filtra los elementos repetidos
-    setType(type.filter( (e) => (e !== value) ));
+    setType(type.filter( (ele) => (ele !== value) ));
   }
 }
 
 
-
+/*Función que hace el filtrado a través de los checkboxes */
 useEffect(()=>{
   
   if (type.length === 0){
-    setFilters(selectedCategory)
+    setFilters('')
   } else {
     setFilters(
       selectedCategory.filter(e => 
         type.some(cat => [e.type].flat().includes(cat))
         ))
   }
-}, [type])
+}, [filters])
 
 
 console.log(filters)
@@ -184,10 +180,12 @@ const clear = () => {
                     if(search===""){
                       return e;
                     }
-                    else if (e.name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '').includes(search.toLocaleLowerCase())
+                    else if (
+                    e.name.toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, '').includes(search.toLocaleLowerCase())
                     || e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
                     || e.type.toLocaleLowerCase().includes(search.toLocaleLowerCase())
                     || e.seller.toLocaleLowerCase().includes(search.toLocaleLowerCase())){
+                      setFilters('')
                       return e;
                     }
                   }).map((e, i)=>(
