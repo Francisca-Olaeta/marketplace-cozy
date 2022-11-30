@@ -51,16 +51,17 @@ useEffect(()=>{
   if (type.length === 0){
     setFilters('')
   } else {
+    setFilters('');
     setFilters(
       selectedCategory.filter(e => 
         type.some(cat => [e.type].flat().includes(cat))
         ))
   }
-}, [filters])
+}, [type])
 
 
 console.log(filters)
-//console.log(type)
+console.log(type)
 
 
 /*Función para limpiar la barra de búsqueda */
