@@ -45,26 +45,21 @@
         align-items: center;
         margin-right: 1rem;
     }
+    &__body{
+        overflow: hidden;
+    }
 
     @media(min-width: 992px){
         width: 70rem;
-        height: 70rem;
+        height: auto;
         flex-direction: row;
         gap: 3rem;
         
         
         &__img{
             object-fit: cover;
-            width: 30rem;
-            height: 40rem;
-        }
-
-        &__mask{
-            width: 40rem;
-            height: 30rem;
-            object-fit: cover;
-            position: fixed;
-          
+         //   width: 30rem;
+            height: auto;
         }
 
         &__body{
@@ -95,3 +90,4 @@
         transition: .5s ease;
     }
 }
+
