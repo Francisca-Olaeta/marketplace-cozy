@@ -19,7 +19,8 @@ const CategoryGrid = () => {
 
 
   /*Paso variables a través del Context */
-  const {productList, setProductList, categories, type, types, setType, handleChange, search, setSearch, checked, setIsChecked, filters, setFilters} = useContext(Context);
+  const {productList, setProductList, categories, type, types, setType, handleChange, search, setSearch, filteredProduct, setFilteredProduct} = useContext(Context);
+
 
   /*Variable que guardará los productos filtrados por categoría */
   const selectedCategory = productList.filter((e) => e.category.includes(category));
@@ -28,7 +29,7 @@ const CategoryGrid = () => {
   const eachCategory = categories.filter((e) => e.category === category);
 
 
-  /*Funciones para filtrar por tipo de productos */
+  /*Funciones para filtrar por tipo de productos con checkboxes */
  
  /*Handle checkboxes por tipo */
 const handleCheckTypes = (ele) => {
@@ -49,10 +50,11 @@ const handleCheckTypes = (ele) => {
 useEffect(()=>{
   
   if (type.length === 0){
-    setFilters('')
+    setFilteredProduct('');
+    setType('');
   } else {
-    setFilters('');
-    setFilters(
+    setFilteredProduct('');
+    setFilteredProduct(
       selectedCategory.filter(e => 
         type.some(cat => [e.type].flat().includes(cat))
         ))
@@ -60,15 +62,17 @@ useEffect(()=>{
 }, [type])
 
 
-console.log(filters)
+console.log(filteredProduct)
 console.log(type)
 
 
 /*Función para limpiar la barra de búsqueda */
 const clear = () => {
   setSearch('');
-  setFilters('')
+  setFilteredProduct('')
 }
+
+
 
 
 
@@ -120,29 +124,47 @@ const clear = () => {
                   <FontAwesomeIcon icon={faX}/>
                   </MDBBtn>
                   <MDBBtn outline color='link' onClick={clear}>Limpiar</MDBBtn>
-                </div>
+            </div>
                 
             : 
 //Si no hay nada en la barra de búsqueda, retorna el array por categoría
             <div className='filters-container'>
 
-              {/* // Filtros por checkbox, por desarrollar */}
+              {/* // Filtros con checkboxes */}
                 <div className='panel' width={45}>
                   <h4 className='panel__title'>Filtrar por tipo de productos:</h4>
                     <Form.Group controlId="formBasicCheckbox">
-                      {types.map((value, i)=>(
-                        <Form.Check 
-                        key={i} 
-                        className='panel__checks caps' 
-                        type="checkbox" 
-                        label={value} 
-                        value={value} 
-                        id={value} 
-                        name={value}
-                        onChange={handleCheckTypes} />
-                      ))}
+                      <Form.Check
+                      label="Alfombras"
+                      value="alfombra"
+                      onChange={handleCheckTypes}
+                      className="mb-2"
+                      />
+                      <Form.Check
+                      label="Decoración"
+                      value="deco"
+                      onChange={handleCheckTypes}
+                      className="mb-2"
+                      />
+                      <Form.Check
+                      label="Muebles"
+                      value="muebles"
+                      onChange={handleCheckTypes}
+                      className="mb-2"
+                      />
+                      <Form.Check
+                      label="Textil"
+                      value="textil"
+                      onChange={handleCheckTypes}
+                      className="mb-2"
+                      />
+                
                     </Form.Group>
+         
+
+
                 </div>
+               
 
                 
                 <Form.Select className='select' defaultValue={""} onChange={sortArray} aria-label="Default select example">
@@ -166,10 +188,10 @@ const clear = () => {
                 <div className="row justify-content-start align-items-center mx-1">
                 
                 
-                { filters.length > 0 ? 
+                { filteredProduct.length > 0 ? 
                     <>
                       {/* setProductList(filters); */}
-                      {filters.map((e, i)=>(
+                      {filteredProduct.map((e, i)=>(
                             <CstmCard key={i} product={e} />
                           ))}
                     </>
@@ -186,7 +208,7 @@ const clear = () => {
                     || e.id.toLocaleLowerCase().includes(search.toLocaleLowerCase())
                     || e.type.toLocaleLowerCase().includes(search.toLocaleLowerCase())
                     || e.seller.toLocaleLowerCase().includes(search.toLocaleLowerCase())){
-                      setFilters('')
+                      setFilteredProduct('')
                       return e;
                     }
                   }).map((e, i)=>(
