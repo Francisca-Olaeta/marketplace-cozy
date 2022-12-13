@@ -72,6 +72,14 @@ const clear = () => {
   setFilteredProduct('')
 }
 
+/*Función para limpiar filtros */
+const clearFilters = () => {
+  setType([]);
+  setSearch('');
+  setFilteredProduct('')
+  
+}
+
 
 
 
@@ -158,8 +166,8 @@ const clear = () => {
                       onChange={handleCheckTypes}
                       className="mb-2"
                       />
-                
                     </Form.Group>
+                    <MDBBtn color='link' onClick={clearFilters} className='clearFilters'>Borrar filtros</MDBBtn>
          
 
 
